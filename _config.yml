@@ -32,7 +32,7 @@ github_username:  jekyll
 port: 4001
 # Build settings
 # theme: minima
-theme: jekyll-text-theme
+remote_theme: jekyll-text-theme
 plugins:
   - jekyll-feed
 
