@@ -31,7 +31,8 @@ github_username:  jekyll
 
 port: 4001
 # Build settings
-theme: minima
+# theme: minima
+theme: jekyll-text-theme
 plugins:
   - jekyll-feed
 
