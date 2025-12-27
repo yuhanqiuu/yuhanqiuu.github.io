@@ -9,18 +9,25 @@ const menuitems = [
 ];
 ---
 
-<header class="flex h-20 items-center">
-	<Astronav class="flex w-full items-center justify-between">
-		<!-- 左侧 -->
-		<Button size="sm">Download CV</Button>
+<header data-testId="header" class="flex w-full items-center justify-between">
+	<Astronav class="w-full">
+		<!-- 左侧：CV 按钮 -->
+		<div class="flex items-center">
+			<Button size="sm" name="Download CV">Download CV</Button>
+		</div>
 
-		<!-- 右侧 -->
+		<!-- 移动端菜单图标 -->
+		<div class="block lg:hidden">
+			<MenuIcon class="h-4 w-4 text-white" />
+		</div>
+
+		<!-- 桌面端菜单 -->
 		<MenuItems class="hidden lg:flex">
-			<ul class="flex gap-8 text-sm font-medium">
+			<ul class="flex gap-6">
 				{
 					menuitems.map((item) => (
 						<li>
-							<a href={item.path} class="hover:text-orange">
+							<a href={item.path} class="text-white hover:text-orange">
 								{item.title}
 							</a>
 						</li>
@@ -28,10 +35,5 @@ const menuitems = [
 				}
 			</ul>
 		</MenuItems>
-
-		<!-- Mobile -->
-		<div class="lg:hidden">
-			<MenuIcon class="h-5 w-5" />
-		</div>
 	</Astronav>
 </header>
