@@ -8,11 +8,25 @@ import Layout from '@layouts/Layout.astro';
 ---
 
 <Layout>
-	<main>
-		<Hero />
-		<About />
-		<Projects />
-		<Contact />
+	<main class="mx-auto max-w-7xl px-6 py-16">
+		<!-- 顶部主区域：左简介 + 右项目 -->
+		<section class="grid grid-cols-1 gap-20 lg:grid-cols-3">
+			<!-- 左侧：简介（暂时用 About 先顶上） -->
+			<aside class="lg:col-span-1">
+				<About />
+			</aside>
+
+			<!-- 右侧：项目（暂时用 Projects 先顶上） -->
+			<div class="lg:col-span-2">
+				<Projects />
+			</div>
+		</section>
+
+		<!-- 下面：联系（先保留原来的 Contact） -->
+		<section class="mt-32">
+			<Contact />
+		</section>
+
 		<BackToTop />
 	</main>
 </Layout>
