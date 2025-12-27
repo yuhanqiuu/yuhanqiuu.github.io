@@ -7,33 +7,36 @@ export interface LayoutProps {
 	title: string;
 }
 
-const { title = 'John Doe | Web developer' } = Astro.props as LayoutProps;
+const { title = 'Yuhan Qiu | Electrical Engineering' } = Astro.props as LayoutProps;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth" data-testid="html">
 	<head>
 		<SEO
-			title="A Very Descriptive Title"
-			description="A heavily optimized description full of well-researched keywords."
+			title={title}
+			description="Electrical engineering, robotics, and embedded systems portfolio."
 		/>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
-		
-		<title>{title}</title>
 	</head>
+
+	<!-- ❗Layout = 透明外壳，不控制宽度 -->
 	<body
-		class="mx-auto max-w-screen-xl bg-white px-5 font-sans text-white dark:bg-black xs:text-[16px] md:text-[18px]"
+		class="bg-white font-sans text-black dark:bg-black dark:text-white xs:text-[16px] md:text-[18px]"
 	>
+		<!-- Navbar 可以有 padding，但不限制 max-width -->
 		<Navbar />
+
+		<!-- 页面内容完全交给 index.astro 控制 -->
 		<slot />
+
 		<Footer />
+
 		<style is:global>
-			/* Improve Page speed */
-			/* https://css-tricks.com/almanac/properties/c/content-visibility/ */
 			img {
 				content-visibility: auto;
 			}
