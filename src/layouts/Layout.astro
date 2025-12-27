@@ -2,31 +2,44 @@
 import Footer from '@components/Footer.astro';
 import Navbar from '@components/Navbar.astro';
 import { SEO } from 'astro-seo';
+
+export interface LayoutProps {
+	title: string;
+}
+
+const { title = 'Yuhan Qiu | Electrical Engineering' } = Astro.props as LayoutProps;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" data-testid="html">
 	<head>
-		<SEO title="Yuhan Qiu | Electrical Engineering" />
+		<SEO
+			title={title}
+			description="Electrical engineering, robotics, and embedded systems portfolio."
+		/>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
 	</head>
 
-	<body class="bg-white text-black">
-		<!-- Navbar -->
-		<header class="border-neutral-200 border-b">
-			<div class="mx-auto max-w-screen-xl px-6">
-				<Navbar />
-			</div>
-		</header>
+	<!-- ❗Layout = 透明外壳，不控制宽度 -->
+	<body
+		class="bg-white font-sans text-black dark:bg-black dark:text-white xs:text-[16px] md:text-[18px]"
+	>
+		<!-- Navbar 可以有 padding，但不限制 max-width -->
+		<Navbar />
 
-		<!-- Main content -->
-		<main>
-			<div class="mx-auto max-w-screen-xl px-6">
-				<slot />
-			</div>
-		</main>
+		<!-- 页面内容完全交给 index.astro 控制 -->
+		<slot />
 
 		<Footer />
+
+		<style is:global>
+			img {
+				content-visibility: auto;
+			}
+		</style>
 	</body>
 </html>
