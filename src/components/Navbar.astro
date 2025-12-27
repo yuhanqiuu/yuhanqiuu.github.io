@@ -3,19 +3,17 @@ const name = 'Yuhan Qiu';
 const cvLink = '/YuhanQiu_CV_Firmware.pdf'; // 放在 public/ 目录
 ---
 
-<header class="flex w-full flex-col items-center pb-6 pt-10 text-center">
+<h1 class="text-neutral-600 mt-1 text-xs underline">
 	<!-- Name -->
-	<h1 class="font-monospace text-2xl font-semibold text-black">
-		{name}
-	</h1>
+	{name}
+</h1>
 
-	<!-- Download CV -->
-	<a
-		href={cvLink}
-		target="_blank"
-		rel="noopener"
-		class="mt-2 text-sm underline underline-offset-4 hover:text-orange"
-	>
-		Download CV
-	</a>
-</header>
+<!-- Download CV -->
+<a
+	href={cvLink}
+	target="_blank"
+	rel="noopener"
+	class="mt-2 text-sm underline underline-offset-4 hover:text-orange"
+>
+	Download CV
+</a>
