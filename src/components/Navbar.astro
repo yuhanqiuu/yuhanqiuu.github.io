@@ -1,39 +1,21 @@
 ---
-import Button from '@components/ui/Button.astro';
-import { Astronav, MenuIcon, MenuItems } from 'astro-navbar';
-
-const menuitems = [
-	{ title: 'About', path: '#about' },
-	{ title: 'Projects', path: '#projects' },
-	{ title: 'Contact', path: '#contact' },
-];
+const name = 'Yuhan Qiu';
+const cvLink = '/YuhanQiu_CV_Firmware.pdf'; // 放在 public/ 目录
 ---
 
-<header data-testId="header" class="flex w-full items-center justify-between">
-	<Astronav class="w-full">
-		<!-- 左侧：CV 按钮 -->
-		<div class="flex items-center">
-			<Button size="sm" name="Download CV">Download CV</Button>
-		</div>
+<header class="flex w-full flex-col items-center pb-6 pt-10 text-center">
+	<!-- Name -->
+	<h1 class="font-monospace text-2xl font-semibold text-black">
+		{name}
+	</h1>
 
-		<!-- 移动端菜单图标 -->
-		<div class="block lg:hidden">
-			<MenuIcon class="h-4 w-4 text-white" />
-		</div>
-
-		<!-- 桌面端菜单 -->
-		<MenuItems class="hidden lg:flex">
-			<ul class="flex gap-6">
-				{
-					menuitems.map((item) => (
-						<li>
-							<a href={item.path} class="text-white hover:text-orange">
-								{item.title}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-		</MenuItems>
-	</Astronav>
+	<!-- Download CV -->
+	<a
+		href={cvLink}
+		target="_blank"
+		rel="noopener"
+		class="mt-2 text-sm underline underline-offset-4 hover:text-orange"
+	>
+		Download CV
+	</a>
 </header>
