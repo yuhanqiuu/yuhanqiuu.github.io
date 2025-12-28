@@ -5,30 +5,53 @@ import ProjectCard from '@components/ProjectCard.astro';
 import Contact from '@components/Contact.astro';
 import { getCollection } from 'astro:content';
 
-const projects = await getCollection('projects');
+// 1️⃣ 取所有 projects，并按 order 排序
+const allProjects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+
+// 2️⃣ 第 1 页：Intro + 前 2 个项目
+const firstPageProjects = allProjects.slice(0, 2);
+
+// 3️⃣ 剩余项目
+const remainingProjects = allProjects.slice(2);
+
+// 4️⃣ 把剩余项目按 3 个一页切
+const projectPages = [];
+for (let i = 0; i < remainingProjects.length; i += 3) {
+	projectPages.push(remainingProjects.slice(i, i + 3));
+}
 ---
 
 <Layout>
 	<main class="h-screen snap-y snap-mandatory overflow-y-scroll">
-		<!-- ========== PAGE 1 ========== -->
+		<!-- ===== PAGE 1 ===== -->
 		<section class="grid h-screen snap-start grid-cols-3">
 			<Intro />
-			<ProjectCard project={projects[0]} />
-			<ProjectCard project={projects[1]} />
+
+			{firstPageProjects.map((project) => <ProjectCard project={project} />)}
 		</section>
 
-		<!-- ========== PAGE 2 ========== -->
-		<section class="grid h-screen snap-start grid-cols-3">
-			<ProjectCard project={projects[2]} />
-			<ProjectCard project={projects[3]} />
-			<ProjectCard project={projects[4]} />
-		</section>
+		<!-- ===== MIDDLE PAGES ===== -->
+		{
+			projectPages.slice(0, -1).map((page) => (
+				<section class="grid h-screen snap-start grid-cols-3">
+					{page.map((project) => (
+						<ProjectCard project={project} />
+					))}
+				</section>
+			))
+		}
 
-		<!-- ========== PAGE 3 ========== -->
-		<section class="grid h-screen snap-start grid-cols-3">
-			<ProjectCard project={projects[5]} />
-			<ProjectCard project={projects[6]} />
-			<Contact />
-		</section>
+		<!-- ===== LAST PAGE ===== -->
+		{
+			projectPages.length > 0 && (
+				<section class="grid h-screen snap-start grid-cols-3">
+					{projectPages[projectPages.length - 1].slice(0, 2).map((project) => (
+						<ProjectCard project={project} />
+					))}
+
+					<Contact />
+				</section>
+			)
+		}
 	</main>
 </Layout>

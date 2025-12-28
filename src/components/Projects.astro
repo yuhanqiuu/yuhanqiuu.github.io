@@ -2,6 +2,9 @@
 import Card from '@components/ui/Card.astro';
 import { getCollection } from 'astro:content';
 
+const { project } = Astro.props;
+if (!project) return null;
+
 const projects = await getCollection('projects', ({ data }) => {
 	return !data.inProgress;
 });
