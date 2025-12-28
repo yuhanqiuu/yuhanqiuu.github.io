@@ -5,16 +5,24 @@ import ProjectCard from '@components/ProjectCard.astro';
 import Contact from '@components/Contact.astro';
 import { getCollection } from 'astro:content';
 
-// 1️⃣ 取所有 projects，并按 order 排序
+/* ===============================
+   Load & sort projects safely
+================================ */
 const allProjects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
 
-// 2️⃣ 第 1 页：Intro + 前 2 个项目
+/* ===============================
+   Page 1: Intro + 2 projects
+================================ */
 const firstPageProjects = allProjects.slice(0, 2);
 
-// 3️⃣ 剩余项目
+/* ===============================
+   Remaining projects
+================================ */
 const remainingProjects = allProjects.slice(2);
 
-// 4️⃣ 把剩余项目按 3 个一页切
+/* ===============================
+   Split remaining projects into pages of 3
+================================ */
 const projectPages = [];
 for (let i = 0; i < remainingProjects.length; i += 3) {
 	projectPages.push(remainingProjects.slice(i, i + 3));
@@ -23,14 +31,18 @@ for (let i = 0; i < remainingProjects.length; i += 3) {
 
 <Layout>
 	<main class="h-screen snap-y snap-mandatory overflow-y-scroll">
-		<!-- ===== PAGE 1 ===== -->
+		<!-- =========================
+         PAGE 1: INTRO + 2 PROJECTS
+    ========================== -->
 		<section class="grid h-screen snap-start grid-cols-3">
 			<Intro />
 
 			{firstPageProjects.map((project) => <ProjectCard project={project} />)}
 		</section>
 
-		<!-- ===== MIDDLE PAGES ===== -->
+		<!-- =========================
+         MIDDLE PAGES: 3 PROJECTS
+    ========================== -->
 		{
 			projectPages.slice(0, -1).map((page) => (
 				<section class="grid h-screen snap-start grid-cols-3">
@@ -41,7 +53,9 @@ for (let i = 0; i < remainingProjects.length; i += 3) {
 			))
 		}
 
-		<!-- ===== LAST PAGE ===== -->
+		<!-- =========================
+         LAST PAGE: 2 PROJECTS + CONTACT
+    ========================== -->
 		{
 			projectPages.length > 0 && (
 				<section class="grid h-screen snap-start grid-cols-3">
