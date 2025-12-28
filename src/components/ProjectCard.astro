@@ -1,0 +1,25 @@
+---
+const { project } = Astro.props;
+---
+
+<section class="flex flex-col justify-center px-6">
+	<div class="bg-gray-300 mb-6 flex aspect-square items-center justify-center">
+		<img src={project.data.image} alt={project.data.title} class="object-contain" />
+	</div>
+
+	<h3 class="font-mono mb-3 text-lg">
+		{project.data.title}
+	</h3>
+
+	<p class="mb-4 text-sm">
+		{project.data.description}
+	</p>
+
+	{
+		project.data.link && (
+			<a href={project.data.link} class="text-sm underline">
+				Learn more about design
+			</a>
+		)
+	}
+</section>
