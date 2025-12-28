@@ -3,17 +3,26 @@ const name = 'Yuhan Qiu';
 const cvLink = '/YuhanQiu_CV_Firmware.pdf'; // 放在 public/ 目录
 ---
 
-<h1 class="text-neutral-600 mt-1 text-xs underline">
-	<!-- Name -->
-	{name}
-</h1>
+<header class="relative flex h-14 w-full items-center">
+	<!-- 左侧 -->
+	<div class="absolute left-6 flex items-center">
+		<!-- 比如 Logo / Download CV -->
+		<a href="/YuhanQiu_CV_Firmware.pdf" class="text-sm hover:text-orange"> Download CV </a>
+	</div>
 
-<!-- Download CV -->
-<a
-	href={cvLink}
-	target="_blank"
-	rel="noopener"
-	class="mt-2 text-sm underline underline-offset-4 hover:text-orange"
->
-	Download CV
-</a>
+	<!-- 中轴（真正居中） -->
+	<div class="absolute left-1/2 flex -translate-x-1/2 flex-col items-center">
+		<h1 class="text-neutral-600 text-sm font-medium">Yuhan Qiu</h1>
+		<a
+			href="/YuhanQiu_CV_Firmware.pdf"
+			class="text-xs underline underline-offset-4 hover:text-orange"
+		>
+			Download CV
+		</a>
+	</div>
+
+	<!-- 右侧（可选） -->
+	<div class="absolute right-6 flex items-center">
+		<!-- 菜单 / 汉堡按钮 / 图标 -->
+	</div>
+</header>
