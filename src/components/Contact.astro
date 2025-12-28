@@ -1,16 +1,11 @@
----
-import Button from '@components/ui/Button.astro';
-import Social from '@components/ui/Social.astro';
----
+<section class="flex flex-col justify-center px-10">
+	<h2 class="mb-6 text-2xl font-bold">Contact</h2>
 
-<section
-	data-testid="contact"
-	id="contact"
-	class="flex flex-col flex-wrap items-center justify-center gap-8 text-black dark:text-white lg:mb-0 lg:h-screen"
->
-	<Button size={'lg'} style={'primary'} name="Contact">Say hello!</Button>
-	<hr class="w-1/2" />
-	<div class="flex flex-col gap-8 lg:flex lg:flex-row lg:gap-20">
-		<Social />
-	</div>
+	<p class="mb-6 text-sm">
+		For more information on my work or to schedule an interview, contact me at my email below.
+	</p>
+
+	<a href="mailto:qiuyuhan66@gmail.com" class="mb-4 underline"> qiuyuhan66@gmail.com </a>
+
+	<a href="https://linkedin.com/in/your-link" class="underline"> LinkedIn </a>
 </section>
