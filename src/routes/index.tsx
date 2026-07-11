@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { AtSign, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { projects, type Project } from "../lib/projects";
 
@@ -21,9 +21,19 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
   const count = images.length;
   const go = (n: number) => setIndex((index + n + count) % count);
 
+  const stop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
   return (
     <article>
-      <div className="group relative aspect-[4/3] w-full overflow-hidden bg-muted">
+      <Link
+        to="/projects/$slug"
+        params={{ slug: project.slug }}
+        aria-label={`View ${project.title}`}
+        className="group relative block aspect-[4/3] w-full overflow-hidden bg-muted"
+      >
         {images.map((src, idx) => (
           <img
             key={src}
@@ -42,7 +52,7 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
           <>
             <button
               type="button"
-              onClick={() => go(-1)}
+              onClick={(e) => { stop(e); go(-1); }}
               aria-label="Previous image"
               className="absolute left-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-canvas/80 text-ink opacity-0 backdrop-blur transition-opacity hover:bg-canvas group-hover:opacity-100 focus-visible:opacity-100"
             >
@@ -50,7 +60,7 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
             </button>
             <button
               type="button"
-              onClick={() => go(1)}
+              onClick={(e) => { stop(e); go(1); }}
               aria-label="Next image"
               className="absolute right-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-canvas/80 text-ink opacity-0 backdrop-blur transition-opacity hover:bg-canvas group-hover:opacity-100 focus-visible:opacity-100"
             >
@@ -61,7 +71,7 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
                 <button
                   key={idx}
                   type="button"
-                  onClick={() => setIndex(idx)}
+                  onClick={(e) => { stop(e); setIndex(idx); }}
                   aria-label={`Go to image ${idx + 1}`}
                   className={`h-1.5 rounded-full transition-all ${
                     idx === index ? "w-5 bg-ink" : "w-1.5 bg-ink/40 hover:bg-ink/70"
@@ -71,10 +81,14 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
             </div>
           </>
         )}
-      </div>
-      <h3 className="mt-5 font-serif text-lg font-bold tracking-tight">
+      </Link>
+      <Link
+        to="/projects/$slug"
+        params={{ slug: project.slug }}
+        className="mt-5 inline-block font-serif text-lg font-bold tracking-tight transition-colors hover:text-accent"
+      >
         {project.title}
-      </h3>
+      </Link>
       <p className="mt-1 text-xs font-medium uppercase tracking-wider text-accent">
         {project.category}, {project.year}
       </p>
