@@ -28,27 +28,24 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Build static site
-        env:
-          NITRO_PRESET: static
         run: bun run build
 
       - name: Prepare static output
         run: |
-          # Nitro's static preset emits the prerendered site under .output/public
-          if [ -d ".output/public" ]; then
-            cp -r .output/public dist
+          # Prerendered HTML + client assets land in dist/client.
+          mkdir -p publish
+          cp -r dist/client/. publish/
+          # SPA fallback for any non-prerendered URL (hard refresh support).
+          if [ -f "publish/index.html" ] && [ ! -f "publish/404.html" ]; then
+            cp publish/index.html publish/404.html
           fi
-          # SPA fallback so client-side routes work on hard refresh
-          if [ -f "dist/index.html" ] && [ ! -f "dist/404.html" ]; then
-            cp dist/index.html dist/404.html
-          fi
-          touch dist/.nojekyll
+          touch publish/.nojekyll
 
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: publish
 
   deploy:
     needs: build
