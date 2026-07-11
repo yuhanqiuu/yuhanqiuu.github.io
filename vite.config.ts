@@ -23,8 +23,17 @@ const prerenderPaths = ["/", ...projectSlugs.map((s) => `/projects/${s}`)];
 export default defineConfig({
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
     server: { entry: "server" },
+    // Prerender the home page and every project detail page to static HTML for GitHub Pages.
     pages: prerenderPaths.map((path) => ({ path })),
+    prerender: {
+      enabled: true,
+      crawlLinks: true,
+      autoStaticPathsDiscovery: true,
+    },
   },
+  // Disable Nitro so the standard Vite SSR build produces `dist/server/server.js`,
+  // which TanStack Start's preview server (used during prerender) expects.
+  // The prerendered HTML lands in `dist/client/` — perfect for GitHub Pages.
+  nitro: false,
 });
