@@ -6,10 +6,10 @@ import { projects, type Project } from "../lib/projects";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Julian Arnault — Independent Designer" },
-      { name: "description", content: "Portfolio of Julian Arnault, an independent designer crafting tactile digital experiences for products and brands." },
-      { property: "og:title", content: "Julian Arnault — Independent Designer" },
-      { property: "og:description", content: "Portfolio of Julian Arnault, an independent designer crafting tactile digital experiences for products and brands." },
+      { title: "Yuhan Qiu — Electrical Engineer" },
+      { name: "description", content: "Portfolio of Yuhan Qiu, an independent designer crafting tactile digital experiences for products and brands." },
+      { property: "og:title", content: "Yuhan Qiu — Independent Designer" },
+      { property: "og:description", content: "Portfolio of Yuhan Qiu, an independent designer crafting tactile digital experiences for products and brands." },
     ],
   }),
   component: Index,
@@ -42,9 +42,8 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
             loading={i < 2 && idx === 0 ? "eager" : "lazy"}
             width={1024}
             height={768}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
-              idx === index ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${idx === index ? "opacity-100" : "opacity-0"
+              }`}
           />
         ))}
 
@@ -73,9 +72,8 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
                   type="button"
                   onClick={(e) => { stop(e); setIndex(idx); }}
                   aria-label={`Go to image ${idx + 1}`}
-                  className={`h-1.5 rounded-full transition-all ${
-                    idx === index ? "w-5 bg-ink" : "w-1.5 bg-ink/40 hover:bg-ink/70"
-                  }`}
+                  className={`h-1.5 rounded-full transition-all ${idx === index ? "w-5 bg-ink" : "w-1.5 bg-ink/40 hover:bg-ink/70"
+                    }`}
                 />
               ))}
             </div>
@@ -143,7 +141,7 @@ function Index() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/5 bg-canvas/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-none items-center justify-between px-4">
           <a href="#top" className="font-serif text-sm font-bold tracking-tight text-ink">
-            Julian Arnault
+            Yuhan Qiu
           </a>
           <nav className="flex gap-8 text-sm">
             <a href="#work" className="text-ink-muted transition-colors hover:text-ink">
@@ -162,7 +160,7 @@ function Index() {
           {/* Intro column */}
           <section className="border-t border-ink/15 pt-8">
             <h1 className="font-serif text-4xl font-bold leading-[1.05] tracking-tight md:text-5xl">
-              Julian Arnault
+              Yuhan Qiu
             </h1>
             <p className="mt-4 text-sm text-ink">
               Independent Designer — Interaction & Brand
@@ -216,7 +214,7 @@ function Index() {
       </main>
 
       <footer className="mt-24 py-10 text-center text-xs text-ink-muted/60">
-        © {new Date().getFullYear()} Julian Arnault
+        © {new Date().getFullYear()} Yuhan Qiu
       </footer>
     </div>
   );
