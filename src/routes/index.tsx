@@ -142,15 +142,7 @@ function Index() {
       {/* Fixed top nav — wordmark left, section links right */}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/5 bg-canvas/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-none items-center justify-between px-4">
-          <a href="#top" className="flex items-center gap-2 font-serif text-sm font-bold tracking-tight text-ink">
-            <img
-              src={logoUrl}
-              alt=""
-              width={28}
-              height={28}
-              className="h-7 w-7 shrink-0"
-              style={{ imageRendering: "pixelated" }}
-            />
+          <a href="#top" className="font-serif text-sm font-bold tracking-tight text-ink">
             Julian Arnault
           </a>
           <nav className="flex gap-8 text-sm">
