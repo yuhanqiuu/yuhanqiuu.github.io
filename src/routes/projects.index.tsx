@@ -30,7 +30,7 @@ function ProjectsPage() {
           {projects.map((project, index) => (
             <article key={project.slug} className="group cursor-pointer">
               <Link to="/projects/$slug" params={{ slug: project.slug }}>
-                <div className="mb-8 aspect-[16/9] w-full overflow-hidden rounded-[min(1vw,12px)] bg-warm outline -outline-offset-1 outline-ink/5">
+                <div className="mb-8 aspect-[16/9] w-full overflow-hidden rounded-[min(1vw,12px)] bg-muted outline -outline-offset-1 outline-ink/5">
                   <img
                     src={project.image}
                     alt={project.title}

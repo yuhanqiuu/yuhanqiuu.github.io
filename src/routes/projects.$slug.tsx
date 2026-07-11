@@ -76,7 +76,7 @@ function ProjectDetail() {
           </div>
         </div>
 
-        <div className="mb-16 aspect-[16/9] w-full overflow-hidden rounded-[min(1vw,12px)] bg-zinc-100 outline -outline-offset-1 outline-black/5">
+        <div className="mb-16 aspect-[16/9] w-full overflow-hidden rounded-[min(1vw,12px)] bg-muted outline -outline-offset-1 outline-ink/5">
           <img
             src={project.image}
             alt={project.title}
@@ -143,7 +143,7 @@ function ProjectDetail() {
                   params={{ slug: p.slug }}
                   className="group"
                 >
-                  <div className="mb-4 aspect-[16/9] w-full overflow-hidden rounded-[min(1vw,12px)] bg-zinc-100 outline -outline-offset-1 outline-black/5">
+                  <div className="mb-4 aspect-[16/9] w-full overflow-hidden rounded-[min(1vw,12px)] bg-muted outline -outline-offset-1 outline-ink/5">
                     <img
                       src={p.image}
                       alt={p.title}
