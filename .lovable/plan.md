@@ -1,10 +1,9 @@
-## Goal
-Replace the current header/favicon logo with just the pixel-art mochi character from the uploaded reference image — laptop removed, pixel style preserved.
+Replace the current mochi brand mark with a clean icon based on the uploaded apple-squishy reference (round red form, simple face, stem). Keep it bold and legible at favicon size.
 
-## Approach
-1. Use `imagegen--edit_image` on `user-uploads://50496f3fa816b9b1f8c2241c21301d5f-2.png` with a prompt that removes the black laptop and the small orange "+" mark, keeps the cream pixel mochi with its face (eyes + pink cheeks) exactly as-is, and outputs on a transparent background. Save to `src/assets/logo.png` (overwrite).
-2. Copy the same file to `public/favicon.png` so the browser tab icon matches.
-3. No code changes needed — `src/routes/index.tsx` already imports `logoUrl` from `src/assets/logo.png` and renders it with `image-rendering: pixelated`, and `__root.tsx` already points the favicon `<link>` at `/favicon.png`.
+Scope of work:
+1. Generate a simplified, clean icon from the uploaded apple-squishy image: thick outlines, large simple eyes and mouth, distinct stem, minimal detail, transparent background.
+2. Save the new icon to `src/assets/logo.png` and copy it to `public/favicon.png`.
+3. Keep the favicon `<link>` in `src/routes/__root.tsx` pointed at `/favicon.png`.
+4. Run the static build/prerender to verify the 8 pages export correctly and the favicon is updated.
 
-## What I won't touch
-Layout, colors, fonts, routes, projects, contact block, deploy workflow.
+Out of scope: no layout changes unless requested; the logo remains out of the top navigation bar as already configured.
