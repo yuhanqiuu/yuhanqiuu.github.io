@@ -142,12 +142,14 @@ function Index() {
           ))}
         </section>
 
-        {/* Bottom row: last project + contact on the right */}
-        <section className="mt-14 grid grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-[2fr_1fr]">
+        {/* Bottom row: last project left, blank project space, contact right */}
+        <section className="mt-14 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {projects.slice(5).map((project, i) => (
             <ProjectCard key={project.slug} project={project} i={i + 5} />
           ))}
-          <ContactBlock />
+          <div className="lg:col-start-3">
+            <ContactBlock />
+          </div>
         </section>
       </main>
 
