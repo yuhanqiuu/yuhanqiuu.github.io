@@ -38,12 +38,49 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
   );
 }
 
+function ContactBlock() {
+  return (
+    <div id="contact" className="space-y-3 border-t border-ink/15 pt-8">
+      <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">
+        Contact
+      </p>
+      <a
+        href="mailto:hello@julianarnault.com"
+        className="group flex items-center gap-4 text-sm text-ink transition-colors hover:text-accent"
+      >
+        <span className="flex h-9 w-9 items-center justify-center rounded-md border border-ink/15 bg-canvas transition-colors group-hover:border-accent group-hover:text-accent">
+          <AtSign className="h-4 w-4" strokeWidth={1.5} />
+        </span>
+        hello@julianarnault.com
+      </a>
+      <a
+        href="https://linkedin.com"
+        target="_blank"
+        rel="noreferrer"
+        className="group flex items-center gap-4 text-sm text-ink transition-colors hover:text-accent"
+      >
+        <span className="flex h-9 w-9 items-center justify-center rounded-md border border-ink/15 bg-canvas transition-colors group-hover:border-accent group-hover:text-accent">
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="3" />
+            <path d="M8 10.5v6.5" />
+            <circle cx="8" cy="7.5" r="0.6" fill="currentColor" />
+            <path d="M12 17v-3.5a2 2 0 0 1 4 0V17" />
+            <path d="M12 10.5V17" />
+          </svg>
+        </span>
+        LinkedIn — /in/julianarnault
+      </a>
+    </div>
+  );
+}
+
+
 function Index() {
   return (
     <div className="min-h-screen bg-canvas font-sans text-ink">
       {/* Fixed top nav — wordmark left, section links right */}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/5 bg-canvas/85 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-8">
+        <div className="mx-auto flex h-16 max-w-none items-center justify-between px-4">
           <a href="#top" className="font-serif text-sm font-bold tracking-tight text-ink">
             Julian Arnault
           </a>
@@ -58,7 +95,7 @@ function Index() {
         </div>
       </header>
 
-      <main id="top" className="mx-auto max-w-screen-xl px-8 pt-32">
+      <main id="top" className="mx-auto max-w-none px-4 pt-32">
         {/* Intro + first two projects in one shared row */}
         <div className="grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
           {/* Intro column */}
@@ -88,46 +125,16 @@ function Index() {
                 strokeWidth={2}
               />
             </a>
-
-            {/* Contact block */}
-            <div id="contact" className="mt-16 space-y-3 border-t border-ink/15 pt-8">
-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">
-                Contact
-              </p>
-              <a
-                href="mailto:hello@julianarnault.com"
-                className="group flex items-center gap-4 text-sm text-ink transition-colors hover:text-accent"
-              >
-                <span className="flex h-9 w-9 items-center justify-center rounded-md border border-ink/15 bg-canvas transition-colors group-hover:border-accent group-hover:text-accent">
-                  <AtSign className="h-4 w-4" strokeWidth={1.5} />
-                </span>
-                hello@julianarnault.com
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                className="group flex items-center gap-4 text-sm text-ink transition-colors hover:text-accent"
-              >
-                <span className="flex h-9 w-9 items-center justify-center rounded-md border border-ink/15 bg-canvas transition-colors group-hover:border-accent group-hover:text-accent">
-                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <rect x="3" y="3" width="18" height="18" rx="3" />
-                    <path d="M8 10.5v6.5" />
-                    <circle cx="8" cy="7.5" r="0.6" fill="currentColor" />
-                    <path d="M12 17v-3.5a2 2 0 0 1 4 0V17" />
-                    <path d="M12 10.5V17" />
-                  </svg>
-                </span>
-                LinkedIn — /in/julianarnault
-              </a>
-            </div>
           </section>
 
-          {/* First two projects beside the intro */}
+          {/* First two projects beside the intro + contact below */}
           <section id="work" className="grid scroll-mt-24 grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2">
             {projects.slice(0, 2).map((project, i) => (
               <ProjectCard key={project.slug} project={project} i={i} />
             ))}
+            <div className="sm:col-span-2">
+              <ContactBlock />
+            </div>
           </section>
         </div>
 
