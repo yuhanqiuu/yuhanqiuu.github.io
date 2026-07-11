@@ -120,48 +120,12 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
-function Header() {
-  return (
-    <header className="fixed top-0 z-50 w-full border-b border-ink/5 bg-canvas/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-6">
-        <Link to="/" className="font-sans text-sm font-medium tracking-tight text-ink">
-          Julian Arnault
-        </Link>
-        <nav className="flex gap-8 text-sm">
-          <Link
-            to="/projects"
-            activeProps={{ className: "text-ink" }}
-            className="text-ink-muted transition-colors hover:text-ink"
-          >
-            Projects
-          </Link>
-          <Link
-            to="/about"
-            activeProps={{ className: "text-ink" }}
-            className="text-ink-muted transition-colors hover:text-ink"
-          >
-            About
-          </Link>
-          <Link
-            to="/contact"
-            activeProps={{ className: "text-ink" }}
-            className="text-ink-muted transition-colors hover:text-ink"
-          >
-            Contact
-          </Link>
-        </nav>
-      </div>
-    </header>
-  );
-}
-
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Header />
-      <main className="pt-16">
+      <main>
         <Outlet />
       </main>
     </QueryClientProvider>
