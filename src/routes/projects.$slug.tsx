@@ -2,8 +2,8 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { projects, getProjectBySlug } from "../lib/projects";
 
 export const Route = createFileRoute("/projects/$slug")({
-  head: ({ loaderData }) => {
-    const project = loaderData;
+  head: ({ params }) => {
+    const project = getProjectBySlug(params.slug);
     if (!project) {
       return {
         meta: [
