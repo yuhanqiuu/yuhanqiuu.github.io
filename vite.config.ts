@@ -34,7 +34,8 @@ export default defineConfig({
     // Emit a client-side SPA shell so hard refreshes on non-prerendered URLs still boot the app.
     spa: { enabled: true },
   },
-  // Keep the default Nitro (Cloudflare) preset so the plugin can spin up the SSR preview
-  // server for prerender. Prerendered HTML and static assets land in .output/public,
-  // which the GitHub Pages workflow publishes.
+  // Disable Nitro so the standard Vite SSR build produces `dist/server/server.js`,
+  // which TanStack Start's preview server (used during prerender) expects.
+  // The prerendered HTML lands in `dist/client/` — perfect for GitHub Pages.
+  nitro: false,
 });
