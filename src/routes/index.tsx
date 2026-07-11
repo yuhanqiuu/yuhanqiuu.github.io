@@ -80,7 +80,7 @@ function Index() {
     <div className="min-h-screen bg-canvas font-sans text-ink">
       {/* Fixed top nav — wordmark left, section links right */}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/5 bg-canvas/85 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-8">
+        <div className="mx-auto flex h-16 max-w-none items-center justify-between px-4">
           <a href="#top" className="font-serif text-sm font-bold tracking-tight text-ink">
             Julian Arnault
           </a>
@@ -95,7 +95,7 @@ function Index() {
         </div>
       </header>
 
-      <main id="top" className="mx-auto max-w-screen-xl px-8 pt-32">
+      <main id="top" className="mx-auto max-w-none px-4 pt-32">
         {/* Intro + first two projects in one shared row */}
         <div className="grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
           {/* Intro column */}
@@ -160,11 +160,14 @@ function Index() {
             </div>
           </section>
 
-          {/* First two projects beside the intro */}
+          {/* First two projects beside the intro + contact below */}
           <section id="work" className="grid scroll-mt-24 grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2">
             {projects.slice(0, 2).map((project, i) => (
               <ProjectCard key={project.slug} project={project} i={i} />
             ))}
+            <div className="sm:col-span-2">
+              <ContactBlock />
+            </div>
           </section>
         </div>
 
