@@ -95,7 +95,7 @@ function ProjectDetail() {
                   Tags
                 </h2>
                 <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
+                  {project.tags.map((tag: string) => (
                     <span
                       key={tag}
                       className="rounded-full border border-ink/10 px-3 py-1 text-xs font-medium text-ink-muted"
