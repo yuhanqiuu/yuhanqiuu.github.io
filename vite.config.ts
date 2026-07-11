@@ -5,13 +5,20 @@
 //     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
-import { projects } from "./src/lib/projects";
 
-// Every route we want prerendered to static HTML for GitHub Pages.
-const prerenderPaths = [
-  "/",
-  ...projects.map((p) => `/projects/${p.slug}`),
+// Project slugs kept in sync with src/lib/projects.ts.
+// Add a new slug here whenever you add a project so its /projects/<slug>
+// page is prerendered to static HTML for GitHub Pages.
+const projectSlugs = [
+  "komorebi-system",
+  "ethos-archive",
+  "halcyon-type",
+  "lumen-app",
+  "atlas-monograph",
+  "forma-packaging",
 ];
+
+const prerenderPaths = ["/", ...projectSlugs.map((s) => `/projects/${s}`)];
 
 export default defineConfig({
   tanstackStart: {
