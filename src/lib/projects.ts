@@ -1,9 +1,21 @@
 import komorebiImage from "../assets/project-komorebi.jpg";
+import komorebi2 from "../assets/project-komorebi-2.jpg";
+import komorebi3 from "../assets/project-komorebi-3.jpg";
 import ethosImage from "../assets/project-ethos.jpg";
+import ethos2 from "../assets/project-ethos-2.jpg";
+import ethos3 from "../assets/project-ethos-3.jpg";
 import halcyonImage from "../assets/project-halcyon.jpg";
+import halcyon2 from "../assets/project-halcyon-2.jpg";
+import halcyon3 from "../assets/project-halcyon-3.jpg";
 import lumenImage from "../assets/project-lumen.jpg";
+import lumen2 from "../assets/project-lumen-2.jpg";
+import lumen3 from "../assets/project-lumen-3.jpg";
 import atlasImage from "../assets/project-atlas.jpg";
+import atlas2 from "../assets/project-atlas-2.jpg";
+import atlas3 from "../assets/project-atlas-3.jpg";
 import formaImage from "../assets/project-forma.jpg";
+import forma2 from "../assets/project-forma-2.jpg";
+import forma3 from "../assets/project-forma-3.jpg";
 
 export interface Project {
   slug: string;
@@ -13,6 +25,7 @@ export interface Project {
   summary: string;
   description: string;
   image: string;
+  images: string[];
   tags: string[];
   link?: string;
 }
@@ -28,6 +41,7 @@ export const projects: Project[] = [
     description:
       "Komorebi System is a design language built for generative audio platforms. We developed a visual system that responds to sound frequency in real-time, focusing on legibility in low-light environments.",
     image: komorebiImage,
+    images: [komorebiImage, komorebi2, komorebi3],
     tags: ["Design System", "UI", "Motion", "React"],
   },
   {
@@ -40,6 +54,7 @@ export const projects: Project[] = [
     description:
       "Ethos Archive preserves architectural heritage through high-fidelity digital documentation, giving historians and enthusiasts a calm, precise place to explore.",
     image: ethosImage,
+    images: [ethosImage, ethos2, ethos3],
     tags: ["Identity", "Web Design", "Archive", "UX"],
   },
   {
@@ -52,6 +67,7 @@ export const projects: Project[] = [
     description:
       "Halcyon is a display typeface family designed for cultural institutions, spanning six weights and two optical sizes.",
     image: halcyonImage,
+    images: [halcyonImage, halcyon2, halcyon3],
     tags: ["Typography", "Type Design"],
   },
   {
@@ -64,6 +80,7 @@ export const projects: Project[] = [
     description:
       "Lumen is a daily reading companion that reframes the mobile reading surface around focus, pace, and ritual.",
     image: lumenImage,
+    images: [lumenImage, lumen2, lumen3],
     tags: ["Product", "iOS", "UX"],
   },
   {
@@ -76,6 +93,7 @@ export const projects: Project[] = [
     description:
       "A 240-page monograph documenting a decade of studio practice — print design, typesetting, and image direction.",
     image: atlasImage,
+    images: [atlasImage, atlas2, atlas3],
     tags: ["Print", "Editorial", "Book"],
   },
   {
@@ -88,6 +106,7 @@ export const projects: Project[] = [
     description:
       "A modular packaging system for a small-batch pantry brand, using kraft substrates and a systemic labelling approach.",
     image: formaImage,
+    images: [formaImage, forma2, forma3],
     tags: ["Packaging", "Identity"],
   },
 ];
