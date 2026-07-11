@@ -1,5 +1,5 @@
-import komorebiImage from "../assets/project-komorebi.jpg";
-import komorebi2 from "../assets/project-komorebi-2.jpg";
+import komorebiImage from "../assets/project-51-1.png";
+import komorebi2 from "../assets/project-51-2.png";
 import komorebi3 from "../assets/project-komorebi-3.jpg";
 import ethosImage from "../assets/project-ethos.jpg";
 import ethos2 from "../assets/project-ethos-2.jpg";
