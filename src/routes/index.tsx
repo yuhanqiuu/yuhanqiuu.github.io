@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AtSign, ArrowUpRight } from "lucide-react";
-import { projects } from "../lib/projects";
+import { projects, type Project } from "../lib/projects";
 
 export const Route = createFileRoute("/")({
   head: () => ({
