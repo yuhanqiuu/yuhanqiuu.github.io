@@ -77,16 +77,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Julian Arnault — Independent Designer" },
+      { name: "description", content: "Portfolio of Julian Arnault, an independent designer crafting tactile digital experiences for products and brands." },
+      { name: "author", content: "Julian Arnault" },
+      { property: "og:title", content: "Julian Arnault — Independent Designer" },
+      { property: "og:description", content: "Portfolio of Julian Arnault, an independent designer crafting tactile digital experiences for products and brands." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@julianarnault" },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap",
+      },
       {
         rel: "stylesheet",
         href: appCss,
@@ -114,13 +120,50 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function Header() {
+  return (
+    <header className="fixed top-0 z-50 w-full border-b border-ink/5 bg-canvas/80 backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-6">
+        <Link to="/" className="font-sans text-sm font-medium tracking-tight text-ink">
+          Julian Arnault
+        </Link>
+        <nav className="flex gap-8 text-sm">
+          <Link
+            to="/projects"
+            activeProps={{ className: "text-ink" }}
+            className="text-ink-muted transition-colors hover:text-ink"
+          >
+            Projects
+          </Link>
+          <Link
+            to="/about"
+            activeProps={{ className: "text-ink" }}
+            className="text-ink-muted transition-colors hover:text-ink"
+          >
+            About
+          </Link>
+          <Link
+            to="/contact"
+            activeProps={{ className: "text-ink" }}
+            className="text-ink-muted transition-colors hover:text-ink"
+          >
+            Contact
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <Header />
+      <main className="pt-16">
+        <Outlet />
+      </main>
     </QueryClientProvider>
   );
 }
