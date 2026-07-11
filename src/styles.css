@@ -65,11 +65,11 @@
 :root {
   --radius: 0.625rem;
 
-  /* Atelier primitives */
-  --canvas: oklch(0.992 0.002 67.802);
+  /* Calm primitives */
+  --canvas: oklch(0.99 0.001 250);
   --ink: oklch(0.216 0.006 56.043);
-  --ink-muted: oklch(0.553 0.012 58.071);
-  --accent-warm: oklch(0.414 0.105 45.904);
+  --ink-muted: oklch(0.55 0.012 250);
+  --accent-cool: oklch(0.52 0.06 230);
 
   /* Semantic mapping */
   --background: var(--canvas);
