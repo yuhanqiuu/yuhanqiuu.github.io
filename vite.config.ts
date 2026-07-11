@@ -34,6 +34,7 @@ export default defineConfig({
     // Emit a client-side SPA shell so hard refreshes on non-prerendered URLs still boot the app.
     spa: { enabled: true },
   },
-  // Static-only output for GitHub Pages — skip the Cloudflare Worker bundle.
-  nitro: { preset: "static" },
+  // Keep the default Nitro (Cloudflare) preset so the plugin can spin up the SSR preview
+  // server for prerender. Prerendered HTML and static assets land in .output/public,
+  // which the GitHub Pages workflow publishes.
 });
