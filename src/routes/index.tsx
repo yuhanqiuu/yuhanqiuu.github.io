@@ -38,6 +38,43 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
   );
 }
 
+function ContactBlock() {
+  return (
+    <div id="contact" className="space-y-3 border-t border-ink/15 pt-8">
+      <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">
+        Contact
+      </p>
+      <a
+        href="mailto:hello@julianarnault.com"
+        className="group flex items-center gap-4 text-sm text-ink transition-colors hover:text-accent"
+      >
+        <span className="flex h-9 w-9 items-center justify-center rounded-md border border-ink/15 bg-canvas transition-colors group-hover:border-accent group-hover:text-accent">
+          <AtSign className="h-4 w-4" strokeWidth={1.5} />
+        </span>
+        hello@julianarnault.com
+      </a>
+      <a
+        href="https://linkedin.com"
+        target="_blank"
+        rel="noreferrer"
+        className="group flex items-center gap-4 text-sm text-ink transition-colors hover:text-accent"
+      >
+        <span className="flex h-9 w-9 items-center justify-center rounded-md border border-ink/15 bg-canvas transition-colors group-hover:border-accent group-hover:text-accent">
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="3" />
+            <path d="M8 10.5v6.5" />
+            <circle cx="8" cy="7.5" r="0.6" fill="currentColor" />
+            <path d="M12 17v-3.5a2 2 0 0 1 4 0V17" />
+            <path d="M12 10.5V17" />
+          </svg>
+        </span>
+        LinkedIn — /in/julianarnault
+      </a>
+    </div>
+  );
+}
+
+
 function Index() {
   return (
     <div className="min-h-screen bg-canvas font-sans text-ink">
