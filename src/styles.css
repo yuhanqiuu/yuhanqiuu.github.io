@@ -5,10 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system: Refined Atelier
+ * Design system: Calm Engineering
  *
- * Warm, tactile palette with strong serif display type and generous whitespace.
- * All colors are defined in oklch format.
+ * Cool, neutral palette with a single soft accent. Keeps the ink (text) color
+ * unchanged while shifting surfaces and highlights toward a quieter, technical tone.
  */
 
 @theme inline {
