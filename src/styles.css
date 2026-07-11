@@ -5,10 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system: Refined Atelier
+ * Design system: Calm Engineering
  *
- * Warm, tactile palette with strong serif display type and generous whitespace.
- * All colors are defined in oklch format.
+ * Cool, neutral palette with a single soft accent. Keeps the ink (text) color
+ * unchanged while shifting surfaces and highlights toward a quieter, technical tone.
  */
 
 @theme inline {
@@ -65,11 +65,11 @@
 :root {
   --radius: 0.625rem;
 
-  /* Atelier primitives */
-  --canvas: oklch(0.992 0.002 67.802);
+  /* Calm primitives */
+  --canvas: oklch(0.99 0.001 250);
   --ink: oklch(0.216 0.006 56.043);
-  --ink-muted: oklch(0.553 0.012 58.071);
-  --accent-warm: oklch(0.414 0.105 45.904);
+  --ink-muted: oklch(0.55 0.012 250);
+  --accent-cool: oklch(0.52 0.06 230);
 
   /* Semantic mapping */
   --background: var(--canvas);
@@ -80,17 +80,17 @@
   --popover-foreground: var(--ink);
   --primary: var(--ink);
   --primary-foreground: var(--canvas);
-  --secondary: oklch(0.96 0.005 60);
+  --secondary: oklch(0.96 0.004 250);
   --secondary-foreground: var(--ink);
-  --muted: oklch(0.94 0.005 60);
+  --muted: oklch(0.94 0.004 250);
   --muted-foreground: var(--ink-muted);
-  --accent: var(--accent-warm);
+  --accent: var(--accent-cool);
   --accent-foreground: var(--canvas);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.216 0.006 56.043 / 8%);
-  --input: oklch(0.216 0.006 56.043 / 12%);
-  --ring: oklch(0.414 0.105 45.904);
+  --border: oklch(0.55 0.012 250 / 12%);
+  --input: oklch(0.55 0.012 250 / 16%);
+  --ring: var(--accent-cool);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
