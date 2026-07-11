@@ -31,8 +31,6 @@ export default defineConfig({
       crawlLinks: true,
       autoStaticPathsDiscovery: true,
     },
-    // Emit a client-side SPA shell so hard refreshes on non-prerendered URLs still boot the app.
-    spa: { enabled: true },
   },
   // Disable Nitro so the standard Vite SSR build produces `dist/server/server.js`,
   // which TanStack Start's preview server (used during prerender) expects.
