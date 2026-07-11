@@ -37,7 +37,7 @@ export const Route = createFileRoute("/projects/$slug")({
 });
 
 function ProjectDetail() {
-  const { project } = Route.useLoaderData();
+  const { project } = Route.useLoaderData() as { project: Project };
   const images = project.images?.length ? project.images : [project.image];
   const [index, setIndex] = useState(0);
   const count = images.length;
