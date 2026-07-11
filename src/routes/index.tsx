@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { AtSign, ArrowUpRight } from "lucide-react";
+import { AtSign, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { projects, type Project } from "../lib/projects";
 
 export const Route = createFileRoute("/")({
@@ -15,15 +16,61 @@ export const Route = createFileRoute("/")({
 });
 
 function ProjectCard({ project, i }: { project: Project; i: number }) {
+  const images = project.images?.length ? project.images : [project.image];
+  const [index, setIndex] = useState(0);
+  const count = images.length;
+  const go = (n: number) => setIndex((index + n + count) % count);
+
   return (
     <article>
-      <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
-        <img
-          src={project.image}
-          alt={project.title}
-          loading={i < 2 ? "eager" : "lazy"}
-          className="h-full w-full object-cover"
-        />
+      <div className="group relative aspect-[4/3] w-full overflow-hidden bg-muted">
+        {images.map((src, idx) => (
+          <img
+            key={src}
+            src={src}
+            alt={`${project.title} — image ${idx + 1}`}
+            loading={i < 2 && idx === 0 ? "eager" : "lazy"}
+            width={1024}
+            height={768}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
+              idx === index ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+
+        {count > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={() => go(-1)}
+              aria-label="Previous image"
+              className="absolute left-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-canvas/80 text-ink opacity-0 backdrop-blur transition-opacity hover:bg-canvas group-hover:opacity-100 focus-visible:opacity-100"
+            >
+              <ChevronLeft className="h-4 w-4" strokeWidth={1.75} />
+            </button>
+            <button
+              type="button"
+              onClick={() => go(1)}
+              aria-label="Next image"
+              className="absolute right-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-canvas/80 text-ink opacity-0 backdrop-blur transition-opacity hover:bg-canvas group-hover:opacity-100 focus-visible:opacity-100"
+            >
+              <ChevronRight className="h-4 w-4" strokeWidth={1.75} />
+            </button>
+            <div className="absolute inset-x-0 bottom-3 flex justify-center gap-1.5">
+              {images.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => setIndex(idx)}
+                  aria-label={`Go to image ${idx + 1}`}
+                  className={`h-1.5 rounded-full transition-all ${
+                    idx === index ? "w-5 bg-ink" : "w-1.5 bg-ink/40 hover:bg-ink/70"
+                  }`}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </div>
       <h3 className="mt-5 font-serif text-lg font-bold tracking-tight">
         {project.title}
