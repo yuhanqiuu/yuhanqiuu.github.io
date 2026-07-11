@@ -127,22 +127,27 @@ function Index() {
             </a>
           </section>
 
-          {/* First two projects beside the intro + contact below */}
+          {/* First two projects beside the intro */}
           <section id="work" className="grid scroll-mt-24 grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2">
             {projects.slice(0, 2).map((project, i) => (
               <ProjectCard key={project.slug} project={project} i={i} />
             ))}
-            <div className="sm:col-span-2">
-              <ContactBlock />
-            </div>
           </section>
         </div>
 
         {/* Remaining projects: three per row */}
         <section className="mt-14 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.slice(2).map((project, i) => (
+          {projects.slice(2, 5).map((project, i) => (
             <ProjectCard key={project.slug} project={project} i={i + 2} />
           ))}
+        </section>
+
+        {/* Bottom row: last project + contact on the right */}
+        <section className="mt-14 grid grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-[2fr_1fr]">
+          {projects.slice(5).map((project, i) => (
+            <ProjectCard key={project.slug} project={project} i={i + 5} />
+          ))}
+          <ContactBlock />
         </section>
       </main>
 
