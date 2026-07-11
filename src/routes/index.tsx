@@ -42,10 +42,10 @@ function Index() {
         <div className="mx-auto max-w-screen-xl">
           <div className="mb-16 flex items-end justify-between">
             <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">
-              Selected Archive
+              Selected Works
             </h2>
             <span className="text-xs font-medium text-ink-muted/50">
-              01 / {String(projects.length).padStart(2, "0")}
+              {String(projects.length).padStart(2, "0")} projects
             </span>
           </div>
 
@@ -53,7 +53,7 @@ function Index() {
             {projects.map((project, index) => (
               <article key={project.slug} className="group cursor-pointer">
                 <Link to="/projects/$slug" params={{ slug: project.slug }}>
-                  <div className="mb-8 aspect-[16/9] w-full overflow-hidden rounded-[min(1vw,12px)] bg-zinc-100 outline -outline-offset-1 outline-black/5">
+                  <div className="mb-8 aspect-[16/9] w-full overflow-hidden rounded-[min(1vw,12px)] bg-muted outline -outline-offset-1 outline-ink/5">
                     <img
                       src={project.image}
                       alt={project.title}
