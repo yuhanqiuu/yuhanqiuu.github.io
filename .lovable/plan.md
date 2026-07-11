@@ -1,23 +1,10 @@
 ## Goal
-Create a small logo for the portfolio site inspired by the uploaded pixel-art dumpling-with-laptop image, and wire it into the top-left of the header (replacing/accompanying the "Yuhan Qiu" wordmark).
+Replace the current header/favicon logo with just the pixel-art mochi character from the uploaded reference image — laptop removed, pixel style preserved.
 
 ## Approach
-
-**1. Generate the logo asset**
-- Use `imagegen--generate_image` (premium tier for crisp pixel art) with a transparent background.
-- Prompt: a minimal pixel-art dumpling character with a small laptop showing green `</>` code, clean single-subject composition, centered on transparent background, square 1024×1024.
-- Save to `src/assets/logo.png`.
-- Because the site's palette is calm/cool engineering tones, keep the dumpling cream and laptop dark charcoal (matching `--ink`) so it fits the muted aesthetic.
-
-**2. Place it in the header**
-- Edit `src/routes/__root.tsx`: in the fixed top header, put the logo (h-8 w-8, `image-rendering: pixelated` to preserve crisp pixel edges) to the left of the "Yuhan Qiu" name, both wrapped in the existing `<Link to="/">`.
-
-**3. Use it as the favicon too**
-- Point the favicon `<link>` in `__root.tsx` head to the same logo.
+1. Use `imagegen--edit_image` on `user-uploads://50496f3fa816b9b1f8c2241c21301d5f-2.png` with a prompt that removes the black laptop and the small orange "+" mark, keeps the cream pixel mochi with its face (eyes + pink cheeks) exactly as-is, and outputs on a transparent background. Save to `src/assets/logo.png` (overwrite).
+2. Copy the same file to `public/favicon.png` so the browser tab icon matches.
+3. No code changes needed — `src/routes/index.tsx` already imports `logoUrl` from `src/assets/logo.png` and renders it with `image-rendering: pixelated`, and `__root.tsx` already points the favicon `<link>` at `/favicon.png`.
 
 ## What I won't touch
-- Colors, fonts, layout, projects, contact block — all unchanged.
-- The deploy workflow — logo will be bundled by Vite automatically.
-
-## Open question
-Do you want the logo to be **just the dumpling** (cleaner, more iconic at small sizes), or **the dumpling + laptop together** exactly like your reference (more personality, but busier at 32px)? I'd recommend just the dumpling for the header + favicon, but I can do either.
+Layout, colors, fonts, routes, projects, contact block, deploy workflow.
