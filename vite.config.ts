@@ -10,7 +10,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 // Add a new slug here whenever you add a project so its /projects/<slug>
 // page is prerendered to static HTML for GitHub Pages.
 const projectSlugs = [
-  "komorebi-system",
+  "depth-camera-based-3d-gait-analysis",
   "ethos-archive",
   "halcyon-type",
   "lumen-app",
