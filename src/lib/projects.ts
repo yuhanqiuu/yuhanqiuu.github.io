@@ -32,17 +32,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "komorebi-system",
-    title: "Komorebi System",
-    category: "Interaction Design",
-    year: "2024",
+    slug: "depth-camera-based-3d-gait-analysis",
+    title: "Depth Camera Based 3D Gait Analysis",
+    category: "Computer Vision",
+    year: "2026",
     summary:
-      "A comprehensive design system built for generative audio platforms, focusing on legibility in low-light environments.",
+      "Extract gait metrics from videos captured by Orbbec Femto Bolt camera in the purpose of diagnosis of dimensia",
     description:
-      "Komorebi System is a design language built for generative audio platforms. We developed a visual system that responds to sound frequency in real-time, focusing on legibility in low-light environments.",
+      "Wait for Later",
     image: komorebiImage,
     images: [komorebiImage, komorebi2, komorebi3],
-    tags: ["Design System", "UI", "Motion", "React"],
+    tags: ["Python", "Computer Vision"],
   },
   {
     slug: "ethos-archive",
