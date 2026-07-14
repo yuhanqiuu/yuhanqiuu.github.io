@@ -1,4 +1,4 @@
-import komorebiImage from "../assets/project-51-1.png";
+import gaitImage from "../assets/project-gait-1.png";
 import komorebi2 from "../assets/project-51-2.png";
 import komorebi3 from "../assets/project-komorebi-3.jpg";
 import ethosImage from "../assets/project-ethos.jpg";
@@ -37,11 +37,11 @@ export const projects: Project[] = [
     category: "Computer Vision",
     year: "2026",
     summary:
-      "Extract gait metrics from videos captured by Orbbec Femto Bolt camera in the purpose of diagnosis of dimensia",
+      "A Python-based gait analysis framework that processes 3D skeletal video to extract gait metrics, supporting the study of gait changes associated with dementia."
     description:
       "Wait for Later",
-    image: komorebiImage,
-    images: [komorebiImage, komorebi2, komorebi3],
+    image: gaitImage,
+    images: [gaitImage, komorebi2, komorebi3],
     tags: ["Python", "Computer Vision"],
   },
   {
