@@ -1,6 +1,4 @@
 import gaitImage from "../assets/project-gait-1.png";
-import komorebi2 from "../assets/project-51-2.png";
-import komorebi3 from "../assets/project-komorebi-3.jpg";
 import ethosImage from "../assets/project-ethos.jpg";
 import ethos2 from "../assets/project-ethos-2.jpg";
 import ethos3 from "../assets/project-ethos-3.jpg";
@@ -37,22 +35,22 @@ export const projects: Project[] = [
     category: "Computer Vision",
     year: "2026",
     summary:
-      "A Python-based gait analysis framework that processes 3D skeletal video to extract gait metrics, supporting the study of gait changes associated with dementia.",
+      "A Python-based analysis framework that processes 3D skeletal video to extract gait metrics, supporting the study of gait changes associated with dementia.",
     description:
       "Wait for Later",
     image: gaitImage,
-    images: [gaitImage, komorebi2, komorebi3],
+    images: [gaitImage],
     tags: ["Python", "Computer Vision"],
   },
   {
-    slug: "ethos-archive",
-    title: "Ethos Archive",
-    category: "Brand Identity",
-    year: "2023",
+    slug: "8051-mcu-development-board",
+    title: "8051 MCU Development Board",
+    category: "PCB Design",
+    year: "2025",
     summary:
-      "Preserving architectural heritage through high-fidelity digital documentation and an approachable browsing experience.",
+      "A compact, custom 8051 board based on the STC89C52RC microcontroller for embedded systems development.",
     description:
-      "Ethos Archive preserves architectural heritage through high-fidelity digital documentation, giving historians and enthusiasts a calm, precise place to explore.",
+      "Wait for Later",
     image: ethosImage,
     images: [ethosImage, ethos2, ethos3],
     tags: ["Identity", "Web Design", "Archive", "UX"],
