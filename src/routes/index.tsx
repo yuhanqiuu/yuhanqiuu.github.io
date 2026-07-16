@@ -34,18 +34,23 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
         aria-label={`View ${project.title}`}
         className="group relative block aspect-[4/3] w-full overflow-hidden bg-muted"
       >
-        {images.map((src, idx) => (
-          <img
-            key={src}
-            src={src}
-            alt={`${project.title} — image ${idx + 1}`}
-            loading={i < 2 && idx === 0 ? "eager" : "lazy"}
-            width={1024}
-            height={768}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${idx === index ? "opacity-100" : "opacity-0"
-              }`}
-          />
-        ))}
+        <div
+          className="absolute inset-0 flex h-full w-full transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(-${index * 100}%)` }}
+        >
+          {images.map((src, idx) => (
+            <img
+              key={src}
+              src={src}
+              alt={`${project.title} — image ${idx + 1}`}
+              loading={i < 2 && idx === 0 ? "eager" : "lazy"}
+              width={1024}
+              height={768}
+              className="h-full w-full flex-shrink-0 object-cover"
+            />
+          ))}
+        </div>
+
 
         {count > 1 && (
           <>
