@@ -1,4 +1,6 @@
 import gaitImage from "../assets/project-gait-1.png";
+import dev51_1 from "../assets/proejct-51-1.jpg";
+import dev51_2 from "../assets/proejct-51-2.jpg";
 import ethosImage from "../assets/project-ethos.jpg";
 import ethos2 from "../assets/project-ethos-2.jpg";
 import ethos3 from "../assets/project-ethos-3.jpg";
@@ -51,8 +53,8 @@ export const projects: Project[] = [
       "A compact, custom 8051 board based on the STC89C52RC microcontroller for embedded systems development.",
     description:
       "Wait for Later",
-    image: ethosImage,
-    images: [ethosImage, ethos2, ethos3],
+    image: dev51_1,
+    images: [dev51_1, dev51_2],
     tags: ["Identity", "Web Design", "Archive", "UX"],
   },
   {
