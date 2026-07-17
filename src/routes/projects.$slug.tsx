@@ -75,17 +75,21 @@ function ProjectDetail() {
         </p>
 
         <div className="mt-12 relative aspect-[4/3] w-full overflow-hidden bg-muted">
-          {images.map((src, idx) => (
-            <img
-              key={src}
-              src={src}
-              alt={`${project.title} — image ${idx + 1}`}
-              loading={idx === 0 ? "eager" : "lazy"}
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
-                idx === index ? "opacity-100" : "opacity-0"
-              }`}
-            />
-          ))}
+          <div
+            className="absolute inset-0 flex h-full w-full transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(-${index * 100}%)` }}
+          >
+            {images.map((src, idx) => (
+              <img
+                key={src}
+                src={src}
+                alt={`${project.title} — image ${idx + 1}`}
+                loading={idx === 0 ? "eager" : "lazy"}
+                className="h-full w-full flex-shrink-0 object-cover"
+              />
+            ))}
+          </div>
+
           {count > 1 && (
             <>
               <button
