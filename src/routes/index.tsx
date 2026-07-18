@@ -7,9 +7,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Yuhan Qiu — Electrical Engineer" },
-      { name: "description", content: "Portfolio of Yuhan Qiu, an independent designer crafting tactile digital experiences for products and brands." },
+      { name: "description", content: "Portfolio of Yuhan Qiu, an Electrical Engineer." },
       { property: "og:title", content: "Yuhan Qiu — Electrical Engineer" },
-      { property: "og:description", content: "Portfolio of Yuhan Qiu, an independent designer crafting tactile digital experiences for products and brands." },
+      { property: "og:description", content: "Portfolio of Yuhan Qiu, an Electrical Engineer" },
     ],
   }),
   component: Index,
@@ -164,7 +164,7 @@ function Index() {
               Yuhan Qiu
             </h1>
             <p className="mt-4 text-sm text-ink">
-              Independent Designer — Interaction & Brand
+              Electrical Engineer
             </p>
 
             <p className="mt-8 max-w-[46ch] text-sm leading-relaxed text-ink-muted">
