@@ -8,7 +8,7 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Yuhan Qiu — Electrical Engineer" },
       { name: "description", content: "Portfolio of Yuhan Qiu, an independent designer crafting tactile digital experiences for products and brands." },
-      { property: "og:title", content: "Yuhan Qiu — Independent Designer" },
+      { property: "og:title", content: "Yuhan Qiu — Electrical Engineer" },
       { property: "og:description", content: "Portfolio of Yuhan Qiu, an independent designer crafting tactile digital experiences for products and brands." },
     ],
   }),
@@ -42,9 +42,8 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
             loading={i < 2 && idx === 0 ? "eager" : "lazy"}
             width={1024}
             height={768}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
-              idx === index ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${idx === index ? "opacity-100" : "opacity-0"
+              }`}
           />
         ))}
 
@@ -169,10 +168,8 @@ function Index() {
             </p>
 
             <p className="mt-8 max-w-[46ch] text-sm leading-relaxed text-ink-muted">
-              Below are some of my recent projects. Focused on the intersection of
-              typography, motion, and functional minimalism — I work with early-stage
-              teams and established brands to craft tactile digital experiences. To
-              learn more or book an interview, get in touch below.
+              Hello and welcome to my Portfolio! My name is Ruby (Yuhan) Qiu, and I am an Electrical Engineer with experience in FPGA development, PCB design, and embedded systems.
+              Through industry internships, research, and engineering projects, I have completed projects involving autonomous robotics, medical devices, as well as recreational coding applications.
             </p>
 
             {/* Resume button — custom style */}
