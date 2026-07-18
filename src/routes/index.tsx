@@ -106,13 +106,13 @@ function ContactBlock() {
         Contact
       </p>
       <a
-        href="mailto:hello@julianarnault.com"
+        href="mailto:yuhan.qiu@example.com"
         className="group flex items-center gap-4 text-sm text-ink transition-colors hover:text-accent"
       >
         <span className="flex h-9 w-9 items-center justify-center rounded-md border border-ink/15 bg-canvas transition-colors group-hover:border-accent group-hover:text-accent">
           <AtSign className="h-4 w-4" strokeWidth={1.5} />
         </span>
-        hello@julianarnault.com
+        yuhan.qiu@example.com
       </a>
       <a
         href="https://linkedin.com"
@@ -129,7 +129,7 @@ function ContactBlock() {
             <path d="M12 10.5V17" />
           </svg>
         </span>
-        LinkedIn — /in/julianarnault
+        LinkedIn — /in/yuhanqiu
       </a>
     </div>
   );
