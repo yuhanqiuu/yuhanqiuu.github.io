@@ -14,7 +14,7 @@ export const Route = createFileRoute("/projects/$slug")({
       return { meta: [{ title: "Project not found" }, { name: "robots", content: "noindex" }] };
     }
     const { project } = loaderData;
-    const title = `${project.title} — Julian Arnault`;
+    const title = `${project.title} — Yuhan Qiu`;
     return {
       meta: [
         { title },
@@ -51,7 +51,7 @@ function ProjectDetail() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/5 bg-canvas/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-none items-center justify-between px-4">
           <Link to="/" className="font-serif text-sm font-bold tracking-tight text-ink">
-            Julian Arnault
+            Yuhan Qiu
           </Link>
           <Link
             to="/"
@@ -160,7 +160,7 @@ function ProjectDetail() {
       </main>
 
       <footer className="py-10 text-center text-xs text-ink-muted/60">
-        © {new Date().getFullYear()} Julian Arnault
+        © {new Date().getFullYear()} Yuhan Qiu
       </footer>
     </div>
   );
