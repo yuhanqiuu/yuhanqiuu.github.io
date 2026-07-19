@@ -105,16 +105,16 @@ function ContactBlock() {
         Contact
       </p>
       <a
-        href="mailto:yuhan.qiu@example.com"
+        href="mailto:qiuyuhan66@gmail.com"
         className="group flex items-center gap-4 text-sm text-ink transition-colors hover:text-accent"
       >
         <span className="flex h-9 w-9 items-center justify-center rounded-md border border-ink/15 bg-canvas transition-colors group-hover:border-accent group-hover:text-accent">
           <AtSign className="h-4 w-4" strokeWidth={1.5} />
         </span>
-        yuhan.qiu@example.com
+        qiuyuhan66@gmail.com
       </a>
       <a
-        href="https://linkedin.com"
+        href="https://www.linkedin.com/in/yuhan-qiu-ee/"
         target="_blank"
         rel="noreferrer"
         className="group flex items-center gap-4 text-sm text-ink transition-colors hover:text-accent"
@@ -128,7 +128,7 @@ function ContactBlock() {
             <path d="M12 10.5V17" />
           </svg>
         </span>
-        LinkedIn — /in/yuhanqiu
+        LinkedIn — /in/yuhan-qiu-ee
       </a>
     </div>
   );
