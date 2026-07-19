@@ -4,6 +4,15 @@ import { AtSign, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { projects, type Project } from "../lib/projects";
 import resumeAsset from "../assets/resume.pdf.asset.json";
 
+function downloadResume() {
+  const a = document.createElement("a");
+  a.href = resumeAsset.url;
+  a.download = "Ruby_Qiu_Resume.pdf";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -174,9 +183,9 @@ function Index() {
             </p>
 
             {/* Resume button — custom style */}
-            <a
-              href={resumeAsset.url}
-              download
+            <button
+              type="button"
+              onClick={downloadResume}
               className="group mt-8 inline-flex items-center gap-3 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-canvas transition-all hover:gap-4 hover:bg-accent"
             >
               Download Resume
@@ -184,7 +193,7 @@ function Index() {
                 className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 strokeWidth={2}
               />
-            </a>
+            </button>
           </section>
 
           {/* First two projects beside the intro */}
