@@ -71,17 +71,17 @@ export const projects: Project[] = [
     tags: ["Typography", "Type Design"],
   },
   {
-    slug: "lumen-app",
-    title: "Lumen",
-    category: "Product Design",
-    year: "2024",
+    slug: "autonomous-self-balancing-robot",
+    title: "Autonomous Self-Balancing Robot",
+    category: "Robotics",
+    year: "2025",
     summary:
-      "A daily reading companion. Rethinking the mobile reading surface around focus, pace, and the ritual of returning.",
+      "A self-balncing robot featuring object detection and wireless remote control.",
     description:
-      "Lumen is a daily reading companion that reframes the mobile reading surface around focus, pace, and ritual.",
+      "Wait for Later",
     image: lumenImage,
     images: [lumenImage, lumen2, lumen3],
-    tags: ["Product", "iOS", "UX"],
+    tags: ["Robotics", "PID", "Embedded Systems", "Computer Vision", "Flutter"],
   },
   {
     slug: "atlas-monograph",

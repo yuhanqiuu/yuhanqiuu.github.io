@@ -13,7 +13,7 @@ const projectSlugs = [
   "depth-camera-based-3d-gait-analysis",
   "8051-mcu-development-board",
   "halcyon-type",
-  "lumen-app",
+  "autonomous-self-balancing-robot",
   "atlas-monograph",
   "forma-packaging",
 ];
