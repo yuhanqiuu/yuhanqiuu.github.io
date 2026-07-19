@@ -174,7 +174,7 @@ function Index() {
 
             {/* Resume button — custom style */}
             <a
-              href="/resume.pdf"
+              href="/Ruby Qiu Resume - EE.pdf"
               download
               className="group mt-8 inline-flex items-center gap-3 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-canvas transition-all hover:gap-4 hover:bg-accent"
             >
