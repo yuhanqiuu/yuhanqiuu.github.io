@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AtSign, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { projects, type Project } from "../lib/projects";
@@ -109,20 +110,43 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
 }
 
 function ContactBlock() {
+  const [copied, setCopied] = useState(false);
+  const email = "qiuyuhan66@gmail.com";
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      window.location.href = `mailto:${email}`;
+    }
+  };
+
   return (
     <div id="contact" className="space-y-3 border-t border-ink/15 pt-8">
       <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">
         Contact
       </p>
-      <a
-        href="mailto:qiuyuhan66@gmail.com"
-        className="group flex items-center gap-4 text-sm text-ink transition-colors hover:text-accent"
+      <button
+        type="button"
+        onClick={copyEmail}
+        className="group flex w-full items-center gap-4 text-left text-sm text-ink transition-colors hover:text-accent"
       >
         <span className="flex h-9 w-9 items-center justify-center rounded-md border border-ink/15 bg-canvas transition-colors group-hover:border-accent group-hover:text-accent">
           <AtSign className="h-4 w-4" strokeWidth={1.5} />
         </span>
-        qiuyuhan66@gmail.com
-      </a>
+        <span className="flex items-center gap-2">
+          {email}
+          <span
+            className={`text-xs font-medium text-accent transition-opacity ${
+              copied ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            copied
+          </span>
+        </span>
+      </button>
       <a
         href="https://www.linkedin.com/in/yuhan-qiu-ee/"
         target="_blank"
