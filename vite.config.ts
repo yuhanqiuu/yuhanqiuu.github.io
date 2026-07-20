@@ -15,7 +15,8 @@ const projectSlugs = [
   "portable-ultrasound-transducer-for-medical-imaging",
   "autonomous-self-balancing-robot",
   "atlas-monograph",
-  "forma-packaging",
+  "metal-detector-rover",
+  "me-playing-bach",
 ];
 
 const prerenderPaths = ["/", ...projectSlugs.map((s) => `/projects/${s}`)];
