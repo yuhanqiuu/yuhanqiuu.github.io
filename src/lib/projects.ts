@@ -16,7 +16,7 @@ import formaImage from "../assets/project-forma.jpg";
 import forma2 from "../assets/project-forma-2.jpg";
 import forma3 from "../assets/project-forma-3.jpg";
 import ultrasoundPoster from "../assets/project-ultrasound-poster.png";
-import bachPoster from "../assets/project-bach-poster.jpg.asset.json";
+import bachPoster from "../assets/project-bach-poster.png";
 
 
 export interface Project {
@@ -124,9 +124,9 @@ export const projects: Project[] = [
       "Thanks for viewing this portfolio. This is my solo piano performance of Prelude in C Major. Enjoy!",
     description:
       "Wait for Later",
-    image: bachPoster.url,
-    images: [bachPoster.url],
-    poster: bachPoster.url,
+    image: bachPoster,
+    images: [bachPoster],
+    poster: bachPoster,
     video: "https://youtu.be/fU3B2pN_iLU",
     tags: ["Music", "Piano"],
   },
