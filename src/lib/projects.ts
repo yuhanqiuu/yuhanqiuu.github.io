@@ -39,7 +39,7 @@ export const projects: Project[] = [
       "A Python-based analysis framework that processes 3D skeletal video to extract gait metrics, supporting the study of gait changes associated with dementia.",
     description:
       "Wait for Later",
-    image: gaitImage,
+    image: gait_1,
     images: [gait_1],
     tags: ["Python", "Computer Vision"],
   },
