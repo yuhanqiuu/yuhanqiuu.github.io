@@ -12,7 +12,7 @@ import balance_2 from "../assets/project-balance-2.png";
 import atlasImage from "../assets/project-atlas.jpg";
 import atlas2 from "../assets/project-atlas-2.jpg";
 import atlas3 from "../assets/project-atlas-3.jpg";
-import formaImage from "../assets/project-forma.jpg";
+import metal_1 from "../assets/project-metal-1.jpeg";
 import forma2 from "../assets/project-forma-2.jpg";
 import forma3 from "../assets/project-forma-3.jpg";
 import ultrasoundPoster from "../assets/project-ultrasound-poster.png";
@@ -103,16 +103,16 @@ export const projects: Project[] = [
     tags: ["Print", "Editorial", "Book"],
   },
   {
-    slug: "forma-packaging",
-    title: "Forma",
-    category: "Packaging",
-    year: "2022",
+    slug: "metal-detector-rover",
+    title: "Metal Detector Rover",
+    category: "Embedded Systems",
+    year: "2024",
     summary:
       "A modular packaging system for a small-batch pantry brand. Kraft substrates, minimal ink, systemic labelling.",
     description:
       "A modular packaging system for a small-batch pantry brand, using kraft substrates and a systemic labelling approach.",
-    image: formaImage,
-    images: [formaImage, forma2, forma3],
+    image: metal_1,
+    images: [metal_1],
     tags: ["Packaging", "Identity"],
   },
   {
