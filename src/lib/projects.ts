@@ -57,14 +57,14 @@ export const projects: Project[] = [
     tags: ["Identity", "Web Design", "Archive", "UX"],
   },
   {
-    slug: "halcyon-type",
-    title: "Halcyon Type",
-    category: "Typography",
-    year: "2024",
+    slug: "portable-ultrasound-transducer-for-medical-imaging",
+    title: "Portable Ultrasound Transducer for Medical Imaging",
+    category: "FPGA",
+    year: "2026",
     summary:
-      "A display typeface family designed for cultural institutions — six weights, two optical sizes, and full Latin coverage.",
+      "A miniaturized telehealth system designed for home-based care, enabling continuous, low-cost monitoring of tissue health",
     description:
-      "Halcyon is a display typeface family designed for cultural institutions, spanning six weights and two optical sizes.",
+      "Wait for Later",
     image: halcyonImage,
     images: [halcyonImage, halcyon2, halcyon3],
     tags: ["Typography", "Type Design"],

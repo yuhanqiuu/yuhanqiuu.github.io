@@ -12,7 +12,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 const projectSlugs = [
   "depth-camera-based-3d-gait-analysis",
   "8051-mcu-development-board",
-  "halcyon-type",
+  "portable-ultrasound-transducer-for-medical-imaging",
   "autonomous-self-balancing-robot",
   "atlas-monograph",
   "forma-packaging",
