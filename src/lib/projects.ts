@@ -29,6 +29,8 @@ export interface Project {
   images: string[];
   tags: string[];
   link?: string;
+  video?: string;
+  poster?: string;
 }
 
 export const projects: Project[] = [
