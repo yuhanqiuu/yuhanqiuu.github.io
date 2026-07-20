@@ -8,7 +8,7 @@ import halcyonImage from "../assets/project-halcyon.jpg";
 import halcyon2 from "../assets/project-halcyon-2.jpg";
 import halcyon3 from "../assets/project-halcyon-3.jpg";
 import lumenImage from "../assets/project-lumen.jpg";
-import lumen2 from "../assets/project-lumen-2.jpg";
+import balance_2 from "../assets/project-balance-2.png";
 import lumen3 from "../assets/project-lumen-3.jpg";
 import atlasImage from "../assets/project-atlas.jpg";
 import atlas2 from "../assets/project-atlas-2.jpg";
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     slug: "8051-mcu-development-board",
     title: "8051 MCU Development Board",
     category: "PCB Design",
-    year: "2025",
+    year: "2026",
     summary:
       "A compact, custom 8051 board based on the STC89C52RC microcontroller for embedded systems development.",
     description:
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     description:
       "Wait for Later",
     image: lumenImage,
-    images: [lumenImage, lumen2, lumen3],
+    images: [lumenImage, balance_2, lumen3],
     tags: ["Robotics", "PID", "Embedded Systems", "Computer Vision", "Flutter"],
   },
   {
