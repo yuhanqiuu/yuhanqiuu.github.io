@@ -117,7 +117,7 @@ export const projects: Project[] = [
   },
   {
     slug: "me-playing-bach",
-    title: "Me Playing Bach",
+    title: "Bonus: Me Playing Bach",
     category: "Performance",
     year: "2025",
     summary:
