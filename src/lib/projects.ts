@@ -108,9 +108,9 @@ export const projects: Project[] = [
     category: "Embedded System",
     year: "2024",
     summary:
-      "A modular packaging system for a small-batch pantry brand. Kraft substrates, minimal ink, systemic labelling.",
+      "A wireless metal detector robot capable of reporting magnetic field strength.",
     description:
-      "A modular packaging system for a small-batch pantry brand, using kraft substrates and a systemic labelling approach.",
+      "Wait for Later",
     image: metal_1,
     images: [metal_1, metal_2],
     tags: ["Embedded C"],
