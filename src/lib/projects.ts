@@ -16,7 +16,7 @@ import formaImage from "../assets/project-forma.jpg";
 import forma2 from "../assets/project-forma-2.jpg";
 import forma3 from "../assets/project-forma-3.jpg";
 import ultrasoundPoster from "../assets/project-ultrasound-poster.png";
-import bachPoster from "../assets/project-bach-poster.jpg";
+import bachPoster from "../assets/project-bach-poster.jpg.asset.json";
 
 
 export interface Project {
