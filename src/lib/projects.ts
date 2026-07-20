@@ -13,7 +13,7 @@ import atlasImage from "../assets/project-atlas.jpg";
 import atlas2 from "../assets/project-atlas-2.jpg";
 import atlas3 from "../assets/project-atlas-3.jpg";
 import metal_1 from "../assets/project-metal-1.jpeg";
-import forma2 from "../assets/project-forma-2.jpg";
+import metal_2 from "../assets/project-metal-2.png";
 import forma3 from "../assets/project-forma-3.jpg";
 import ultrasoundPoster from "../assets/project-ultrasound-poster.png";
 import bachPoster from "../assets/project-bach-poster.png";
@@ -105,15 +105,15 @@ export const projects: Project[] = [
   {
     slug: "metal-detector-rover",
     title: "Metal Detector Rover",
-    category: "Embedded Systems",
+    category: "Embedded System",
     year: "2024",
     summary:
       "A modular packaging system for a small-batch pantry brand. Kraft substrates, minimal ink, systemic labelling.",
     description:
       "A modular packaging system for a small-batch pantry brand, using kraft substrates and a systemic labelling approach.",
     image: metal_1,
-    images: [metal_1],
-    tags: ["Packaging", "Identity"],
+    images: [metal_1, metal_2],
+    tags: ["Embedded C"],
   },
   {
     slug: "me-playing-bach",
