@@ -1,4 +1,4 @@
-import gaitImage from "../assets/project-gait-1.png";
+import gait_1 from "../assets/project-gait-1.png";
 import dev51_1 from "../assets/project-51-1.png";
 import dev51_2 from "../assets/project-51-2.png";
 import ethosImage from "../assets/project-ethos.jpg";
@@ -7,9 +7,8 @@ import ethos3 from "../assets/project-ethos-3.jpg";
 import halcyonImage from "../assets/project-halcyon.jpg";
 import halcyon2 from "../assets/project-halcyon-2.jpg";
 import halcyon3 from "../assets/project-halcyon-3.jpg";
-import lumenImage from "../assets/project-lumen.jpg";
+import balance_1 from "../assets/project-balance-1.png";
 import balance_2 from "../assets/project-balance-2.png";
-import lumen3 from "../assets/project-lumen-3.jpg";
 import atlasImage from "../assets/project-atlas.jpg";
 import atlas2 from "../assets/project-atlas-2.jpg";
 import atlas3 from "../assets/project-atlas-3.jpg";
@@ -41,7 +40,7 @@ export const projects: Project[] = [
     description:
       "Wait for Later",
     image: gaitImage,
-    images: [gaitImage],
+    images: [gait_1],
     tags: ["Python", "Computer Vision"],
   },
   {
@@ -79,8 +78,8 @@ export const projects: Project[] = [
       "A self-balncing robot featuring object detection and wireless remote control.",
     description:
       "Wait for Later",
-    image: lumenImage,
-    images: [lumenImage, balance_2, lumen3],
+    image: balance_1,
+    images: [balance_1, balance_2],
     tags: ["Robotics", "PID", "Embedded Systems", "Computer Vision", "Flutter"],
   },
   {
