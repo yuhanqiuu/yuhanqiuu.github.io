@@ -119,11 +119,11 @@ export const projects: Project[] = [
     slug: "me-playing-bach",
     title: "Bonus: Me Playing Bach",
     category: "Performance",
-    year: "2025",
+    year: "2024",
     summary:
-      "A solo piano performance of a Bach work — a personal recording shared as part of my portfolio.",
+      "Thanks for viewing this portfolio. This is my solo piano performance of Prelude in C Major. Enjoy!",
     description:
-      "A solo piano performance of a Bach work, recorded and shared as a personal creative project.",
+      "Wait for Later",
     image: bachPoster.url,
     images: [bachPoster.url],
     poster: bachPoster.url,
