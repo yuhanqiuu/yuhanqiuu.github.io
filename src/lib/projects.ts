@@ -124,9 +124,9 @@ export const projects: Project[] = [
       "Thanks for viewing this portfolio. This is my solo piano performance of Prelude in C Major. Enjoy!",
     description:
       "Wait for Later",
-    image: bachPoster.url,
-    images: [bachPoster.url],
-    poster: bachPoster.url,
+    image: bachPoster,
+    images: [bachPoster],
+    poster: bachPoster,
     video: "https://youtu.be/fU3B2pN_iLU",
     tags: ["Music", "Piano"],
   },
