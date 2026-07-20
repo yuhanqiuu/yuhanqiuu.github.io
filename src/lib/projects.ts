@@ -124,9 +124,9 @@ export const projects: Project[] = [
       "A solo piano performance of a Bach work — a personal recording shared as part of my portfolio.",
     description:
       "A solo piano performance of a Bach work, recorded and shared as a personal creative project.",
-    image: bachPoster,
-    images: [bachPoster],
-    poster: bachPoster,
+    image: bachPoster.url,
+    images: [bachPoster.url],
+    poster: bachPoster.url,
     video: "https://youtu.be/fU3B2pN_iLU",
     tags: ["Music", "Piano"],
   },
