@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import { getProjectBySlug, projects, type Project } from "../lib/projects";
+import { VideoLightbox, PlayOverlay } from "../components/VideoLightbox";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
