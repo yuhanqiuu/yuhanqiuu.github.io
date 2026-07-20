@@ -1,6 +1,21 @@
 import { useEffect } from "react";
 import { X } from "lucide-react";
 
+function getYouTubeId(url: string): string | null {
+  try {
+    const u = new URL(url);
+    if (u.hostname === "youtu.be") return u.pathname.slice(1) || null;
+    if (u.hostname.includes("youtube.com")) {
+      if (u.pathname === "/watch") return u.searchParams.get("v");
+      if (u.pathname.startsWith("/embed/")) return u.pathname.split("/")[2] || null;
+      if (u.pathname.startsWith("/shorts/")) return u.pathname.split("/")[2] || null;
+    }
+  } catch {
+    return null;
+  }
+  return null;
+}
+
 export function VideoLightbox({
   src,
   open,
@@ -28,6 +43,8 @@ export function VideoLightbox({
 
   if (!open) return null;
 
+  const ytId = getYouTubeId(src);
+
   return (
     <div
       role="dialog"
@@ -44,14 +61,29 @@ export function VideoLightbox({
       >
         <X className="h-5 w-5" strokeWidth={1.75} />
       </button>
-      <video
-        src={src}
-        controls
-        autoPlay
-        playsInline
-        onClick={(e) => e.stopPropagation()}
-        className="max-h-[90vh] max-w-[95vw] rounded-md shadow-2xl"
-      />
+      {ytId ? (
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="relative w-full max-w-[95vw] md:max-w-5xl aspect-video overflow-hidden rounded-md shadow-2xl bg-black"
+        >
+          <iframe
+            src={`https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0`}
+            title={title ?? "Video player"}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 h-full w-full"
+          />
+        </div>
+      ) : (
+        <video
+          src={src}
+          controls
+          autoPlay
+          playsInline
+          onClick={(e) => e.stopPropagation()}
+          className="max-h-[90vh] max-w-[95vw] rounded-md shadow-2xl"
+        />
+      )}
     </div>
   );
 }
