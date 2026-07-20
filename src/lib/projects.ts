@@ -69,9 +69,11 @@ export const projects: Project[] = [
       "A miniaturized telehealth system designed for home-based care, enabling continuous, low-cost monitoring of tissue health",
     description:
       "Wait for Later",
-    image: halcyonImage,
-    images: [halcyonImage, halcyon2, halcyon3],
-    tags: ["Typography", "Type Design"],
+    image: ultrasoundPoster,
+    images: [ultrasoundPoster],
+    poster: ultrasoundPoster,
+    video: ultrasoundVideoAsset.url,
+    tags: ["FPGA", "Medical Devices", "Embedded Systems"],
   },
   {
     slug: "autonomous-self-balancing-robot",
