@@ -43,7 +43,7 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
         to="/projects/$slug"
         params={{ slug: project.slug }}
         aria-label={`View ${project.title}`}
-        className="group relative block aspect-[4/3] w-full overflow-hidden bg-muted"
+        className="group relative block aspect-square w-full overflow-hidden bg-muted"
       >
         {images.map((src, idx) => (
           <img

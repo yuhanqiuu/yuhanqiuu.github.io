@@ -74,7 +74,7 @@ function ProjectDetail() {
           {project.description}
         </p>
 
-        <div className="mt-12 relative aspect-[4/3] w-full overflow-hidden bg-muted">
+        <div className="mt-12 relative aspect-square w-full overflow-hidden bg-muted">
           {images.map((src, idx) => (
             <img
               key={src}
