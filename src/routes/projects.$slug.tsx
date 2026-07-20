@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import { getProjectBySlug, projects, type Project } from "../lib/projects";
+import { VideoLightbox, PlayOverlay } from "../components/VideoLightbox";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -40,8 +41,10 @@ function ProjectDetail() {
   const { project } = Route.useLoaderData() as { project: Project };
   const images = project.images?.length ? project.images : [project.image];
   const [index, setIndex] = useState(0);
+  const [videoOpen, setVideoOpen] = useState(false);
   const count = images.length;
   const go = (n: number) => setIndex((index + n + count) % count);
+  const hasVideo = Boolean(project.video);
 
   const currentIdx = projects.findIndex((p) => p.slug === project.slug);
   const next = projects[(currentIdx + 1) % projects.length];
@@ -74,53 +77,78 @@ function ProjectDetail() {
           {project.description}
         </p>
 
-        <div className="mt-12 relative aspect-square w-full overflow-hidden bg-muted">
-          {images.map((src, idx) => (
+        {hasVideo ? (
+          <button
+            type="button"
+            onClick={() => setVideoOpen(true)}
+            aria-label={`Play video for ${project.title}`}
+            className="group mt-12 relative block aspect-square w-full overflow-hidden bg-muted cursor-pointer"
+          >
             <img
-              key={src}
-              src={src}
-              alt={`${project.title} — image ${idx + 1}`}
-              loading={idx === 0 ? "eager" : "lazy"}
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
-                idx === index ? "opacity-100" : "opacity-0"
-              }`}
+              src={project.poster ?? images[0]}
+              alt={`${project.title} — video thumbnail`}
+              className="absolute inset-0 h-full w-full object-cover"
             />
-          ))}
+            <PlayOverlay />
+          </button>
+        ) : (
+          <div className="mt-12 relative aspect-square w-full overflow-hidden bg-muted">
+            {images.map((src, idx) => (
+              <img
+                key={src}
+                src={src}
+                alt={`${project.title} — image ${idx + 1}`}
+                loading={idx === 0 ? "eager" : "lazy"}
+                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
+                  idx === index ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            ))}
 
-          {count > 1 && (
-            <>
-              <button
-                type="button"
-                onClick={() => go(-1)}
-                aria-label="Previous image"
-                className="absolute left-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-canvas/85 text-ink backdrop-blur transition-colors hover:bg-canvas"
-              >
-                <ChevronLeft className="h-4 w-4" strokeWidth={1.75} />
-              </button>
-              <button
-                type="button"
-                onClick={() => go(1)}
-                aria-label="Next image"
-                className="absolute right-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-canvas/85 text-ink backdrop-blur transition-colors hover:bg-canvas"
-              >
-                <ChevronRight className="h-4 w-4" strokeWidth={1.75} />
-              </button>
-              <div className="absolute inset-x-0 bottom-4 flex justify-center gap-1.5">
-                {images.map((_, idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    onClick={() => setIndex(idx)}
-                    aria-label={`Go to image ${idx + 1}`}
-                    className={`h-1.5 rounded-full transition-all ${
-                      idx === index ? "w-6 bg-ink" : "w-1.5 bg-ink/40 hover:bg-ink/70"
-                    }`}
-                  />
-                ))}
-              </div>
-            </>
-          )}
-        </div>
+            {count > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => go(-1)}
+                  aria-label="Previous image"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-canvas/85 text-ink backdrop-blur transition-colors hover:bg-canvas"
+                >
+                  <ChevronLeft className="h-4 w-4" strokeWidth={1.75} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => go(1)}
+                  aria-label="Next image"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-canvas/85 text-ink backdrop-blur transition-colors hover:bg-canvas"
+                >
+                  <ChevronRight className="h-4 w-4" strokeWidth={1.75} />
+                </button>
+                <div className="absolute inset-x-0 bottom-4 flex justify-center gap-1.5">
+                  {images.map((_, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setIndex(idx)}
+                      aria-label={`Go to image ${idx + 1}`}
+                      className={`h-1.5 rounded-full transition-all ${
+                        idx === index ? "w-6 bg-ink" : "w-1.5 bg-ink/40 hover:bg-ink/70"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        )}
+
+        {hasVideo && (
+          <VideoLightbox
+            src={project.video!}
+            open={videoOpen}
+            onClose={() => setVideoOpen(false)}
+            title={project.title}
+          />
+        )}
 
         {project.tags?.length ? (
           <div className="mt-12 border-t border-ink/15 pt-8">

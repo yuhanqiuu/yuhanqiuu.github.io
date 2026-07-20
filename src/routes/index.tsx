@@ -4,6 +4,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { AtSign, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { projects, type Project } from "../lib/projects";
 import resumeAsset from "../assets/resume.pdf.asset.json";
+import { VideoLightbox, PlayOverlay } from "../components/VideoLightbox";
 
 function downloadResume() {
   const a = document.createElement("a");
@@ -29,69 +30,91 @@ export const Route = createFileRoute("/")({
 function ProjectCard({ project, i }: { project: Project; i: number }) {
   const images = project.images?.length ? project.images : [project.image];
   const [index, setIndex] = useState(0);
+  const [videoOpen, setVideoOpen] = useState(false);
   const count = images.length;
   const go = (n: number) => setIndex((index + n + count) % count);
+  const hasVideo = Boolean(project.video);
 
   const stop = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
   };
 
+  const mediaClass =
+    "group relative block aspect-square w-full overflow-hidden bg-muted";
+  const mediaInner = (
+    <>
+      {images.map((src, idx) => (
+        <img
+          key={src}
+          src={src}
+          alt={`${project.title} — image ${idx + 1}`}
+          loading={i < 2 && idx === 0 ? "eager" : "lazy"}
+          width={1024}
+          height={768}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${idx === index ? "opacity-100" : "opacity-0"
+            }`}
+        />
+      ))}
+
+      {hasVideo && <PlayOverlay />}
+
+      {!hasVideo && count > 1 && (
+        <>
+          <button
+            type="button"
+            onClick={(e) => { stop(e); go(-1); }}
+            aria-label="Previous image"
+            className="absolute left-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-canvas/80 text-ink opacity-0 backdrop-blur transition-opacity hover:bg-canvas group-hover:opacity-100 focus-visible:opacity-100"
+          >
+            <ChevronLeft className="h-4 w-4" strokeWidth={1.75} />
+          </button>
+          <button
+            type="button"
+            onClick={(e) => { stop(e); go(1); }}
+            aria-label="Next image"
+            className="absolute right-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-canvas/80 text-ink opacity-0 backdrop-blur transition-opacity hover:bg-canvas group-hover:opacity-100 focus-visible:opacity-100"
+          >
+            <ChevronRight className="h-4 w-4" strokeWidth={1.75} />
+          </button>
+          <div className="absolute inset-x-0 bottom-3 flex justify-center gap-1.5">
+            {images.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={(e) => { stop(e); setIndex(idx); }}
+                aria-label={`Go to image ${idx + 1}`}
+                className={`h-1.5 rounded-full transition-all ${idx === index ? "w-5 bg-ink" : "w-1.5 bg-ink/40 hover:bg-ink/70"
+                  }`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </>
+  );
+
   return (
     <article>
-      <Link
-        to="/projects/$slug"
-        params={{ slug: project.slug }}
-        aria-label={`View ${project.title}`}
-        className="group relative block aspect-square w-full overflow-hidden bg-muted"
-      >
-        {images.map((src, idx) => (
-          <img
-            key={src}
-            src={src}
-            alt={`${project.title} — image ${idx + 1}`}
-            loading={i < 2 && idx === 0 ? "eager" : "lazy"}
-            width={1024}
-            height={768}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${idx === index ? "opacity-100" : "opacity-0"
-              }`}
-          />
-        ))}
-
-
-        {count > 1 && (
-          <>
-            <button
-              type="button"
-              onClick={(e) => { stop(e); go(-1); }}
-              aria-label="Previous image"
-              className="absolute left-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-canvas/80 text-ink opacity-0 backdrop-blur transition-opacity hover:bg-canvas group-hover:opacity-100 focus-visible:opacity-100"
-            >
-              <ChevronLeft className="h-4 w-4" strokeWidth={1.75} />
-            </button>
-            <button
-              type="button"
-              onClick={(e) => { stop(e); go(1); }}
-              aria-label="Next image"
-              className="absolute right-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-canvas/80 text-ink opacity-0 backdrop-blur transition-opacity hover:bg-canvas group-hover:opacity-100 focus-visible:opacity-100"
-            >
-              <ChevronRight className="h-4 w-4" strokeWidth={1.75} />
-            </button>
-            <div className="absolute inset-x-0 bottom-3 flex justify-center gap-1.5">
-              {images.map((_, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  onClick={(e) => { stop(e); setIndex(idx); }}
-                  aria-label={`Go to image ${idx + 1}`}
-                  className={`h-1.5 rounded-full transition-all ${idx === index ? "w-5 bg-ink" : "w-1.5 bg-ink/40 hover:bg-ink/70"
-                    }`}
-                />
-              ))}
-            </div>
-          </>
-        )}
-      </Link>
+      {hasVideo ? (
+        <button
+          type="button"
+          onClick={() => setVideoOpen(true)}
+          aria-label={`Play video for ${project.title}`}
+          className={mediaClass + " cursor-pointer text-left"}
+        >
+          {mediaInner}
+        </button>
+      ) : (
+        <Link
+          to="/projects/$slug"
+          params={{ slug: project.slug }}
+          aria-label={`View ${project.title}`}
+          className={mediaClass}
+        >
+          {mediaInner}
+        </Link>
+      )}
       <Link
         to="/projects/$slug"
         params={{ slug: project.slug }}
@@ -105,6 +128,14 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
       <p className="mt-3 text-sm leading-relaxed text-ink-muted">
         {project.summary}
       </p>
+      {hasVideo && (
+        <VideoLightbox
+          src={project.video!}
+          open={videoOpen}
+          onClose={() => setVideoOpen(false)}
+          title={project.title}
+        />
+      )}
     </article>
   );
 }

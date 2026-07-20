@@ -15,6 +15,8 @@ import atlas3 from "../assets/project-atlas-3.jpg";
 import formaImage from "../assets/project-forma.jpg";
 import forma2 from "../assets/project-forma-2.jpg";
 import forma3 from "../assets/project-forma-3.jpg";
+import ultrasoundPoster from "../assets/project-ultrasound-poster.jpg";
+import ultrasoundVideoAsset from "../assets/ultrasenics-demo.mp4.asset.json";
 
 export interface Project {
   slug: string;
@@ -27,6 +29,8 @@ export interface Project {
   images: string[];
   tags: string[];
   link?: string;
+  video?: string;
+  poster?: string;
 }
 
 export const projects: Project[] = [
@@ -65,9 +69,11 @@ export const projects: Project[] = [
       "A miniaturized telehealth system designed for home-based care, enabling continuous, low-cost monitoring of tissue health",
     description:
       "Wait for Later",
-    image: halcyonImage,
-    images: [halcyonImage, halcyon2, halcyon3],
-    tags: ["Typography", "Type Design"],
+    image: ultrasoundPoster,
+    images: [ultrasoundPoster],
+    poster: ultrasoundPoster,
+    video: ultrasoundVideoAsset.url,
+    tags: ["FPGA", "Medical Devices", "Embedded Systems"],
   },
   {
     slug: "autonomous-self-balancing-robot",
