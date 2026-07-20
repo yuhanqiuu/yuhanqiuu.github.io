@@ -41,8 +41,10 @@ function ProjectDetail() {
   const { project } = Route.useLoaderData() as { project: Project };
   const images = project.images?.length ? project.images : [project.image];
   const [index, setIndex] = useState(0);
+  const [videoOpen, setVideoOpen] = useState(false);
   const count = images.length;
   const go = (n: number) => setIndex((index + n + count) % count);
+  const hasVideo = Boolean(project.video);
 
   const currentIdx = projects.findIndex((p) => p.slug === project.slug);
   const next = projects[(currentIdx + 1) % projects.length];
