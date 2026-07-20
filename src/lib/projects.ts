@@ -16,7 +16,7 @@ import formaImage from "../assets/project-forma.jpg";
 import forma2 from "../assets/project-forma-2.jpg";
 import forma3 from "../assets/project-forma-3.jpg";
 import ultrasoundPoster from "../assets/project-ultrasound-poster.png";
-import ultrasoundVideoAsset from "../assets/ultrasenics-demo.mp4.asset.json";
+
 
 export interface Project {
   slug: string;
