@@ -115,6 +115,21 @@ export const projects: Project[] = [
     images: [formaImage, forma2, forma3],
     tags: ["Packaging", "Identity"],
   },
+  {
+    slug: "me-playing-bach",
+    title: "Me Playing Bach",
+    category: "Performance",
+    year: "2025",
+    summary:
+      "A solo piano performance of a Bach work — a personal recording shared as part of my portfolio.",
+    description:
+      "A solo piano performance of a Bach work, recorded and shared as a personal creative project.",
+    image: bachPoster,
+    images: [bachPoster],
+    poster: bachPoster,
+    video: "https://youtu.be/fU3B2pN_iLU",
+    tags: ["Music", "Piano"],
+  },
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {
