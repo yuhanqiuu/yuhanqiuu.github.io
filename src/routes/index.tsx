@@ -4,6 +4,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { AtSign, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { projects, type Project } from "../lib/projects";
 import resumeAsset from "../assets/resume.pdf.asset.json";
+import { VideoLightbox, PlayOverlay } from "../components/VideoLightbox";
 
 function downloadResume() {
   const a = document.createElement("a");
