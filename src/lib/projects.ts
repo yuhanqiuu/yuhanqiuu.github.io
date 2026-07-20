@@ -72,7 +72,7 @@ export const projects: Project[] = [
     image: ultrasoundPoster,
     images: [ultrasoundPoster],
     poster: ultrasoundPoster,
-    video: ultrasoundVideoAsset.url,
+    video: "https://youtu.be/MPopVZgi72s",
     tags: ["FPGA", "Medical Devices", "Embedded Systems"],
   },
   {
