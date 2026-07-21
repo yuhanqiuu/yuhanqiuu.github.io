@@ -221,10 +221,10 @@ function Index() {
       </header>
 
       <main id="top" className="mx-auto max-w-none px-4 pt-32">
-        {/* Intro + first two projects in one shared row */}
-        <div className="grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+        {/* Intro + first two projects share one 3-column row */}
+        <section id="work" className="grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-3">
           {/* Intro column */}
-          <section className="border-t border-ink/15 pt-8">
+          <div className="border-t border-ink/15 pt-8">
             <h1 className="font-serif text-4xl font-bold leading-[1.05] tracking-tight md:text-5xl">
               Yuhan Qiu
             </h1>
@@ -232,7 +232,7 @@ function Index() {
               Electrical Engineer
             </p>
 
-            <p className="mt-8 max-w-[46ch] text-sm leading-relaxed text-ink-muted">
+            <p className="mt-8 text-sm leading-relaxed text-ink-muted">
               Hello and welcome to my Portfolio! My name is Ruby (Yuhan) Qiu, and I am an Electrical Engineer with experience in FPGA development, PCB design, and embedded systems.
               Through industry internships, research, and engineering projects, I have completed projects involving autonomous robotics, medical devices, as well as recreational coding applications.
             </p>
@@ -249,15 +249,12 @@ function Index() {
                 strokeWidth={2}
               />
             </button>
-          </section>
+          </div>
 
-          {/* First two projects beside the intro */}
-          <section id="work" className="grid scroll-mt-24 grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-3">
-            {projects.slice(0, 2).map((project, i) => (
-              <ProjectCard key={project.slug} project={project} i={i} />
-            ))}
-          </section>
-        </div>
+          {projects.slice(0, 2).map((project, i) => (
+            <ProjectCard key={project.slug} project={project} i={i} />
+          ))}
+        </section>
 
         {/* Remaining projects: three per row */}
         <section className="mt-14 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-3">
