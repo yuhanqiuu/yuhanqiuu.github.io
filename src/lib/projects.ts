@@ -9,7 +9,7 @@ import halcyon2 from "../assets/project-halcyon-2.jpg";
 import halcyon3 from "../assets/project-halcyon-3.jpg";
 import balance_1 from "../assets/project-balance-1.png";
 import balance_2 from "../assets/project-balance-2.png";
-import atlasImage from "../assets/project-atlas.jpg";
+import heart_1 from "../assets/project-heart-1.jpeg";
 import atlas2 from "../assets/project-atlas-2.jpg";
 import atlas3 from "../assets/project-atlas-3.jpg";
 import metal_1 from "../assets/project-metal-1.jpeg";
@@ -98,8 +98,8 @@ export const projects: Project[] = [
       "A real-time cardio health monitor with live heart rate visualization on an oscillocscope and LCD-based health feedback.",
     description:
       "Wait for Later",
-    image: atlasImage,
-    images: [atlasImage, atlas2, atlas3],
+    image: heart_1,
+    images: [heart_1, atlas2, atlas3],
     tags: ["Medical Devices", "Embedded Systems"],
   },
   {
