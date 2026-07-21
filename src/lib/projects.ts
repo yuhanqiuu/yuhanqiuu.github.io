@@ -116,7 +116,7 @@ export const projects: Project[] = [
     category: "Embedded System",
     year: "2024",
     summary:
-      "An oven controller to assist PCB solder reflow, using programmable heating profiles and LCD monitoring",
+      "An oven controller designed for PCB solder reflow, using programmable heating profiles and real-time LCD temperature monitoring.",
     description:
       "Wait for Later",
     image: oven_1,
