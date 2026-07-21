@@ -16,6 +16,7 @@ const projectSlugs = [
   "autonomous-self-balancing-robot",
   "cardio-health-monitor",
   "metal-detector-rover",
+  "reflow-oven-controller",
   "me-playing-bach",
 ];
 

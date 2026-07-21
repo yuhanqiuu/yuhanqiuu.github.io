@@ -1,18 +1,13 @@
 import gait_1 from "../assets/project-gait-1.png";
 import dev51_1 from "../assets/project-51-1.png";
 import dev51_2 from "../assets/project-51-2.png";
-import ethosImage from "../assets/project-ethos.jpg";
-import ethos2 from "../assets/project-ethos-2.jpg";
-import ethos3 from "../assets/project-ethos-3.jpg";
-import halcyonImage from "../assets/project-halcyon.jpg";
-import halcyon2 from "../assets/project-halcyon-2.jpg";
-import halcyon3 from "../assets/project-halcyon-3.jpg";
 import balance_1 from "../assets/project-balance-1.png";
 import balance_2 from "../assets/project-balance-2.png";
 import heart_1 from "../assets/project-heart-1.png";
 import metal_1 from "../assets/project-metal-1.jpeg";
 import metal_2 from "../assets/project-metal-2.png";
 import metal_3 from "../assets/project-metal-3.png";
+import oven_1 from "../assets/project-oven-1.png";
 import ultrasoundPoster from "../assets/project-ultrasound-poster.png";
 import bachPoster from "../assets/project-bach-poster.png";
 
@@ -113,6 +108,19 @@ export const projects: Project[] = [
       "Wait for Later",
     image: metal_1,
     images: [metal_1, metal_2, metal_3],
+    tags: ["Embedded Systems"],
+  },
+  {
+    slug: "reflow-oven-controller",
+    title: "Reflow Oven Controller",
+    category: "Embedded System",
+    year: "2024",
+    summary:
+      "An oven controller to assist PCB solder reflow, using programmable heating profiles and LCD monitoring",
+    description:
+      "Wait for Later",
+    image: oven_1,
+    images: [oven_1],
     tags: ["Embedded Systems"],
   },
   {
