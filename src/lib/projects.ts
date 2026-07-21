@@ -10,8 +10,6 @@ import halcyon3 from "../assets/project-halcyon-3.jpg";
 import balance_1 from "../assets/project-balance-1.png";
 import balance_2 from "../assets/project-balance-2.png";
 import heart_1 from "../assets/project-heart-1.jpeg";
-import atlas2 from "../assets/project-atlas-2.jpg";
-import atlas3 from "../assets/project-atlas-3.jpg";
 import metal_1 from "../assets/project-metal-1.jpeg";
 import metal_2 from "../assets/project-metal-2.png";
 import forma3 from "../assets/project-forma-3.jpg";
