@@ -12,7 +12,7 @@ import balance_2 from "../assets/project-balance-2.png";
 import heart_1 from "../assets/project-heart-1.png";
 import metal_1 from "../assets/project-metal-1.jpeg";
 import metal_2 from "../assets/project-metal-2.png";
-import forma3 from "../assets/project-forma-3.jpg";
+import metal_3 from "../assets/project-metal-3.png";
 import ultrasoundPoster from "../assets/project-ultrasound-poster.png";
 import bachPoster from "../assets/project-bach-poster.png";
 
@@ -112,7 +112,7 @@ export const projects: Project[] = [
     description:
       "Wait for Later",
     image: metal_1,
-    images: [metal_1, metal_2],
+    images: [metal_1, metal_2, metal_3],
     tags: ["Embedded Systems"],
   },
   {
