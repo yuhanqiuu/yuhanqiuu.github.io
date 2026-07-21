@@ -17,6 +17,7 @@ import metal_2 from "../assets/project-metal-2.png";
 import forma3 from "../assets/project-forma-3.jpg";
 import ultrasoundPoster from "../assets/project-ultrasound-poster.png";
 import bachPoster from "../assets/project-bach-poster.png";
+import cardioPoster from "../assets/project-cardio-poster.jpg";
 
 
 export interface Project {
