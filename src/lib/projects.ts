@@ -97,9 +97,9 @@ export const projects: Project[] = [
       "A real-time cardio health monitor with live heart rate visualization on an oscillocscope and LCD-based health feedback.",
     description:
       "Wait for Later",
-    image: cardioPoster,
-    images: [cardioPoster, heart_1],
-    poster: cardioPoster,
+    image: heart_1,
+    images: [heart_1, cardioPoster],
+    poster: heart_1,
     video: "https://youtube.com/shorts/5wjq4J4NAsk",
     tags: ["Medical Devices", "Embedded Systems"],
   },
