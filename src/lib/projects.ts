@@ -10,13 +10,12 @@ import halcyon3 from "../assets/project-halcyon-3.jpg";
 import balance_1 from "../assets/project-balance-1.png";
 import balance_2 from "../assets/project-balance-2.png";
 import heart_1 from "../assets/project-heart-1.jpeg";
-import atlas2 from "../assets/project-atlas-2.jpg";
-import atlas3 from "../assets/project-atlas-3.jpg";
 import metal_1 from "../assets/project-metal-1.jpeg";
 import metal_2 from "../assets/project-metal-2.png";
 import forma3 from "../assets/project-forma-3.jpg";
 import ultrasoundPoster from "../assets/project-ultrasound-poster.png";
 import bachPoster from "../assets/project-bach-poster.png";
+import cardioPoster from "../assets/project-cardio-poster.jpg";
 
 
 export interface Project {
@@ -98,8 +97,10 @@ export const projects: Project[] = [
       "A real-time cardio health monitor with live heart rate visualization on an oscillocscope and LCD-based health feedback.",
     description:
       "Wait for Later",
-    image: heart_1,
-    images: [heart_1, atlas2, atlas3],
+    image: cardioPoster,
+    images: [cardioPoster, heart_1],
+    poster: cardioPoster,
+    video: "https://youtube.com/shorts/5wjq4J4NAsk",
     tags: ["Medical Devices", "Embedded Systems"],
   },
   {
