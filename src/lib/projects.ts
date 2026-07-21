@@ -67,7 +67,7 @@ export const projects: Project[] = [
     category: "FPGA",
     year: "2026",
     summary:
-      "A miniaturized telehealth system designed for home-based care, enabling continuous, low-cost monitoring of tissue health",
+      "A miniaturized telehealth system designed for home-based care, enabling continuous, low-cost monitoring of tissue health.",
     description:
       "Wait for Later",
     image: ultrasoundPoster,
