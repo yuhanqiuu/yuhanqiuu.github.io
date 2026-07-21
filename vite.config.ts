@@ -14,7 +14,7 @@ const projectSlugs = [
   "8051-mcu-development-board",
   "portable-ultrasound-transducer-for-medical-imaging",
   "autonomous-self-balancing-robot",
-  "atlas-monograph",
+  "cardio-health-monitor",
   "metal-detector-rover",
   "me-playing-bach",
 ];

@@ -90,17 +90,17 @@ export const projects: Project[] = [
     tags: ["Robotics", "PID", "Embedded Systems", "Computer Vision", "Flutter"],
   },
   {
-    slug: "atlas-monograph",
-    title: "Atlas Monograph",
-    category: "Editorial",
-    year: "2023",
+    slug: "cardio-health-monitor",
+    title: "Cardio Health Monitor",
+    category: "Embedded System",
+    year: "2024",
     summary:
-      "A 240-page monograph documenting a decade of studio practice — commissioned print design, typesetting, and image direction.",
+      "A real-time cardio health monitor with live heart rate visualization on an oscillocscope and LCD-based health feedback.",
     description:
-      "A 240-page monograph documenting a decade of studio practice — print design, typesetting, and image direction.",
+      "Wait for Later",
     image: atlasImage,
     images: [atlasImage, atlas2, atlas3],
-    tags: ["Print", "Editorial", "Book"],
+    tags: ["Medical Devices", "Embedded Systems"],
   },
   {
     slug: "metal-detector-rover",
@@ -113,7 +113,7 @@ export const projects: Project[] = [
       "Wait for Later",
     image: metal_1,
     images: [metal_1, metal_2],
-    tags: ["Embedded C"],
+    tags: ["Embedded Systems"],
   },
   {
     slug: "me-playing-bach",
