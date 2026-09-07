@@ -80,7 +80,7 @@ function ProjectDetail() {
         <p className="text-xs font-medium uppercase tracking-wider text-accent">
           {project.category} · {project.year}
         </p>
-        <h1 className="mt-4 font-serif text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl">
+        <h1 className="mt-4 text-3xl font-bold leading-[1.1] tracking-tight md:text-4xl">
           {project.title}
         </h1>
         {overview ? (
