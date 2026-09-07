@@ -200,7 +200,7 @@ function ProjectDetail() {
           <div className="mt-16 space-y-16">
             {project.sections.map((section) => (
               <section key={section.heading}>
-                <h2 className="font-serif text-xl font-bold tracking-tight">
+                <h2 className="text-lg font-bold tracking-tight">
                   {section.heading}
                 </h2>
                 <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-ink-muted">
