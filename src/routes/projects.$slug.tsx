@@ -266,7 +266,7 @@ function ProjectDetail() {
               <ArrowLeft className="h-3 w-3" strokeWidth={1.75} />
               Previous
             </span>
-            <span className="font-serif text-sm font-bold tracking-tight">
+            <span className="text-sm font-bold tracking-tight">
               {prev.title}
             </span>
           </Link>
