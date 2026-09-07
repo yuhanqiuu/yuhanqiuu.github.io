@@ -73,13 +73,14 @@ function ProjectDetail() {
 
       {/* Floating PDF-style page card */}
       <article
-        className="mx-auto mt-28 mb-16 max-w-3xl rounded-xl border border-ink/5 bg-canvas px-6 py-10 shadow-[0_2px_8px_-2px_oklch(0.55_0.012_250/0.10),0_18px_50px_-20px_oklch(0.55_0.012_250/0.22)] sm:px-10 sm:py-14 md:px-14"
+        style={{ fontFamily: 'Arial, "Helvetica Neue", Helvetica, sans-serif' }}
+        className="mx-auto mt-32 mb-24 max-w-2xl rounded-xl border border-ink/5 bg-canvas px-7 py-12 shadow-[0_2px_8px_-2px_oklch(0.55_0.012_250/0.10),0_18px_50px_-20px_oklch(0.55_0.012_250/0.22)] sm:px-12 md:px-14"
       >
       {/* Title block */}
         <p className="text-xs font-medium uppercase tracking-wider text-accent">
           {project.category} · {project.year}
         </p>
-        <h1 className="mt-4 font-serif text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl">
+        <h1 className="mt-4 text-3xl font-bold leading-[1.1] tracking-tight md:text-4xl">
           {project.title}
         </h1>
         {overview ? (
@@ -199,7 +200,7 @@ function ProjectDetail() {
           <div className="mt-16 space-y-16">
             {project.sections.map((section) => (
               <section key={section.heading}>
-                <h2 className="font-serif text-xl font-bold tracking-tight">
+                <h2 className="text-lg font-bold tracking-tight">
                   {section.heading}
                 </h2>
                 <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-ink-muted">
@@ -265,7 +266,7 @@ function ProjectDetail() {
               <ArrowLeft className="h-3 w-3" strokeWidth={1.75} />
               Previous
             </span>
-            <span className="font-serif text-sm font-bold tracking-tight">
+            <span className="text-sm font-bold tracking-tight">
               {prev.title}
             </span>
           </Link>
@@ -278,7 +279,7 @@ function ProjectDetail() {
               Next
               <ChevronRight className="h-3 w-3" strokeWidth={1.75} />
             </span>
-            <span className="font-serif text-sm font-bold tracking-tight">
+            <span className="text-sm font-bold tracking-tight">
               {next.title}
             </span>
           </Link>
