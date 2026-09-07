@@ -95,6 +95,42 @@ export const projects: Project[] = [
     poster: ultrasoundPoster,
     video: "https://youtu.be/MPopVZgi72s",
     tags: ["FPGA", "Medical Devices", "Embedded Systems"],
+
+    // — Worked example article. Specs/figures are drafts — correct as needed. —
+    overview:
+      "A miniaturized telehealth ultrasound system built for home-based care, enabling continuous, low-cost monitoring of tissue health. The system pairs a compact transducer front end with FPGA-based signal processing to deliver diagnostic-quality imaging without the cost or footprint of a clinical cart.",
+    specs: [
+      { label: "Role", value: "System & FPGA engineer" },
+      { label: "Tools", value: "Verilog / HDL, Quartus, KiCad" },
+      { label: "Platform", value: "FPGA + custom analog front end" },
+      { label: "Timeline", value: "2026" },
+      { label: "Status", value: "Prototype" },
+    ],
+    sections: [
+      {
+        heading: "Overview",
+        body: [
+          "Conventional ultrasound systems are large, costly, and tethered to a clinical cart, which makes continuous, at-home tissue monitoring impractical. This project reimagines the imaging front end as a compact device a patient can use outside the clinic.",
+          "By combining a miniaturized transducer with an FPGA that handles the heavy signal processing, the system keeps BOM cost and power low while still producing images sharp enough to track tissue changes over time.",
+        ],
+      },
+      {
+        heading: "Signal chain & FPGA processing",
+        body: [
+          "A pulser drives the transducer to emit an acoustic pulse; the returning echoes are first amplified by the receive analog front end and then digitized.",
+          "The FPGA then applies filtering and beamforming to reconstruct a focused image frame in real time, offloading work that would otherwise need a much larger, costlier processor.",
+        ],
+        image: ultrasoundPoster,
+        caption: "System poster — portable ultrasound front end and imaging pipeline.",
+      },
+      {
+        heading: "System design",
+        body: [
+          "Mechanical and electrical design were kept compact for handheld use, with the power budget tuned for continuous monitoring rather than short clinical scans.",
+          "Imaging data is passed through a telehealth path so clinicians can review tissue health remotely, closing the loop between home use and clinical follow-up.",
+        ],
+      },
+    ],
   },
   {
     slug: "autonomous-self-balancing-robot",
