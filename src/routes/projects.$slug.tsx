@@ -84,7 +84,7 @@ function ProjectDetail() {
           {project.title}
         </h1>
         {overview ? (
-          <p className="mt-6 text-lg leading-relaxed text-ink-muted">
+          <p className="mt-6 text-lg leading-relaxed text-ink/85">
             {overview}
           </p>
         ) : null}
@@ -203,7 +203,7 @@ function ProjectDetail() {
                 <h2 className="text-lg font-bold tracking-tight">
                   {section.heading}
                 </h2>
-                <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-ink-muted">
+                <div className="mt-4 space-y-4 text-[16px] leading-[1.75] text-ink/85">
                   {section.body.map((para, i) => (
                     <p key={i}>{para}</p>
                   ))}
@@ -229,7 +229,7 @@ function ProjectDetail() {
             ))}
           </div>
         ) : (
-          <p className="mt-16 text-[15px] leading-relaxed text-ink-muted">
+          <p className="mt-16 text-[16px] leading-[1.75] text-ink/85">
             {project.description !== "Wait for Later"
               ? project.description
               : "Full case study coming soon."}
