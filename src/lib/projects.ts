@@ -12,6 +12,20 @@ import ultrasoundPoster from "../assets/project-ultrasound-poster.png";
 import bachPoster from "../assets/project-bach-poster.png";
 
 
+export interface ProjectSpec {
+  label: string;
+  value: string;
+}
+
+export interface ProjectSection {
+  heading: string;
+  /** Paragraphs rendered in order. */
+  body: string[];
+  /** Optional inline figure shown below the text. */
+  image?: string;
+  caption?: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -25,6 +39,19 @@ export interface Project {
   link?: string;
   video?: string;
   poster?: string;
+
+  /**
+   * Article-only fields. All optional so existing projects keep working as
+   * short cards. Fill these to turn a project into a full detail article.
+   */
+  /** Lead paragraph shown beneath the title. Falls back to `summary`. */
+  overview?: string;
+  /** Small spec grid, e.g. Role / Tools / Timeline / Status. */
+  specs?: ProjectSpec[];
+  /** Long-form body sections with optional inline figures. */
+  sections?: ProjectSection[];
+  /** Optional external link label (defaults to "View project"). */
+  linkLabel?: string;
 }
 
 export const projects: Project[] = [
