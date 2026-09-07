@@ -71,8 +71,11 @@ function ProjectDetail() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-3xl px-4 pt-32 pb-24">
-        {/* Title block */}
+      {/* Floating PDF-style page card */}
+      <article
+        className="mx-auto mt-28 mb-16 max-w-3xl rounded-xl border border-ink/5 bg-canvas px-6 py-10 shadow-[0_2px_8px_-2px_oklch(0.55_0.012_250/0.10),0_18px_50px_-20px_oklch(0.55_0.012_250/0.22)] sm:px-10 sm:py-14 md:px-14"
+      >
+      {/* Title block */}
         <p className="text-xs font-medium uppercase tracking-wider text-accent">
           {project.category} · {project.year}
         </p>
@@ -290,7 +293,7 @@ function ProjectDetail() {
             All projects
           </Link>
         </div>
-      </main>
+      </article>
 
       <footer className="py-10 text-center text-xs text-ink-muted/60">
         © {new Date().getFullYear()} Yuhan Qiu
