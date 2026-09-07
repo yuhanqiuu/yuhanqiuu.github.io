@@ -73,7 +73,8 @@ function ProjectDetail() {
 
       {/* Floating PDF-style page card */}
       <article
-        className="mx-auto mt-28 mb-16 max-w-3xl rounded-xl border border-ink/5 bg-canvas px-6 py-10 shadow-[0_2px_8px_-2px_oklch(0.55_0.012_250/0.10),0_18px_50px_-20px_oklch(0.55_0.012_250/0.22)] sm:px-10 sm:py-14 md:px-14"
+        style={{ fontFamily: 'Arial, "Helvetica Neue", Helvetica, sans-serif' }}
+        className="mx-auto mt-32 mb-24 max-w-2xl rounded-xl border border-ink/5 bg-canvas px-7 py-12 shadow-[0_2px_8px_-2px_oklch(0.55_0.012_250/0.10),0_18px_50px_-20px_oklch(0.55_0.012_250/0.22)] sm:px-12 md:px-14"
       >
       {/* Title block */}
         <p className="text-xs font-medium uppercase tracking-wider text-accent">
