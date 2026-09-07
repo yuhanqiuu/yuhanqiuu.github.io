@@ -84,7 +84,7 @@ function ProjectDetail() {
           {project.title}
         </h1>
         {overview ? (
-          <p className="mt-6 text-lg leading-relaxed text-ink-muted">
+          <p className="mt-6 text-lg leading-relaxed text-ink/85">
             {overview}
           </p>
         ) : null}
