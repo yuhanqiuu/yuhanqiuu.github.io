@@ -279,7 +279,7 @@ function ProjectDetail() {
               Next
               <ChevronRight className="h-3 w-3" strokeWidth={1.75} />
             </span>
-            <span className="font-serif text-sm font-bold tracking-tight">
+            <span className="text-sm font-bold tracking-tight">
               {next.title}
             </span>
           </Link>
