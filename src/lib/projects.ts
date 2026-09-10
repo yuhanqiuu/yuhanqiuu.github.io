@@ -157,6 +157,12 @@ export const projects: Project[] = [
     image: balance_1,
     images: [balance_1, balance_2],
     tags: ["Robotics", "PID", "Embedded Systems", "Computer Vision", "Flutter"],
+    specs: [
+      { label: "Tool", value: "C, Flutter" },
+      { label: "Focus", value: "PID self-balancing + object detection" },
+      { label: "Timeline", value: "2025" },
+      { label: "Status", value: "Prototype" },
+    ],
   },
   {
     slug: "cardio-health-monitor",
@@ -172,6 +178,12 @@ export const projects: Project[] = [
     poster: heart_1,
     video: "https://youtube.com/shorts/5wjq4J4NAsk",
     tags: ["Medical Devices", "Embedded Systems"],
+    specs: [
+      { label: "Tool", value: "C" },
+      { label: "Focus", value: "Real-time heart rate monitoring" },
+      { label: "Timeline", value: "2024" },
+      { label: "Status", value: "Built" },
+    ],
   },
   {
     slug: "metal-detector-rover",
@@ -185,6 +197,12 @@ export const projects: Project[] = [
     image: metal_1,
     images: [metal_1, metal_2, metal_3],
     tags: ["Embedded Systems"],
+    specs: [
+      { label: "Tool", value: "C" },
+      { label: "Focus", value: "Wireless metal detection rover" },
+      { label: "Timeline", value: "2024" },
+      { label: "Status", value: "Built" },
+    ],
   },
   {
     slug: "reflow-oven-controller",
@@ -198,6 +216,12 @@ export const projects: Project[] = [
     image: oven_1,
     images: [oven_1],
     tags: ["Embedded Systems"],
+    specs: [
+      { label: "Tool", value: "C" },
+      { label: "Focus", value: "PCB solder reflow temperature control" },
+      { label: "Timeline", value: "2024" },
+      { label: "Status", value: "Built" },
+    ],
   },
   {
     slug: "me-playing-bach",
@@ -213,6 +237,12 @@ export const projects: Project[] = [
     poster: bachPoster,
     video: "https://youtu.be/fU3B2pN_iLU",
     tags: ["Music", "Piano"],
+    specs: [
+      { label: "Tool", value: "Piano" },
+      { label: "Focus", value: "Solo piano performance" },
+      { label: "Timeline", value: "2024" },
+      { label: "Status", value: "Completed" },
+    ],
   },
 ];
 
