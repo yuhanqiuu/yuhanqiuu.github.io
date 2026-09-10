@@ -54,6 +54,8 @@ export interface Project {
   linkLabel?: string;
 }
 
+// All projects use a standardized spec grid: Tool, Focus, Timeline, Status.
+// Values below are drafts based on each project's summary/tags — correct as needed.
 export const projects: Project[] = [
   {
     slug: "depth-camera-based-3d-gait-analysis",
@@ -67,6 +69,12 @@ export const projects: Project[] = [
     image: gait_1,
     images: [gait_1],
     tags: ["Python", "Computer Vision"],
+    specs: [
+      { label: "Tool", value: "Python, OpenCV" },
+      { label: "Focus", value: "3D skeletal gait analysis" },
+      { label: "Timeline", value: "2026" },
+      { label: "Status", value: "Research" },
+    ],
   },
   {
     slug: "8051-mcu-development-board",
@@ -79,7 +87,13 @@ export const projects: Project[] = [
       "Wait for Later",
     image: dev51_1,
     images: [dev51_1, dev51_2],
-    tags: ["Identity", "Web Design", "Archive", "UX"],
+    tags: ["Embedded Systems", "PCB Design"],
+    specs: [
+      { label: "Tool", value: "KiCad, C" },
+      { label: "Focus", value: "STC89C52RC development board" },
+      { label: "Timeline", value: "2026" },
+      { label: "Status", value: "Built" },
+    ],
   },
   {
     slug: "portable-ultrasound-transducer-for-medical-imaging",
