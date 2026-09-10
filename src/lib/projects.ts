@@ -123,15 +123,13 @@ export const projects: Project[] = [
       {
         heading: "Overview",
         body: [
-          "Conventional ultrasound systems are large, costly, and tethered to a clinical cart, which makes continuous, at-home tissue monitoring impractical. This project reimagines the imaging front end as a compact device a patient can use outside the clinic.",
-          "By combining a miniaturized transducer with an FPGA that handles the heavy signal processing, the system keeps BOM cost and power low while still producing images sharp enough to track tissue changes over time.",
+          "This project aimed to design and prototype a compact, wearable ultrasound imaging system capable of real-time data acquisition and wireless transmission for home-based medical diagnostics. Traditional ultrasound systems are bulky, expensive, and require clinical environments, limiting accessibility. Our goal was to develop a scalable embedded system that enables continuous, non-invasive monitoring by integrating multi-channel sensing, real-time signal processing, and high-speed communication into a compact form factor.",
         ],
       },
       {
-        heading: "Signal chain & FPGA processing",
+        heading: "High-Level Design",
         body: [
-          "A pulser drives the transducer to emit an acoustic pulse; the returning echoes are first amplified by the receive analog front end and then digitized.",
-          "The FPGA then applies filtering and beamforming to reconstruct a focused image frame in real time, offloading work that would otherwise need a much larger, costlier processor.",
+          "The system integrates analog, digital, and communication subsystems coordinated by an FPGA. A 16-channel transducer array is driven by programmable high-voltage pulses (~26 Vpp), while echo signals are amplified, digitized at ≥60 MSPS, and processed in real time. To support scalability and debugging, the hardware was designed as a modular multi-board system, separating the FPGA SoM, analog front-end (AFE), and high-voltage pulser. This enabled independent development and reduced integration complexity when working across high-speed digital and sensitive analog domains.",
         ],
         image: ultrasoundPoster,
         caption: "System poster — portable ultrasound front end and imaging pipeline.",
