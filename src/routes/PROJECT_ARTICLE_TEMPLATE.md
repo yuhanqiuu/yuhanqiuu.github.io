@@ -14,11 +14,12 @@ Required (already used by the home page):
 
 Optional — turn the detail page into a clean article:
 - `overview` — lead paragraph under the title. Falls back to `summary` if omitted.
-- `specs` — small 2-column metadata grid.
+- `specs` — small 2-column metadata grid. Use exactly these four labels:
+  **Tool, Focus, Timeline, Status**.
   ```ts
   specs: [
-    { label: "Role", value: "Hardware lead" },
-    { label: "Tools", value: "KiCad, Verilog, ESP32" },
+    { label: "Tool", value: "KiCad, Verilog, ESP32" },
+    { label: "Focus", value: "Embedded control + sensing" },
     { label: "Timeline", value: "Jan – May 2026" },
     { label: "Status", value: "Completed" },
   ]
@@ -49,7 +50,7 @@ Optional — turn the detail page into a clean article:
 1. Eyebrow — `Category · Year`
 2. Title (serif)
 3. Overview lead paragraph
-4. Spec grid (Role / Tools / …) — if `specs` set
+4. Spec grid (Tool / Focus / Timeline / Status) — if `specs` set
 5. Hero media — video + lightbox if `video`, else an image carousel
 6. External link — if `link` set
 7. Long-form sections — if `sections` set, else the `description`
@@ -75,9 +76,10 @@ import balance_1 from "../assets/project-balance-1.png";
   // —— article fields ——
   overview: "A two-wheel self-balancer stabilized by a cascaded PID loop…",
   specs: [
-    { label: "Role", value: "Sole engineer" },
-    { label: "Tools", value: "STM32, MPU6050, OpenCV" },
+    { label: "Tool", value: "STM32, MPU6050, OpenCV" },
+    { label: "Focus", value: "PID self-balancing + object detection" },
     { label: "Timeline", value: "2025" },
+    { label: "Status", value: "Prototype" },
   ],
   sections: [
     {
