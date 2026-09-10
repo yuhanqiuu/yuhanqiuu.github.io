@@ -114,10 +114,10 @@ export const projects: Project[] = [
     overview:
       "A miniaturized telehealth ultrasound system built for home-based care, enabling continuous, low-cost monitoring of tissue health. The system pairs a compact transducer front end with FPGA-based signal processing to deliver diagnostic-quality imaging without the cost or footprint of a clinical cart.",
     specs: [
-      { label: "Tool", value: "Verilog / HDL, Quartus, KiCad" },
-      { label: "Focus", value: "FPGA + custom analog front end" },
+      { label: "Tool", value: "SystemVerilog, FPGA, Vivado, SPI, JESD204B, MATLAB, Wi-Fi 6E" },
+      { label: "Focus", value: "FPGA + Signal Processing + Hardware Integration + AFE" },
       { label: "Timeline", value: "2026" },
-      { label: "Status", value: "Prototype" },
+      { label: "Status", value: "Complete" },
     ],
     sections: [
       {
