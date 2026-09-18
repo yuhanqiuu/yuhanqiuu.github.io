@@ -9,6 +9,7 @@ import metal_2 from "../assets/project-metal-2.png";
 import metal_3 from "../assets/project-metal-3.png";
 import oven_1 from "../assets/project-oven-1.png";
 import ultrasoundPoster from "../assets/project-ultrasound-poster.png";
+import ultra_2 from "../assets/project-ultra-1.png"
 import bachPoster from "../assets/project-bach-poster.png";
 
 
@@ -131,8 +132,8 @@ export const projects: Project[] = [
         body: [
           "The system integrates analog, digital, and communication subsystems coordinated by an FPGA. A 16-channel transducer array is driven by programmable high-voltage pulses (~26 Vpp), while echo signals are amplified, digitized at ≥60 MSPS, and processed in real time. To support scalability and debugging, the hardware was designed as a modular multi-board system, separating the FPGA SoM, analog front-end (AFE), and high-voltage pulser. This enabled independent development and reduced integration complexity when working across high-speed digital and sensitive analog domains.",
         ],
-        image: ultrasoundPoster,
-        caption: "System poster — portable ultrasound front end and imaging pipeline.",
+        image: ultra_2,
+        caption: "Complete Ultrasound System Architecture Showing Transmit, Receive, and FPGA Processing Pathways",
       },
       {
         heading: "System design",
