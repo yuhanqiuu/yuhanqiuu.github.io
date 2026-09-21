@@ -54,7 +54,7 @@ function ProjectDetail() {
   const prev = projects[(currentIdx - 1 + projects.length) % projects.length];
 
   return (
-    <div className="min-h-screen bg-slate-200 font-sans text-ink">
+    <div className="min-h-screen bg-slate-300 font-sans text-ink">
       {/* Fixed header */}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/5 bg-canvas/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-none items-center justify-between px-4">
