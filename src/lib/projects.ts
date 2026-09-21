@@ -19,11 +19,21 @@ export interface ProjectSpec {
   value: string;
 }
 
+/** An inline figure rendered between paragraphs within a section's `body`. */
+export interface ProjectSectionImage {
+  image: string;
+  caption?: string;
+}
+
 export interface ProjectSection {
   heading: string;
-  /** Paragraphs rendered in order. */
-  body: string[];
-  /** Optional inline figure shown below the text. */
+  /**
+   * Section content rendered in order. Each entry is either a paragraph
+   * (string) or an inline figure (`{ image, caption }`) shown between the
+   * surrounding paragraphs.
+   */
+  body: (string | ProjectSectionImage)[];
+  /** Optional inline figure shown below the whole section body. */
   image?: string;
   caption?: string;
 }
