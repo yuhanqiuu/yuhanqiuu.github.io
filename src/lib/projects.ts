@@ -143,25 +143,27 @@ export const projects: Project[] = [
         caption: "Complete Ultrasound System Architecture Showing Transmit, Receive, and FPGA Processing Pathways",
       },
       {
-        heading: "My Role",
+        heading: "My Contribution",
         body: [
-          "My primary contribution focused on FPGA-based signal processing and system integration. I developed a 16-channel preprocessing pipeline with synchronized acquisition, filtering, envelope detection, and decimation for real-time ultrasound processing. I also implemented FPGA–AFE control interfaces for programmable timing, gain control, and channel selection.",
-          "I contributed to the Doppler processing pipeline, validating FFT-based frequency detection using simulated echo signals. To address the ~11.5 Gbps raw RF data rate, we implemented on-FPGA preprocessing that reduced data volume by 10–100×, making wireless transmission more practical.",
+          "My primary contribution focused on FPGA-based signal processing and system integration. I developed a 16-channel preprocessing pipeline with synchronized acquisition, filtering, envelope detection, and decimation for real-time ultrasound processing. I also implemented FPGA - AFE control interfaces for programmable timing, gain control, and channel selection.",
+
+          "I contributed to the Doppler processing pipeline, validating FFT-based frequency detection using simulated echo signals. To address the ~11.5 Gbps raw RF data rate, we implemented on-FPGA preprocessing that reduced data volume by 10 - 100x, making wireless transmission more practical.",
+
           "I also supported hardware integration and validation of the 26 Vpp transmit path and analog receive circuitry. This project strengthened my experience in FPGA development, signal processing, hardware integration, and system-level debugging."
         ],
       },
       {
         heading: "Detailed Design",
         body: [
-          "The pulser subsystem supports excitation frequencies up to 12 MHz. A low-side gate driver converts the FPGA’s 3.3 V PWM into 26 V pulses, with 4.5 ns rise and 4 ns fall times. A 16-channel FPGA-controlled HV multiplexer selects transducer elements, while a T/R switch protects the receive path. The pulser is implemented on a compact 4-layer 45.5 × 35.5 mm PCB.",
+          "The pulser subsystem supports excitation frequencies up to 12 MHz. A low-side gate driver converts the FPGA's 3.3 V PWM into 26 V pulses, with 4.5 ns rise and 4 ns fall times. A 16-channel FPGA-controlled HV multiplexer selects transducer elements, while a T/R switch protects the receive path. The pulser is implemented on a compact 4-layer 45.5 x 35.5 mm PCB.",
 
-          "The AFE daughterboard is a compact 6-layer 30 × 30 mm PCB based on the AD9671 analog front end. It provides low-noise amplification, variable gain, anti-alias filtering, and digitization at up to 80 MSPS with 14-bit resolution. Digitized data is transferred to the FPGA through JESD204B differential lanes.",
+          "The AFE daughterboard is a compact 6-layer 30 x 30 mm PCB based on the AD9671 analog front end. It provides low-noise amplification, variable gain, anti-alias filtering, and digitization at up to 80 MSPS with 14-bit resolution. Digitized data is transferred to the FPGA through JESD204B differential lanes.",
 
           "The FPGA implements 16-channel TX/RX control with synchronized timing across the transducer array. It generates phased transmit pulses and controls deterministic receive windows for echo acquisition. RTL simulations verified correct PRF generation and RX gating.",
 
           "The FPGA imaging pipeline includes B-mode and Doppler preprocessing. FFT-based Doppler processing was validated using a 64-sample simulated echo ensemble, producing the expected frequency peak. B-mode quadrature demodulation and envelope detection were also validated using simulated reflector locations.",
 
-          "Wireless transmission was validated through TCP streaming over Wi-Fi 6E using simulated ultrasound frames. Testing achieved 40.8–54.2 Mbps throughput and 77.8–6.5 fps depending on frame size. Performance was limited by the DE1-SoC USB 2.0 interface, while the target Zynq platform supports USB 3.0 for higher bandwidth."
+          "Wireless transmission was validated through TCP streaming over Wi-Fi 6E using simulated ultrasound frames. Testing achieved 40.8 - 54.2 Mbps throughput and 77.8 - 6.5 fps depending on frame size. Performance was limited by the DE1-SoC USB 2.0 interface, while the target Zynq platform supports USB 3.0 for higher bandwidth."
         ],
       }
     ],
