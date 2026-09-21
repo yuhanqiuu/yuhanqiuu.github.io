@@ -24,18 +24,24 @@ Optional — turn the detail page into a clean article:
     { label: "Status", value: "Completed" },
   ]
   ```
-- `sections` — long-form body. Each section has a heading, paragraph(s), and an
-  optional inline figure + caption. Omit to show `description` instead.
+- `sections` — long-form body. Each section has a heading and a `body` array.
+  A `body` entry is either a paragraph (string) or an inline figure shown
+  *between* the surrounding paragraphs:
+  `{ image: someImage, caption: "…" }`.
+  A section can also carry one trailing figure via `image` / `caption`,
+  shown after the whole body. Omit `sections` to show `description` instead.
   ```ts
   sections: [
     {
       heading: "Overview",
       body: [
         "First paragraph…",
-        "Second paragraph…",
+        { image: someImage, caption: "Bench testing the sensor board." },
+        "Second paragraph after the figure…",
       ],
-      image: someImage, // optional import from ../assets
-      caption: "Bench testing the sensor board.", // optional
+      // optional trailing figure after all body entries:
+      image: someImage,
+      caption: "Final result.",
     },
   ]
   ```
