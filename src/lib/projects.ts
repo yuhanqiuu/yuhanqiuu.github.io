@@ -153,9 +153,10 @@ export const projects: Project[] = [
         caption: "Complete Ultrasound System Architecture Showing Transmit, Receive, and FPGA Processing Pathways",
       },
       {
-        heading: "My Role",
+        heading: "My Contribution",
         body: [
           "My primary contribution focused on FPGA-based signal processing and system integration. I developed a 16-channel preprocessing pipeline with synchronized acquisition, filtering, envelope detection, and decimation for real-time ultrasound processing. I also implemented FPGA–AFE control interfaces for programmable timing, gain control, and channel selection.",
+          { image: ultra_2, caption: "16-channel FPGA preprocessing pipeline" },
           "I contributed to the Doppler processing pipeline, validating FFT-based frequency detection using simulated echo signals. To address the ~11.5 Gbps raw RF data rate, we implemented on-FPGA preprocessing that reduced data volume by 10–100×, making wireless transmission more practical.",
           "I also supported hardware integration and validation of the 26 Vpp transmit path and analog receive circuitry. This project strengthened my experience in FPGA development, signal processing, hardware integration, and system-level debugging."
         ],
