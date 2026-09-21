@@ -9,7 +9,8 @@ import metal_2 from "../assets/project-metal-2.png";
 import metal_3 from "../assets/project-metal-3.png";
 import oven_1 from "../assets/project-oven-1.png";
 import ultrasoundPoster from "../assets/project-ultrasound-poster.png";
-import ultra_2 from "../assets/project-ultra-1.png"
+import ultra_1 from "../assets/project-ultra-1.png"
+import ultra_2 from "../assets/project-ultra-2.png"
 import bachPoster from "../assets/project-bach-poster.png";
 
 
@@ -124,15 +125,21 @@ export const projects: Project[] = [
       {
         heading: "Overview",
         body: [
-          "This project aimed to design and prototype a compact, wearable ultrasound imaging system capable of real-time data acquisition and wireless transmission for home-based medical diagnostics. Traditional ultrasound systems are bulky, expensive, and require clinical environments, limiting accessibility. Our goal was to develop a scalable embedded system that enables continuous, non-invasive monitoring by integrating multi-channel sensing, real-time signal processing, and high-speed communication into a compact form factor.",
+          "This project develops a compact 16-channel ultrasound system for portable medical imaging. It integrates FPGA-based signal processing, a high-voltage pulser, an analog front end, and wireless transmission. The modular design provides a scalable platform for future wearable ultrasound which are more affordable and more convenient",
         ],
+      },
+      {
+        heading: "Introduction",
+        body: [
+          "Conventional hospital ultrasound transducers are large, expensive, and difficult to access. Our client, NeuroPrior AI, is a technology company that aims to provide home-based medical care. As a part of this mission, the company seeks to develop a miniature, wearable ultrasound transducer device. This design enables patients to access affordable ultrasound imaging services at home via their personal computers, while providing key benefits of a conventional ultrasound transducer, such as non-penetration, real-time performance, and high resolution."
+        ]
       },
       {
         heading: "High-Level Design",
         body: [
           "The system integrates analog, digital, and communication subsystems coordinated by an FPGA. A 16-channel transducer array is driven by programmable high-voltage pulses (~26 Vpp), while echo signals are amplified, digitized at ≥60 MSPS, and processed in real time. To support scalability and debugging, the hardware was designed as a modular multi-board system, separating the FPGA SoM, analog front-end (AFE), and high-voltage pulser. This enabled independent development and reduced integration complexity when working across high-speed digital and sensitive analog domains.",
         ],
-        image: ultra_2,
+        image: ultra_1,
         caption: "Complete Ultrasound System Architecture Showing Transmit, Receive, and FPGA Processing Pathways",
       },
       {
