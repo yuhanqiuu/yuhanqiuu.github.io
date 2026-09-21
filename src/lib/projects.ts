@@ -47,7 +47,6 @@ export interface Project {
   description: string;
   image: string;
   images: string[];
-  tags: string[];
   link?: string;
   video?: string;
   poster?: string;
