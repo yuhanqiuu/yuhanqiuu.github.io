@@ -254,25 +254,6 @@ function ProjectDetail() {
           </p>
         )}
 
-        {/* Tags */}
-        {project.tags?.length ? (
-          <div className="mt-16 border-t border-ink/15 pt-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">
-              Disciplines
-            </p>
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
-                <li
-                  key={tag}
-                  className="rounded-full border border-ink/15 px-3 py-1 text-xs text-ink"
-                >
-                  {tag}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
-
         {/* Prev / Next */}
         <nav className="mt-16 grid grid-cols-2 gap-4 border-t border-ink/15 pt-8">
           <Link
