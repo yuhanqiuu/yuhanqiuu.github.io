@@ -47,7 +47,6 @@ export interface Project {
   description: string;
   image: string;
   images: string[];
-  tags: string[];
   link?: string;
   video?: string;
   poster?: string;
@@ -80,13 +79,6 @@ export const projects: Project[] = [
       "Wait for Later",
     image: gait_1,
     images: [gait_1],
-    tags: ["Python", "Computer Vision"],
-    specs: [
-      { label: "Tool", value: "Python, OpenCV" },
-      { label: "Focus", value: "3D skeletal gait analysis" },
-      { label: "Timeline", value: "2026" },
-      { label: "Status", value: "Research" },
-    ],
   },
   {
     slug: "8051-mcu-development-board",
@@ -99,13 +91,6 @@ export const projects: Project[] = [
       "Wait for Later",
     image: dev51_1,
     images: [dev51_1, dev51_2],
-    tags: ["Embedded Systems", "PCB Design"],
-    specs: [
-      { label: "Tool", value: "KiCad, C" },
-      { label: "Focus", value: "STC89C52RC development board" },
-      { label: "Timeline", value: "2026" },
-      { label: "Status", value: "Built" },
-    ],
   },
   {
     slug: "portable-ultrasound-transducer-for-medical-imaging",
@@ -120,17 +105,6 @@ export const projects: Project[] = [
     images: [ultrasoundPoster],
     poster: ultrasoundPoster,
     video: "https://youtu.be/MPopVZgi72s",
-    tags: ["FPGA", "Medical Devices", "Embedded Systems"],
-
-    // — Worked example article. Specs/figures are drafts — correct as needed. —
-    overview:
-      "A miniaturized telehealth ultrasound system built for home-based care, enabling continuous, low-cost monitoring of tissue health. The system pairs a compact transducer front end with FPGA-based signal processing to deliver diagnostic-quality imaging without the cost or footprint of a clinical cart.",
-    specs: [
-      { label: "Tool", value: "SystemVerilog, FPGA, Vivado, SPI, Altium Designer, MATLAB, Wi-Fi 6E" },
-      { label: "Focus", value: "FPGA Design, Signal Processing, Hardware Integration, Custimized PCB" },
-      { label: "Timeline", value: "2026" },
-      { label: "Status", value: "Complete" },
-    ],
     sections: [
       {
         heading: "Overview",
@@ -188,13 +162,6 @@ export const projects: Project[] = [
       "Wait for Later",
     image: balance_1,
     images: [balance_1, balance_2],
-    tags: ["Robotics", "PID", "Embedded Systems", "Computer Vision", "Flutter"],
-    specs: [
-      { label: "Tool", value: "C, Flutter" },
-      { label: "Focus", value: "PID self-balancing + object detection" },
-      { label: "Timeline", value: "2025" },
-      { label: "Status", value: "Prototype" },
-    ],
   },
   {
     slug: "cardio-health-monitor",
@@ -209,13 +176,6 @@ export const projects: Project[] = [
     images: [heart_1],
     poster: heart_1,
     video: "https://youtube.com/shorts/5wjq4J4NAsk",
-    tags: ["Medical Devices", "Embedded Systems"],
-    specs: [
-      { label: "Tool", value: "C" },
-      { label: "Focus", value: "Real-time heart rate monitoring" },
-      { label: "Timeline", value: "2024" },
-      { label: "Status", value: "Built" },
-    ],
   },
   {
     slug: "metal-detector-rover",
@@ -228,13 +188,6 @@ export const projects: Project[] = [
       "Wait for Later",
     image: metal_1,
     images: [metal_1, metal_2, metal_3],
-    tags: ["Embedded Systems"],
-    specs: [
-      { label: "Tool", value: "C" },
-      { label: "Focus", value: "Wireless metal detection rover" },
-      { label: "Timeline", value: "2024" },
-      { label: "Status", value: "Built" },
-    ],
   },
   {
     slug: "reflow-oven-controller",
@@ -247,13 +200,6 @@ export const projects: Project[] = [
       "Wait for Later",
     image: oven_1,
     images: [oven_1],
-    tags: ["Embedded Systems"],
-    specs: [
-      { label: "Tool", value: "C" },
-      { label: "Focus", value: "PCB solder reflow temperature control" },
-      { label: "Timeline", value: "2024" },
-      { label: "Status", value: "Built" },
-    ],
   },
   {
     slug: "me-playing-bach",
@@ -268,13 +214,6 @@ export const projects: Project[] = [
     images: [bachPoster],
     poster: bachPoster,
     video: "https://youtu.be/fU3B2pN_iLU",
-    tags: ["Music", "Piano"],
-    specs: [
-      { label: "Tool", value: "Piano" },
-      { label: "Focus", value: "Solo piano performance" },
-      { label: "Timeline", value: "2024" },
-      { label: "Status", value: "Completed" },
-    ],
   },
 ];
 
