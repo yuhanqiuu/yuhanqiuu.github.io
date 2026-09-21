@@ -204,9 +204,27 @@ function ProjectDetail() {
                   {section.heading}
                 </h2>
                 <div className="mt-4 space-y-4 text-[17px] leading-[1.8] text-ink">
-                  {section.body.map((para, i) => (
-                    <p key={i}>{para}</p>
-                  ))}
+                  {section.body.map((item, i) =>
+                    typeof item === "string" ? (
+                      <p key={i}>{item}</p>
+                    ) : (
+                      <figure key={i} className="my-2">
+                        <div className="overflow-hidden bg-muted">
+                          <img
+                            src={item.image}
+                            alt={item.caption ?? section.heading}
+                            loading="lazy"
+                            className="aspect-video w-full object-cover"
+                          />
+                        </div>
+                        {item.caption ? (
+                          <figcaption className="mt-2 text-[13px] text-ink-muted">
+                            {item.caption}
+                          </figcaption>
+                        ) : null}
+                      </figure>
+                    )
+                  )}
                 </div>
                 {section.image ? (
                   <figure className="mt-6">

@@ -19,11 +19,21 @@ export interface ProjectSpec {
   value: string;
 }
 
+/** An inline figure rendered between paragraphs within a section's `body`. */
+export interface ProjectSectionImage {
+  image: string;
+  caption?: string;
+}
+
 export interface ProjectSection {
   heading: string;
-  /** Paragraphs rendered in order. */
-  body: string[];
-  /** Optional inline figure shown below the text. */
+  /**
+   * Section content rendered in order. Each entry is either a paragraph
+   * (string) or an inline figure (`{ image, caption }`) shown between the
+   * surrounding paragraphs.
+   */
+  body: (string | ProjectSectionImage)[];
+  /** Optional inline figure shown below the whole section body. */
   image?: string;
   caption?: string;
 }
@@ -132,7 +142,8 @@ export const projects: Project[] = [
         heading: "Introduction",
         body: [
           "Conventional hospital ultrasound transducers are large, expensive, and difficult to access. Our client, NeuroPrior AI, is a technology company that aims to provide home-based medical care. As a part of this mission, the company seeks to develop a miniature, wearable ultrasound transducer device. This design enables patients to access affordable ultrasound imaging services at home via their personal computers, while providing key benefits of a conventional ultrasound transducer, such as non-penetration, real-time performance, and high resolution."
-        ]
+        ],
+        image: ultra_2
       },
       {
         heading: "High-Level Design",
@@ -145,10 +156,8 @@ export const projects: Project[] = [
       {
         heading: "My Contribution",
         body: [
-          "My primary contribution focused on FPGA-based signal processing and system integration. I developed a 16-channel preprocessing pipeline with synchronized acquisition, filtering, envelope detection, and decimation for real-time ultrasound processing. I also implemented FPGA - AFE control interfaces for programmable timing, gain control, and channel selection.",
-
-          "I contributed to the Doppler processing pipeline, validating FFT-based frequency detection using simulated echo signals. To address the ~11.5 Gbps raw RF data rate, we implemented on-FPGA preprocessing that reduced data volume by 10 - 100x, making wireless transmission more practical.",
-
+          "My primary contribution focused on FPGA-based signal processing and system integration. I developed a 16-channel preprocessing pipeline with synchronized acquisition, filtering, envelope detection, and decimation for real-time ultrasound processing. I also implemented FPGA-AFE control interfaces for programmable timing, gain control, and channel selection.",
+          "I contributed to the Doppler processing pipeline, validating FFT-based frequency detection using simulated echo signals. To address the ~11.5 Gbps raw RF data rate, we implemented on-FPGA preprocessing that reduced data volume by 10-100x, making wireless transmission more practical.",
           "I also supported hardware integration and validation of the 26 Vpp transmit path and analog receive circuitry. This project strengthened my experience in FPGA development, signal processing, hardware integration, and system-level debugging."
         ],
       },
@@ -156,7 +165,7 @@ export const projects: Project[] = [
         heading: "Detailed Design",
         body: [
           "The pulser subsystem supports excitation frequencies up to 12 MHz. A low-side gate driver converts the FPGA's 3.3 V PWM into 26 V pulses, with 4.5 ns rise and 4 ns fall times. A 16-channel FPGA-controlled HV multiplexer selects transducer elements, while a T/R switch protects the receive path. The pulser is implemented on a compact 4-layer 45.5 x 35.5 mm PCB.",
-
+          
           "The AFE daughterboard is a compact 6-layer 30 x 30 mm PCB based on the AD9671 analog front end. It provides low-noise amplification, variable gain, anti-alias filtering, and digitization at up to 80 MSPS with 14-bit resolution. Digitized data is transferred to the FPGA through JESD204B differential lanes.",
 
           "The FPGA implements 16-channel TX/RX control with synchronized timing across the transducer array. It generates phased transmit pulses and controls deterministic receive windows for echo acquisition. RTL simulations verified correct PRF generation and RX gating.",
