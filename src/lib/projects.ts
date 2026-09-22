@@ -79,8 +79,6 @@ export const projects: Project[] = [
     year: "2026",
     summary:
       "A miniaturized telehealth system designed for home-based care, enabling continuous, low-cost monitoring of tissue health.",
-    description:
-      "Wait for Later",
     image: ultrasoundPoster,
     images: [ultrasoundPoster],
     poster: ultrasoundPoster,
@@ -140,8 +138,6 @@ export const projects: Project[] = [
     year: "2026",
     summary:
       "A compact, custom 8051 board based on the STC89C52RC microcontroller for embedded systems development.",
-    description:
-      "Wait for Later",
     sections: [
       {
         heading: "Overview",
@@ -192,8 +188,6 @@ export const projects: Project[] = [
     year: "2026",
     summary:
       "A Python-based analysis framework that processes 3D skeletal video to extract gait metrics, supporting the study of gait changes associated with dementia.",
-    description:
-      "Wait for Later",
     image: gait_1,
     images: [gait_1],
   },
@@ -204,8 +198,6 @@ export const projects: Project[] = [
     year: "2025",
     summary:
       "A self-balncing robot featuring object detection and wireless remote control.",
-    description:
-      "Wait for Later",
     image: balance_1,
     images: [balance_1, balance_2],
   },
@@ -216,8 +208,6 @@ export const projects: Project[] = [
     year: "2024",
     summary:
       "A real-time cardio health monitor with live heart rate visualization on an oscillocscope and LCD-based health feedback.",
-    description:
-      "Wait for Later",
     image: heart_1,
     images: [heart_1],
     poster: heart_1,
@@ -230,8 +220,6 @@ export const projects: Project[] = [
     year: "2024",
     summary:
       "A wireless metal detector robot capable of reporting magnetic field strength.",
-    description:
-      "Wait for Later",
     image: metal_1,
     images: [metal_1, metal_2, metal_3],
   },
@@ -242,8 +230,6 @@ export const projects: Project[] = [
     year: "2024",
     summary:
       "An oven controller designed for PCB solder reflow, using programmable heating profiles and real-time LCD temperature monitoring.",
-    description:
-      "Wait for Later",
     image: oven_1,
     images: [oven_1],
   },
@@ -254,8 +240,6 @@ export const projects: Project[] = [
     year: "2024",
     summary:
       "Thanks for viewing this portfolio. This is my solo piano performance of Prelude in C Major. Enjoy!",
-    description:
-      "Wait for Later",
     image: bachPoster,
     images: [bachPoster],
     poster: bachPoster,
