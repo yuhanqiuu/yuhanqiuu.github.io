@@ -248,9 +248,7 @@ function ProjectDetail() {
           </div>
         ) : (
           <p className="mt-16 text-[17px] leading-[1.8] text-ink">
-            {project.description !== "Wait for Later"
-              ? project.description
-              : "Full case study coming soon."}
+            {project.description ?? "Full case study coming soon."}
           </p>
         )}
 
