@@ -115,15 +115,17 @@ export const projects: Project[] = [
         image: ultra_3
       },
       {
-        heading: "Detailed Design & Results",
+        heading: "Detailed Design",
         body: [
-          "The pulser subsystem supports excitation frequencies up to 12 MHz. A low-side gate driver converts the FPGA's 3.3 V PWM into 26 V pulses, while a 16-channel FPGA-controlled HV multiplexer selects transducer elements. A T/R switch protects the receive path. The pulser is implemented on a compact 4-layer 45.5 x 35.5 mm PCB.",
+          "The pulser subsystem supports excitation frequencies up to 12 MHz. A low-side gate driver converts the FPGA's 3.3 V PWM into 26 V pulses, with 4.5 ns rise and 4 ns fall times. A 16-channel FPGA-controlled HV multiplexer selects transducer elements, while a T/R switch protects the receive path. The pulser is implemented on a compact 4-layer 45.5 x 35.5 mm PCB.",
 
-          "The 6-layer 30 x 30 mm AFE daughterboard is based on the AD9671 analog front end, providing low-noise amplification, variable gain, anti-alias filtering, and digitization at up to 80 MSPS with 14-bit resolution. Digitized data is transferred to the FPGA through JESD204B.",
+          "The AFE daughterboard is a compact 6-layer 30 x 30 mm PCB based on the AD9671 analog front end. It provides low-noise amplification, variable gain, anti-alias filtering, and digitization at up to 80 MSPS with 14-bit resolution. Digitized data is transferred to the FPGA through JESD204B differential lanes.",
 
-          "The FPGA implements synchronized 16-channel TX/RX control and an imaging pipeline for B-mode and Doppler preprocessing. RTL simulations verified PRF generation and RX gating, while simulated echo tests validated envelope detection and FFT-based frequency detection.",
+          "The FPGA implements 16-channel TX/RX control with synchronized timing across the transducer array. It generates phased transmit pulses and controls deterministic receive windows for echo acquisition. RTL simulations verified correct PRF generation and RX gating.",
 
-          "The integrated prototype combines the evaluation motherboard, FPGA preprocessing, transducer hardware, wireless interface, electronics enclosure, and visualization GUI. Wi-Fi testing with simulated ultrasound frames achieved 40.8 - 54.2 Mbps throughput and 77.8 - 6.5 fps depending on frame size, demonstrating end-to-end data transfer from the FPGA platform to the host computer."
+          "The FPGA imaging pipeline includes B-mode and Doppler preprocessing. FFT-based Doppler processing was validated using a 64-sample simulated echo ensemble, producing the expected frequency peak. B-mode quadrature demodulation and envelope detection were also validated using simulated reflector locations.",
+
+          "Wireless transmission was validated through TCP streaming over Wi-Fi 6E using simulated ultrasound frames. Testing achieved 40.8 - 54.2 Mbps throughput and 77.8 - 6.5 fps depending on frame size. Performance was limited by the DE1-SoC USB 2.0 interface, while the target Zynq platform supports USB 3.0 for higher bandwidth."
         ],
         image: ultra_4
       }
