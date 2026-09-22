@@ -9,8 +9,9 @@ and a **full detail article** (the `/projects/{slug}` page). The detail article 
 Required (already used by the home page):
 - `slug`, `title`, `category`, `year`
 - `summary` — one-line blurb under the card title
-- `description` — shown only if no `sections` are provided
-- `image`, `images[]`, `tags[]`
+- `description` — optional. Shown only if no `sections` are provided; if
+  omitted, the page shows "Full case study coming soon."
+- `image`, `images[]`
 
 Optional — turn the detail page into a clean article:
 - `overview` — lead paragraph under the title. Falls back to `summary` if omitted.
@@ -74,10 +75,8 @@ import balance_1 from "../assets/project-balance-1.png";
   category: "Robotics",
   year: "2025",
   summary: "A self-balancing robot featuring object detection and wireless remote control.",
-  description: "Wait for Later",
   image: balance_1,
   images: [balance_1],
-  tags: ["Robotics", "PID", "Embedded Systems"],
 
   // —— article fields ——
   overview: "A two-wheel self-balancer stabilized by a cascaded PID loop…",
@@ -99,5 +98,5 @@ import balance_1 from "../assets/project-balance-1.png";
 }
 ```
 
-Leave `description` as `"Wait for Later"` until you write real copy; the page shows
+Leave `description` omitted until you write real copy; the page shows
 "Full case study coming soon." when no `sections` are present.
