@@ -11,6 +11,7 @@ import oven_1 from "../assets/project-oven-1.png";
 import ultrasoundPoster from "../assets/project-ultrasound-poster.png";
 import ultra_1 from "../assets/project-ultra-1.png"
 import ultra_2 from "../assets/project-ultra-2.png"
+import ultra_3 from "../assets/project-ultra-3.png"
 import bachPoster from "../assets/project-bach-poster.png";
 
 
@@ -85,7 +86,7 @@ export const projects: Project[] = [
       {
         heading: "Overview",
         body: [
-          "This project develops a compact 16-channel ultrasound system for portable medical imaging. It integrates FPGA-based signal processing, a high-voltage pulser, an analog front end, and wireless transmission. The modular design provides a scalable platform for future wearable ultrasound which are more affordable and more convenient",
+          "This project develops a compact 16-channel ultrasound system for portable medical imaging. It integrates FPGA-based signal processing, a high-voltage pulser, an analog front end, and wireless transmission. The modular design provides a scalable platform for future wearable ultrasound which are more affordable and more convenient.",
         ],
       },
       {
@@ -110,6 +111,7 @@ export const projects: Project[] = [
           "I contributed to the Doppler processing pipeline, validating FFT-based frequency detection using simulated echo signals. To address the ~11.5 Gbps raw RF data rate, we implemented on-FPGA preprocessing that reduced data volume by 10-100x, making wireless transmission more practical.",
           "I also supported hardware integration and validation of the 26 Vpp transmit path and analog receive circuitry. This project strengthened my experience in FPGA development, signal processing, hardware integration, and system-level debugging."
         ],
+        image: ultra_3
       },
       {
         heading: "Detailed Design",
