@@ -48,7 +48,7 @@ export interface Project {
   category: string;
   year: string;
   summary: string;
-  description: string;
+  description?: string;
   image: string;
   images: string[];
   link?: string;
