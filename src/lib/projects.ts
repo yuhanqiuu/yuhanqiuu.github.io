@@ -12,6 +12,7 @@ import ultrasoundPoster from "../assets/project-ultrasound-poster.png";
 import ultra_1 from "../assets/project-ultra-1.png"
 import ultra_2 from "../assets/project-ultra-2.png"
 import ultra_3 from "../assets/project-ultra-3.png"
+import ultra_4 from "../assets/project-ultra-4.png"
 import bachPoster from "../assets/project-bach-poster.png";
 
 
@@ -117,7 +118,7 @@ export const projects: Project[] = [
         heading: "Detailed Design",
         body: [
           "The pulser subsystem supports excitation frequencies up to 12 MHz. A low-side gate driver converts the FPGA's 3.3 V PWM into 26 V pulses, with 4.5 ns rise and 4 ns fall times. A 16-channel FPGA-controlled HV multiplexer selects transducer elements, while a T/R switch protects the receive path. The pulser is implemented on a compact 4-layer 45.5 x 35.5 mm PCB.",
-          
+
           "The AFE daughterboard is a compact 6-layer 30 x 30 mm PCB based on the AD9671 analog front end. It provides low-noise amplification, variable gain, anti-alias filtering, and digitization at up to 80 MSPS with 14-bit resolution. Digitized data is transferred to the FPGA through JESD204B differential lanes.",
 
           "The FPGA implements 16-channel TX/RX control with synchronized timing across the transducer array. It generates phased transmit pulses and controls deterministic receive windows for echo acquisition. RTL simulations verified correct PRF generation and RX gating.",
@@ -126,6 +127,7 @@ export const projects: Project[] = [
 
           "Wireless transmission was validated through TCP streaming over Wi-Fi 6E using simulated ultrasound frames. Testing achieved 40.8 - 54.2 Mbps throughput and 77.8 - 6.5 fps depending on frame size. Performance was limited by the DE1-SoC USB 2.0 interface, while the target Zynq platform supports USB 3.0 for higher bandwidth."
         ],
+        image: ultra_4
       }
     ],
   },
