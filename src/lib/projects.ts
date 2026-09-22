@@ -69,30 +69,6 @@ export interface Project {
 // Values below are drafts based on each project's summary/tags — correct as needed.
 export const projects: Project[] = [
   {
-    slug: "depth-camera-based-3d-gait-analysis",
-    title: "Depth Camera Based 3D Gait Analysis",
-    category: "Computer Vision",
-    year: "2026",
-    summary:
-      "A Python-based analysis framework that processes 3D skeletal video to extract gait metrics, supporting the study of gait changes associated with dementia.",
-    description:
-      "Wait for Later",
-    image: gait_1,
-    images: [gait_1],
-  },
-  {
-    slug: "8051-mcu-development-board",
-    title: "8051 MCU Development Board",
-    category: "PCB Design",
-    year: "2026",
-    summary:
-      "A compact, custom 8051 board based on the STC89C52RC microcontroller for embedded systems development.",
-    description:
-      "Wait for Later",
-    image: dev51_1,
-    images: [dev51_1, dev51_2],
-  },
-  {
     slug: "portable-ultrasound-transducer-for-medical-imaging",
     title: "Portable Ultrasound Transducer for Medical Imaging",
     category: "FPGA",
@@ -150,6 +126,30 @@ export const projects: Project[] = [
         ],
       }
     ],
+  },
+  {
+    slug: "8051-mcu-development-board",
+    title: "8051 MCU Development Board",
+    category: "PCB Design",
+    year: "2026",
+    summary:
+      "A compact, custom 8051 board based on the STC89C52RC microcontroller for embedded systems development.",
+    description:
+      "Wait for Later",
+    image: dev51_1,
+    images: [dev51_1, dev51_2],
+  },
+  {
+    slug: "depth-camera-based-3d-gait-analysis",
+    title: "Depth Camera Based 3D Gait Analysis",
+    category: "Computer Vision",
+    year: "2026",
+    summary:
+      "A Python-based analysis framework that processes 3D skeletal video to extract gait metrics, supporting the study of gait changes associated with dementia.",
+    description:
+      "Wait for Later",
+    image: gait_1,
+    images: [gait_1],
   },
   {
     slug: "autonomous-self-balancing-robot",
