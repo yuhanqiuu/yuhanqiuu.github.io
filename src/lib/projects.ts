@@ -5,6 +5,9 @@ import dev51_3 from "../assets/project-51-3.png";
 import dev51_4 from "../assets/project-51-4.png";
 import balance_1 from "../assets/project-balance-1.png";
 import balance_2 from "../assets/project-balance-2.png";
+import balancePrototype from "../assets/project-balance-prototype.jpg";
+import balanceArchitecture from "../assets/project-balance-architecture.jpg";
+import balanceSimulation from "../assets/project-balance-simulation.png";
 import heart_1 from "../assets/project-heart-1.png";
 import metal_1 from "../assets/project-metal-1.jpeg";
 import metal_2 from "../assets/project-metal-2.png";
@@ -197,9 +200,61 @@ export const projects: Project[] = [
     category: "Robotics",
     year: "2025",
     summary:
-      "A self-balncing robot featuring object detection and wireless remote control.",
+      "A two-wheeled self-balancing robot integrating feedback control, Bluetooth remote operation, and live video with object detection.",
     image: balance_1,
     images: [balance_1, balance_2],
+    sections: [
+      {
+        heading: "Overview",
+        body: [
+          "This project combines real-time balance control, wireless operation, and computer vision in a two-wheeled robot. An Arduino Nano 33 BLE Sense Rev2 processes inertial measurements and wheel-speed feedback to keep the robot upright while receiving movement commands over Bluetooth. An ESP32-CAM provides live video to a computer, where a Python application detects and labels objects.",
+          "The central challenge was maintaining balance while maneuvering. This required coordinating sensor processing, motor actuation, and feedback control, then refining the system through physical testing.",
+        ],
+        image: balancePrototype,
+        caption: "The assembled prototype with a three-level chassis, motor drive system, and ESP32-CAM.",
+      },
+      {
+        heading: "System Architecture",
+        body: [
+          "The system separates balance control from video processing. The Arduino handles orientation sensing, wheel-speed feedback, motor commands, and Bluetooth communication. The ESP32-CAM sends images over Wi-Fi to an external computer running OpenCV and a pretrained SSD MobileNet model.",
+          "This arrangement keeps vision processing off the microcontroller responsible for balancing. A mobile interface provides forward, backward, turning, and stop commands, while the computer displays the camera feed with object annotations.",
+        ],
+        image: balanceArchitecture,
+        caption: "High-level communication and control architecture linking the robot, phone, and computer.",
+      },
+      {
+        heading: "Mechanical Design and Modeling",
+        body: [
+          "The chassis consists of three stacked plates supported by four metal rods. The lower level carries the battery and motors, the middle level supports the control electronics, and the upper plate provides a mounting point for the camera. SolidWorks was used to examine the assembly and estimate its mass properties, with the modeled robot weighing approximately 890 grams.",
+          "We initially modeled the robot as an inverted pendulum in MATLAB and Simulink to explore its dynamics and obtain starting PID gains. However, these gains produced poor balance on the physical prototype. The model also preceded changes to the upper plate position, limiting its relevance to the final assembly. We therefore shifted to experimental tuning based on the robot’s measured behavior.",
+        ],
+        image: balanceSimulation,
+        caption: "Early simulation model used to explore the robot’s mechanical dynamics.",
+      },
+      {
+        heading: "Balance Control and Sensor Feedback",
+        body: [
+          "The balance controller estimates tilt using the Arduino’s onboard accelerometer and gyroscope. A complementary filter combines the two measurements, providing an orientation estimate for the feedback controller. Motor PWM commands are continuously adjusted to counteract deviations from the upright position.",
+          "Angle feedback alone did not provide sufficient stability, so we added wheel-speed feedback using an AS5600 magnetic encoder. The control software combines angle regulation with speed correction to support balancing and commanded motion. A serial tuning interface allows controller parameters to be adjusted during testing without repeatedly editing and uploading the firmware.",
+          "We originally explored independent feedback from both wheels through a TCA9548A I²C multiplexer, since the encoders share the same address. Testing revealed unreliable readings from the right encoder, so the final implementation used the left encoder for speed feedback. This decision simplified the working system while leaving independent wheel-speed regulation as a future improvement.",
+        ],
+      },
+      {
+        heading: "Wireless Control and Computer Vision",
+        body: [
+          "Bluetooth commands are interpreted as movement setpoints, allowing the operator to steer while the balance controller continues running. Separate motor-control functions support forward and backward motion, differential turning, and stopping.",
+          "The ESP32-CAM provides a 320 × 240 video feed over Wi-Fi. On the computer, a Python application uses OpenCV and SSD MobileNet to identify objects and overlay bounding boxes and class labels. The application also supports sending either an original frame or an annotated image by email when requested by the operator.",
+        ],
+      },
+      {
+        heading: "Testing, Results, and Improvements",
+        body: [
+          "The completed prototype demonstrated self-balancing, Bluetooth-controlled movement, live video, and object detection. The project report records recovery from disturbances of up to 15 degrees within two seconds, Bluetooth response below 200 milliseconds under optimal conditions, and video streaming at 15 frames per second under typical Wi-Fi conditions.",
+          "Forward and backward movement remained less smooth than intended, with swaying caused by the interaction between motion commands and balance corrections. Further work would focus on refining the controller, improving sensor feedback, and restoring reliable measurements from both wheels. More consistent Wi-Fi connectivity would also improve the video experience.",
+          "The project provided practical experience in feedback control, embedded programming, mechanical integration, and computer vision. Its most valuable lesson was the importance of testing the complete physical system: simulation provided a starting point, while hardware behavior guided the final control design.",
+        ],
+      },
+    ],
   },
   {
     slug: "cardio-health-monitor",
