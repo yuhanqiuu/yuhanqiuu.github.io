@@ -223,7 +223,7 @@ export const projects: Project[] = [
         caption: "High-level communication and control architecture linking the robot, phone, and computer.",
       },
       {
-        heading: "Mechanical Design and Modeling",
+        heading: "Mechanical Design",
         body: [
           "The chassis consists of three stacked plates supported by four metal rods. The lower level carries the battery and motors, the middle level supports the control electronics, and the upper plate provides a mounting point for the camera. SolidWorks was used to examine the assembly and estimate its mass properties, with the modeled robot weighing approximately 890 grams.",
           "We initially modeled the robot as an inverted pendulum in MATLAB and Simulink to explore its dynamics and obtain starting PID gains. However, these gains produced poor balance on the physical prototype. The model also preceded changes to the upper plate position, limiting its relevance to the final assembly. We therefore shifted to experimental tuning based on the robot’s measured behavior.",
@@ -232,16 +232,11 @@ export const projects: Project[] = [
         caption: "Early simulation model used to explore the robot’s mechanical dynamics.",
       },
       {
-        heading: "Balance Control and Sensor Feedback",
+        heading: "Software Design",
         body: [
           "The balance controller estimates tilt using the Arduino’s onboard accelerometer and gyroscope. A complementary filter combines the two measurements, providing an orientation estimate for the feedback controller. Motor PWM commands are continuously adjusted to counteract deviations from the upright position.",
           "Angle feedback alone did not provide sufficient stability, so we added wheel-speed feedback using an AS5600 magnetic encoder. The control software combines angle regulation with speed correction to support balancing and commanded motion. A serial tuning interface allows controller parameters to be adjusted during testing without repeatedly editing and uploading the firmware.",
           "We originally explored independent feedback from both wheels through a TCA9548A I²C multiplexer, since the encoders share the same address. Testing revealed unreliable readings from the right encoder, so the final implementation used the left encoder for speed feedback. This decision simplified the working system while leaving independent wheel-speed regulation as a future improvement.",
-        ],
-      },
-      {
-        heading: "Wireless Control and Computer Vision",
-        body: [
           "Bluetooth commands are interpreted as movement setpoints, allowing the operator to steer while the balance controller continues running. Separate motor-control functions support forward and backward motion, differential turning, and stopping.",
           "The ESP32-CAM provides a 320 × 240 video feed over Wi-Fi. On the computer, a Python application uses OpenCV and SSD MobileNet to identify objects and overlay bounding boxes and class labels. The application also supports sending either an original frame or an annotated image by email when requested by the operator.",
         ],
