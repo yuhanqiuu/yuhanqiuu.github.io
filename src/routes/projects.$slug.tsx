@@ -71,10 +71,34 @@ function ProjectDetail() {
         </div>
       </header>
 
-      {/* Floating PDF-style page card */}
+      {/* Floating catalogue (left) + floating PDF-style page card */}
+      <div className="mx-auto mt-32 mb-24 flex max-w-4xl items-start justify-center gap-8 px-4">
+        {project.sections?.length ? (
+          <aside
+            style={{ fontFamily: 'Arial, "Helvetica Neue", Helvetica, sans-serif' }}
+            className="sticky top-24 hidden w-48 shrink-0 self-start lg:block"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-ink-muted">
+              Contents
+            </p>
+            <ol className="mt-4 space-y-2.5 border-l border-ink/15 pl-4">
+              {project.sections.map((section, i) => (
+                <li key={section.heading}>
+                  <a
+                    href={`#section-${i}`}
+                    className="flex items-start gap-2 text-[13px] leading-snug text-ink-muted transition-colors hover:text-ink"
+                  >
+                    <span className="font-semibold text-ink/60">{i + 1}.</span>
+                    <span>{section.heading}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </aside>
+        ) : null}
       <article
         style={{ fontFamily: 'Arial, "Helvetica Neue", Helvetica, sans-serif' }}
-        className="mx-auto mt-32 mb-24 max-w-[38rem] rounded-xl border border-ink/5 bg-canvas px-7 py-12 shadow-[0_2px_8px_-2px_oklch(0.55_0.012_250/0.10),0_18px_50px_-20px_oklch(0.55_0.012_250/0.22)] sm:px-10 md:px-12"
+        className="w-full max-w-[38rem] rounded-xl border border-ink/5 bg-canvas px-7 py-12 shadow-[0_2px_8px_-2px_oklch(0.55_0.012_250/0.10),0_18px_50px_-20px_oklch(0.55_0.012_250/0.22)] sm:px-10 md:px-12"
       >
       {/* Title block */}
         <p className="text-xs font-medium uppercase tracking-wider text-accent">
