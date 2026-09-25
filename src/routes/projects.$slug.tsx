@@ -142,7 +142,7 @@ function ProjectDetail() {
             <img
               src={project.poster ?? images[0]}
               alt={`${project.title} — video thumbnail`}
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-contain"
             />
             <PlayOverlay />
           </button>
@@ -155,7 +155,7 @@ function ProjectDetail() {
                   src={src}
                   alt={`${project.title} — image ${idx + 1}`}
                   loading={idx === 0 ? "eager" : "lazy"}
-                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
+                  className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 ${
                     idx === index ? "opacity-100" : "opacity-0"
                   }`}
                 />
@@ -198,14 +198,14 @@ function ProjectDetail() {
           </figure>
         )}
 
-        {hasVideo && (
+        {project.video ? (
           <VideoLightbox
-            src={project.video!}
+            src={project.video}
             open={videoOpen}
             onClose={() => setVideoOpen(false)}
             title={project.title}
           />
-        )}
+        ) : null}
 
         {/* External link */}
         {project.link ? (
@@ -243,7 +243,7 @@ function ProjectDetail() {
                             src={item.image}
                             alt={item.caption ?? section.heading}
                             loading="lazy"
-                            className="aspect-video w-full object-cover"
+                            className="aspect-video w-full object-contain"
                           />
                         </div>
                         {item.caption ? (
@@ -262,7 +262,7 @@ function ProjectDetail() {
                         src={section.image}
                         alt={section.caption ?? section.heading}
                         loading="lazy"
-                        className="aspect-video w-full object-cover"
+                        className="aspect-video w-full object-contain"
                       />
                     </div>
                     {section.caption ? (
