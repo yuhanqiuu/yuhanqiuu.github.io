@@ -317,6 +317,7 @@ function ProjectDetail() {
           </Link>
         </div>
       </article>
+      </div>
 
       <footer className="py-10 text-center text-xs text-ink-muted/60">
         © {new Date().getFullYear()} Yuhan Qiu
