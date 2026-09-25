@@ -222,10 +222,11 @@ function ProjectDetail() {
         {/* Long-form body */}
         {project.sections?.length ? (
           <div className="mt-16 space-y-16">
-            {project.sections.map((section) => (
-              <section key={section.heading}>
-                <h2 className="text-lg font-bold tracking-tight">
-                  {section.heading}
+            {project.sections.map((section, i) => (
+              <section key={section.heading} id={`section-${i}`} className="scroll-mt-24">
+                <h2 className="flex items-baseline gap-2 text-lg font-bold tracking-tight">
+                  <span className="text-ink-muted">{i + 1}.</span>
+                  <span>{section.heading}</span>
                 </h2>
                 <div className="mt-4 space-y-4 text-[17px] leading-[1.8] text-ink">
                   {section.body.map((item, i) =>
