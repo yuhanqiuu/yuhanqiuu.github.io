@@ -78,17 +78,17 @@ function ProjectDetail() {
           className="fixed left-6 top-1/2 z-30 hidden -translate-y-1/2 lg:block"
         >
           <div className="w-56 rounded-xl border border-ink/5 bg-canvas p-5 shadow-[0_2px_8px_-2px_oklch(0.55_0.012_250/0.10),0_18px_50px_-20px_oklch(0.55_0.012_250/0.22)]">
-            <p className="text-sm font-semibold uppercase tracking-[0.15em] text-ink-muted">
+            <p className="text-base font-semibold uppercase tracking-[0.15em] text-ink">
               Contents
             </p>
-            <ol className="mt-4 space-y-3 border-l border-ink/15 pl-4">
+            <ol className="mt-5 space-y-4 pl-1">
               {project.sections.map((section, i) => (
                 <li key={section.heading}>
                   <a
                     href={`#section-${i}`}
-                    className="flex items-start gap-2 text-[15px] leading-snug text-ink-muted transition-colors hover:text-ink"
+                    className="flex items-start gap-2 text-[17px] leading-snug text-ink transition-colors hover:text-accent"
                   >
-                    <span className="font-semibold text-ink/60">{i + 1}.</span>
+                    <span className="font-semibold">{i + 1}.</span>
                     <span>{section.heading}</span>
                   </a>
                 </li>
