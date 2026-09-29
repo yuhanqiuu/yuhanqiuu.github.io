@@ -198,14 +198,14 @@ function ProjectDetail() {
           </figure>
         )}
 
-        {hasVideo && (
+        {project.video ? (
           <VideoLightbox
-            src={project.video!}
+            src={project.video}
             open={videoOpen}
             onClose={() => setVideoOpen(false)}
             title={project.title}
           />
-        )}
+        ) : null}
 
         {/* External link */}
         {project.link ? (
@@ -238,12 +238,12 @@ function ProjectDetail() {
                       <p key={i}>{item}</p>
                     ) : (
                       <figure key={i} className="my-2">
-                        <div className="overflow-hidden bg-muted">
+                        <div className="overflow-hidden rounded-lg">
                           <img
                             src={item.image}
                             alt={item.caption ?? section.heading}
                             loading="lazy"
-                            className="aspect-video w-full object-cover"
+                            className="h-auto w-full"
                           />
                         </div>
                         {item.caption ? (
@@ -257,12 +257,12 @@ function ProjectDetail() {
                 </div>
                 {section.image ? (
                   <figure className="mt-6">
-                    <div className="overflow-hidden bg-muted">
+                    <div className="overflow-hidden rounded-lg">
                       <img
                         src={section.image}
                         alt={section.caption ?? section.heading}
                         loading="lazy"
-                        className="aspect-video w-full object-cover"
+                        className="h-auto w-full"
                       />
                     </div>
                     {section.caption ? (
