@@ -1,8 +1,21 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { getProjectBySlug, projects, type Project } from "../lib/projects";
 import { VideoLightbox, PlayOverlay } from "../components/VideoLightbox";
+
+/** Renders plain text with **bold** markers. */
+function renderRichText(text: string): ReactNode[] {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+    part.startsWith("**") && part.endsWith("**") ? (
+      <strong key={i} className="font-bold">
+        {part.slice(2, -2)}
+      </strong>
+    ) : (
+      part
+    )
+  );
+}
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
