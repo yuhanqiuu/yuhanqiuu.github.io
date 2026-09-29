@@ -94,28 +94,52 @@ function ProjectDetail() {
       </header>
 
       {/* Floating catalogue — fixed to the left, vertically centered */}
-      {project.sections?.length ? (
+      {project.sections?.length || project.link ? (
         <aside
           style={{ fontFamily: 'Arial, "Helvetica Neue", Helvetica, sans-serif' }}
           className="fixed left-6 top-1/2 z-30 hidden -translate-y-1/2 lg:block"
         >
           <div className="w-56 rounded-xl border border-ink/5 bg-canvas p-5 shadow-[0_2px_8px_-2px_oklch(0.55_0.012_250/0.10),0_18px_50px_-20px_oklch(0.55_0.012_250/0.22)]">
-            <p className="text-base font-semibold uppercase tracking-[0.15em] text-ink">
-              Contents
-            </p>
-            <ol className="mt-5 space-y-4 pl-1">
-              {project.sections.map((section, i) => (
-                <li key={section.heading}>
-                  <a
-                    href={`#section-${i}`}
-                    className="flex items-start gap-2 text-[17px] leading-snug text-ink transition-colors hover:text-accent"
-                  >
-                    <span className="font-semibold">{i + 1}.</span>
-                    <span>{section.heading}</span>
-                  </a>
-                </li>
-              ))}
-            </ol>
+            {project.sections?.length ? (
+              <>
+                <p className="text-base font-semibold uppercase tracking-[0.15em] text-ink">
+                  Contents
+                </p>
+                <ol className="mt-5 space-y-4 pl-1">
+                  {project.sections.map((section, i) => (
+                    <li key={section.heading}>
+                      <a
+                        href={`#section-${i}`}
+                        className="flex items-start gap-2 text-[17px] leading-snug text-ink transition-colors hover:text-accent"
+                      >
+                        <span className="font-semibold">{i + 1}.</span>
+                        <span>{section.heading}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </>
+            ) : null}
+            {project.link ? (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+                className={`group flex items-center justify-center gap-2 rounded-full border border-ink/15 px-4 py-2 text-sm font-medium text-ink transition-colors hover:border-accent/40 hover:text-accent ${
+                  project.sections?.length ? "mt-6" : ""
+                }`}
+              >
+                {project.link.includes("github.com") ? (
+                  <Github className="h-4 w-4" strokeWidth={1.75} />
+                ) : (
+                  <ArrowUpRight
+                    className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    strokeWidth={2}
+                  />
+                )}
+                {project.linkLabel ?? "View project"}
+              </a>
+            ) : null}
           </div>
         </aside>
       ) : null}
@@ -227,26 +251,6 @@ function ProjectDetail() {
             onClose={() => setVideoOpen(false)}
             title={project.title}
           />
-        ) : null}
-
-        {/* External link — pill button */}
-        {project.link ? (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noreferrer"
-            className="group mt-10 inline-flex items-center gap-2.5 rounded-full border border-ink/15 bg-canvas px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-accent/40 hover:text-accent"
-          >
-            {project.link.includes("github.com") ? (
-              <Github className="h-4 w-4" strokeWidth={1.75} />
-            ) : (
-              <ArrowUpRight
-                className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                strokeWidth={2}
-              />
-            )}
-            {project.linkLabel ?? "View project"}
-          </a>
         ) : null}
 
         {/* Long-form body */}
