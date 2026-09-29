@@ -4,17 +4,26 @@ import { ArrowLeft, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react
 import { getProjectBySlug, projects, type Project } from "../lib/projects";
 import { VideoLightbox, PlayOverlay } from "../components/VideoLightbox";
 
-/** Renders plain text with **bold** markers. */
+/**
+ * Renders plain text with **bold** markers and \n line breaks.
+ * Write "\\n" inside a text string to force a new line, e.g.
+ * "First line\nSecond line" renders on two lines.
+ */
 function renderRichText(text: string): ReactNode[] {
-  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
-    part.startsWith("**") && part.endsWith("**") ? (
-      <strong key={i} className="font-bold">
-        {part.slice(2, -2)}
-      </strong>
-    ) : (
-      part
-    )
-  );
+  return text
+    .split("\n")
+    .flatMap((line, lineIdx) => {
+      const parts = line.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+        part.startsWith("**") && part.endsWith("**") ? (
+          <strong key={`${lineIdx}-${i}`} className="font-bold">
+            {part.slice(2, -2)}
+          </strong>
+        ) : (
+          part
+        )
+      );
+      return lineIdx === 0 ? parts : [<br key={`br-${lineIdx}`} />, ...parts];
+    });
 }
 
 export const Route = createFileRoute("/projects/$slug")({
