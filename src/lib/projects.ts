@@ -192,6 +192,8 @@ export const projects: Project[] = [
       "A Python-based analysis framework that processes 3D skeletal video to extract gait metrics, supporting the study of gait changes associated with dementia.",
     image: gait_1,
     images: [gait_1],
+    link: "https://github.com/yuhanqiuu/Orbbec-Femto-Bolt-Data-Analysis",
+    linkLabel: "View on GitHub",
   },
   {
     slug: "autonomous-self-balancing-robot",
@@ -202,6 +204,8 @@ export const projects: Project[] = [
       "A two-wheeled self-balancing robot integrating feedback control, Bluetooth remote operation, and live video with object detection.",
     image: balance_1,
     images: [balance_1, balance_2],
+    link: "https://github.com/yuhanqiuu/Self-Balancing-Bot",
+    linkLabel: "View on GitHub",
     sections: [
       {
         heading: "Overview",
@@ -322,6 +326,8 @@ export const projects: Project[] = [
     images: [heart_1],
     poster: heart_1,
     video: "https://youtube.com/shorts/5wjq4J4NAsk",
+    link: "https://github.com/yuhanqiuu/Heart-Health-Monitor",
+    linkLabel: "View on GitHub",
   },
   {
     slug: "metal-detector-rover",
@@ -332,6 +338,8 @@ export const projects: Project[] = [
       "A wireless metal detector robot capable of reporting magnetic field strength.",
     image: metal_1,
     images: [metal_1, metal_2, metal_3],
+    link: "https://github.com/yuhanqiuu/Remote-Metal-Detector-Rover",
+    linkLabel: "View on GitHub",
   },
   {
     slug: "reflow-oven-controller",
