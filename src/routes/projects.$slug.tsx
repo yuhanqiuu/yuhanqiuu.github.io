@@ -253,26 +253,6 @@ function ProjectDetail() {
           />
         ) : null}
 
-        {/* External link — pill button */}
-        {project.link ? (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noreferrer"
-            className="group mt-10 inline-flex items-center gap-2.5 rounded-full border border-ink/15 bg-canvas px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-accent/40 hover:text-accent"
-          >
-            {project.link.includes("github.com") ? (
-              <Github className="h-4 w-4" strokeWidth={1.75} />
-            ) : (
-              <ArrowUpRight
-                className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                strokeWidth={2}
-              />
-            )}
-            {project.linkLabel ?? "View project"}
-          </a>
-        ) : null}
-
         {/* Long-form body */}
         {project.sections?.length ? (
           <div className="mt-16 space-y-16">
