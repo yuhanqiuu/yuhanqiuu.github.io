@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, ChevronLeft, ChevronRight, Github } from "lucide-react";
 import { getProjectBySlug, projects, type Project } from "../lib/projects";
 import { VideoLightbox, PlayOverlay } from "../components/VideoLightbox";
 
