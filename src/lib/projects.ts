@@ -204,6 +204,8 @@ export const projects: Project[] = [
       "A two-wheeled self-balancing robot integrating feedback control, Bluetooth remote operation, and live video with object detection.",
     image: balance_1,
     images: [balance_1, balance_2],
+    link: "https://github.com/yuhanqiuu/Self-Balancing-Bot",
+    linkLabel: "View on GitHub",
     sections: [
       {
         heading: "Overview",
