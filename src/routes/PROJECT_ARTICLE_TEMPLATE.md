@@ -33,6 +33,8 @@ Optional — turn the detail page into a clean article:
   shown after the whole body. Omit `sections` to show `description` instead.
   **Bold text:** wrap any words in `**double asterisks**` inside a paragraph
   string, e.g. `"I developed the **16-channel preprocessing pipeline**."`
+  **Line breaks:** put `\n` inside a paragraph string to force a new line,
+  e.g. `"First line\nSecond line."` renders on two lines (works with bold too).
   ```ts
   sections: [
     {
