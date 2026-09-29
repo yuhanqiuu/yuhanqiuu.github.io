@@ -440,13 +440,11 @@ export const projects: Project[] = [
         ],
       },
       {
-        heading: "Solution Assessment",
+        heading: "Conclusion",
         body: [
-          "We conducted thorough testing to ensure the robot and the remote met all the design requirements. We first started by testing the basic sending and receiving of strings between the two devices. We used the PuTTY terminal to check for any lost data. After both devices could consistently send strings to each other, we moved on to testing the robot’s movement. The magnitude of the PWM was adjusted to ensure smooth handling and movement from the robot. Afterward, we tested both speakers on the remote. This was done by moving various coins and other metal objects toward the metal detector to verify that the buzzer and speaker would change as the intensity increased.",
+          "The objective of this project is to design and construct a remote-controlled metal detector robot. The remote controller and robot were constructed using microcontrollers from two distinct families, with communication facilitated by the JDY-40 radio module. The robot can detect the metal and report the strength of the metal signal and display with an LCD screen and a buzzer that changes frequency. A speaker is attached for a user to play customized messages. Lastly, the robot can move in fundamental directions and perform intricate driving patterns, including figure-eight, square, and straight paths.",
 
-          "**Overall Device Assessment**\nBoth the robot and remote satisfy all the requirements for this project. The robot can decode and convert strings into PWM values, pass all the basic movement tests, and calculate and send the correct metal intensity to the remote. The remote plays the correct sounds depending on intensity level and displays all relevant information to the LCD.",
-
-          "However, there are some flaws present in the design. The robot’s forward acceleration is not as smooth as other directions of movement. Also, the robot was designed with only 8 directions of movement. This can make it hard to maneuver the robot around curves. The default frequency must also be reset each time the robot is moved to a different surface. There was also an issue regarding the speaker system. When the robot reaches the metal close enough, the speaker will play the WAV file; however, the robot constantly repeats part of the audio file until the level is reduced again. Because we wanted to minimize the amount of delays, we could not fix this problem.",
+          "We mainly spent time for troubleshooting We had delay and noises for the radio transmission. We resolved this issue by checking the hardware component, transmitting data with smaller size, and relocating to an environment with less signal interference. The main problems we encountered were having delay and noises for the radio transmission. Overall, our group spent approximately 50 hours completing this project.",
         ],
       },
     ],
