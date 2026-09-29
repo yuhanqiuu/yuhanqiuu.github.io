@@ -31,6 +31,8 @@ Optional — turn the detail page into a clean article:
   `{ image: someImage, caption: "…" }`.
   A section can also carry one trailing figure via `image` / `caption`,
   shown after the whole body. Omit `sections` to show `description` instead.
+  **Bold text:** wrap any words in `**double asterisks**` inside a paragraph
+  string, e.g. `"I developed the **16-channel preprocessing pipeline**."`
   ```ts
   sections: [
     {
