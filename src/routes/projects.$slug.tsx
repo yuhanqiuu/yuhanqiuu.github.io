@@ -248,7 +248,7 @@ function ProjectDetail() {
                 <div className="mt-4 space-y-4 text-[17px] leading-[1.8] text-ink">
                   {section.body.map((item, i) =>
                     typeof item === "string" ? (
-                      <p key={i}>{item}</p>
+                      <p key={i}>{renderRichText(item)}</p>
                     ) : (
                       <figure key={i} className="my-2">
                         <div className="overflow-hidden rounded-lg">
