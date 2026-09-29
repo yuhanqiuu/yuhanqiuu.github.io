@@ -1,8 +1,21 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { getProjectBySlug, projects, type Project } from "../lib/projects";
 import { VideoLightbox, PlayOverlay } from "../components/VideoLightbox";
+
+/** Renders plain text with **bold** markers. */
+function renderRichText(text: string): ReactNode[] {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+    part.startsWith("**") && part.endsWith("**") ? (
+      <strong key={i} className="font-bold">
+        {part.slice(2, -2)}
+      </strong>
+    ) : (
+      part
+    )
+  );
+}
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -113,7 +126,7 @@ function ProjectDetail() {
         </h1>
         {overview ? (
           <p className="mt-6 text-[17px] leading-[1.8] text-ink">
-            {overview}
+            {renderRichText(overview)}
           </p>
         ) : null}
 
@@ -235,7 +248,7 @@ function ProjectDetail() {
                 <div className="mt-4 space-y-4 text-[17px] leading-[1.8] text-ink">
                   {section.body.map((item, i) =>
                     typeof item === "string" ? (
-                      <p key={i}>{item}</p>
+                      <p key={i}>{renderRichText(item)}</p>
                     ) : (
                       <figure key={i} className="my-2">
                         <div className="overflow-hidden rounded-lg">
@@ -277,7 +290,7 @@ function ProjectDetail() {
           </div>
         ) : (
           <p className="mt-16 text-[17px] leading-[1.8] text-ink">
-            {project.description ?? "Full case study coming soon."}
+            {project.description ? renderRichText(project.description) : "Full case study coming soon."}
           </p>
         )}
 
