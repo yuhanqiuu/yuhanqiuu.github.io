@@ -126,7 +126,7 @@ function ProjectDetail() {
                 target="_blank"
                 rel="noreferrer"
                 className={`group flex items-center justify-center gap-2 rounded-full border border-ink/15 px-4 py-2 text-sm font-medium text-ink transition-colors hover:border-accent/40 hover:text-accent ${
-                  project.sections?.length ? "mt-6 border-t-0 pt-0" : ""
+                  project.sections?.length ? "mt-6" : ""
                 }`}
               >
                 {project.link.includes("github.com") ? (
