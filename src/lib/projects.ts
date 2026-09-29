@@ -134,68 +134,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "8051-mcu-development-board",
-    title: "8051 MCU Development Board",
-    category: "PCB Design",
-    year: "2026",
-    summary:
-      "A compact, custom 8051 board based on the STC89C52RC microcontroller for embedded systems development.",
-    sections: [
-      {
-        heading: "Overview",
-        body: [
-          "This project is a custom development board built around the STC89C52RC, an 8051-based microcontroller. The goal was to design a compact and practical platform for embedded-system development while gaining hands-on experience with the complete PCB design workflow, from schematic capture and component selection to layout and fabrication preparation.",
-
-          "The board integrates the core circuitry required for standalone microcontroller operation and provides accessible connections for programming, debugging, and peripheral development."
-        ],
-        image: dev51_1,
-      },
-
-      {
-        heading: "Schematic Design",
-        body: [
-          "The schematic was designed around the STC89C52RC and its supporting circuitry, including power, clock, reset, programming, and external I/O connections. The circuit was organized into functional blocks to make signal flow easier to understand, verify, and troubleshoot.",
-
-          "Supporting components and interfaces were selected to provide reliable standalone operation while keeping important MCU signals accessible for programming and peripheral development."
-        ],
-        image: dev51_3
-      },
-
-      {
-        heading: "PCB Layout",
-        body: [
-          "The schematic was translated into a compact PCB layout with component placement organized around the microcontroller and its supporting circuitry. Connectors and user-accessible interfaces were positioned for convenient access, while related components were grouped to simplify routing.",
-
-          "The routing process focused on short signal paths, practical power distribution, and clear organization of the board. Design-rule checks and iterative layout refinement were used to verify manufacturability and reduce potential routing and assembly issues."
-        ],
-        image: dev51_4
-      },
-
-      {
-        heading: "Final Design",
-        body: [
-          "The final PCB provides a compact and reusable platform for 8051-based embedded development. The 3D render was used to verify component orientation, connector accessibility, mechanical spacing, and the overall arrangement of the assembled board before fabrication.",
-
-          "This project strengthened my experience with schematic capture, component and footprint selection, PCB placement and routing, design-rule verification, and preparing a hardware design for fabrication."
-        ],
-      }
-    ],
-    image: dev51_1,
-    images: [dev51_1, dev51_2],
-  },
-  {
-    slug: "depth-camera-based-3d-gait-analysis",
-    title: "Depth Camera Based 3D Gait Analysis",
-    category: "Computer Vision",
-    year: "2026",
-    summary:
-      "A Python-based analysis framework that processes 3D skeletal video to extract gait metrics, supporting the study of gait changes associated with dementia.",
-    image: gait_1,
-    images: [gait_1],
-    link: "https://github.com/yuhanqiuu/Orbbec-Femto-Bolt-Data-Analysis",
-    linkLabel: "View on GitHub",
-  },
-  {
     slug: "autonomous-self-balancing-robot",
     title: "Autonomous Self-Balancing Robot",
     category: "Robotics",
@@ -314,6 +252,68 @@ export const projects: Project[] = [
         ],
       },
     ],
+  },
+  {
+    slug: "8051-mcu-development-board",
+    title: "8051 MCU Development Board",
+    category: "PCB Design",
+    year: "2026",
+    summary:
+      "A compact, custom 8051 board based on the STC89C52RC microcontroller for embedded systems development.",
+    sections: [
+      {
+        heading: "Overview",
+        body: [
+          "This project is a custom development board built around the STC89C52RC, an 8051-based microcontroller. The goal was to design a compact and practical platform for embedded-system development while gaining hands-on experience with the complete PCB design workflow, from schematic capture and component selection to layout and fabrication preparation.",
+
+          "The board integrates the core circuitry required for standalone microcontroller operation and provides accessible connections for programming, debugging, and peripheral development."
+        ],
+        image: dev51_1,
+      },
+
+      {
+        heading: "Schematic Design",
+        body: [
+          "The schematic was designed around the STC89C52RC and its supporting circuitry, including power, clock, reset, programming, and external I/O connections. The circuit was organized into functional blocks to make signal flow easier to understand, verify, and troubleshoot.",
+
+          "Supporting components and interfaces were selected to provide reliable standalone operation while keeping important MCU signals accessible for programming and peripheral development."
+        ],
+        image: dev51_3
+      },
+
+      {
+        heading: "PCB Layout",
+        body: [
+          "The schematic was translated into a compact PCB layout with component placement organized around the microcontroller and its supporting circuitry. Connectors and user-accessible interfaces were positioned for convenient access, while related components were grouped to simplify routing.",
+
+          "The routing process focused on short signal paths, practical power distribution, and clear organization of the board. Design-rule checks and iterative layout refinement were used to verify manufacturability and reduce potential routing and assembly issues."
+        ],
+        image: dev51_4
+      },
+
+      {
+        heading: "Final Design",
+        body: [
+          "The final PCB provides a compact and reusable platform for 8051-based embedded development. The 3D render was used to verify component orientation, connector accessibility, mechanical spacing, and the overall arrangement of the assembled board before fabrication.",
+
+          "This project strengthened my experience with schematic capture, component and footprint selection, PCB placement and routing, design-rule verification, and preparing a hardware design for fabrication."
+        ],
+      }
+    ],
+    image: dev51_1,
+    images: [dev51_1, dev51_2],
+  },
+  {
+    slug: "depth-camera-based-3d-gait-analysis",
+    title: "Depth Camera Based 3D Gait Analysis",
+    category: "Computer Vision",
+    year: "2026",
+    summary:
+      "A Python-based analysis framework that processes 3D skeletal video to extract gait metrics, supporting the study of gait changes associated with dementia.",
+    image: gait_1,
+    images: [gait_1],
+    link: "https://github.com/yuhanqiuu/Orbbec-Femto-Bolt-Data-Analysis",
+    linkLabel: "View on GitHub",
   },
   {
     slug: "cardio-health-monitor",
