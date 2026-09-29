@@ -224,7 +224,7 @@ export const projects: Project[] = [
       {
         heading: "System Design",
         body: [
-          "The self-balancing robot consists of three core subsystems: electrical, mechanical, and software. Each subsystem plays a crucial role in achieving stability, responsiveness, and additional features such as wireless control and object detection. This section details the hardware components used for sensing, actuation, and power management, the mechanical structure enabling physical stability, and the modular coding framework that integrates control logic, communication, and vision processing.",
+          "The self-balancing robot consists of three core subsystems: **electrical, mechanical, and software**. Each subsystem plays a crucial role in achieving stability, responsiveness, and additional features such as wireless control and object detection. This section details the hardware components used for sensing, actuation, and power management, the mechanical structure enabling physical stability, and the modular coding framework that integrates control logic, communication, and vision processing.",
         ],
         image: balance_3,
         caption: "High-level communication and control architecture linking the robot, phone, and computer.",
@@ -234,57 +234,57 @@ export const projects: Project[] = [
         body: [
           "The electrical subsystem integrates all key components responsible for sensing, processing, actuation, and power distribution. It enables real-time control of the robot's balance and movement through a coordinated interaction of sensors, microcontrollers, drivers, and power electronics.",
 
-          "Microcontroller: Arduino Nano 33 BLE Sense Rev2\nPowered by a regulated 5V supply from the 12V battery pack through a step-down voltage regulator. Handles sensor readings, motor control signals, Bluetooth communication, and overall system logic.",
+          "**Microcontroller: Arduino Nano 33 BLE Sense Rev2**\nPowered by a regulated 5V supply from the 12V battery pack through a step-down voltage regulator. Handles sensor readings, motor control signals, Bluetooth communication, and overall system logic.",
 
-          "Motor Drivers: Two DRV8833 Dual H-Bridge modules\nReceive PWM signals from the Arduino to control the speed and direction of the DC motors. Connected directly to the battery pack (12V) to power the motors.",
+          "**Motor Drivers: Two DRV8833 Dual H-Bridge modules**\nReceive PWM signals from the Arduino to control the speed and direction of the DC motors. Connected directly to the battery pack (12V) to power the motors.",
 
-          "Motors: Two Pololu 4741 DC motors\nProvide torque and speed for balancing and maneuvering. Directly controlled by the DRV8833 motor drivers.",
+          "**Motors: Two Pololu 4741 DC motors**\nProvide torque and speed for balancing and maneuvering. Directly controlled by the DRV8833 motor drivers.",
 
-          "Encoders: Two AS5600 Magnetic Rotary Encoders\nMeasure the angular velocity of each wheel to support velocity feedback and control. Connected via I²C interface through a multiplexer due to identical I²C addresses.",
+          "**Encoders: Two AS5600 Magnetic Rotary Encoders**\nMeasure the angular velocity of each wheel to support velocity feedback and control. Connected via I²C interface through a multiplexer due to identical I²C addresses.",
 
-          "Multiplexer: TCA9548A I²C Multiplexer\nAllows communication with both AS5600 encoders by enabling one I²C channel at a time. Controlled by the Arduino to switch between encoder channels dynamically.",
+          "**Multiplexer: TCA9548A I²C Multiplexer**\nAllows communication with both AS5600 encoders by enabling one I²C channel at a time. Controlled by the Arduino to switch between encoder channels dynamically.",
 
-          "Voltage Regulator: 5V Step-Down Regulator\nConverts the 12V battery pack voltage to a stable 5V for powering the Arduino and other low-voltage components.",
+          "**Voltage Regulator: 5V Step-Down Regulator**\nConverts the 12V battery pack voltage to a stable 5V for powering the Arduino and other low-voltage components.",
 
-          "Power Supply: Rechargeable 12V Battery Pack\nProvides the main power source for the motors and motor drivers, and regulated 5V supply for logic-level components.",
+          "**Power Supply: Rechargeable 12V Battery Pack**\nProvides the main power source for the motors and motor drivers, and regulated 5V supply for logic-level components.",
         ],
       },
       {
         heading: "Mechanical Subsystem",
         body: [
-          "The mechanical subsystem provides the physical framework that supports all electrical components while ensuring the robot's center of mass is optimized for balance and stability during motion.",
+          "The mechanical subsystem provides the physical framework that supports all electrical components while ensuring the robot's **center of mass** is optimized for balance and stability during motion.",
 
-          "Overall, The robot is built from three vertically stacked plates supported by four metal rods at the corners. This modular structure securely houses the Arduino, motor drivers, battery, and other components, while maintaining structural rigidity and a clean layout. The vertical stacking also helps elevate key components such as the camera for an unobstructed field of view.",
+          "Overall, The robot is built from **three vertically stacked plates supported by four metal rods** at the corners. This modular structure securely houses the Arduino, motor drivers, battery, and other components, while maintaining structural rigidity and a clean layout. The vertical stacking also helps elevate key components such as the camera for an unobstructed field of view.",
 
-          "Motor Mounts and Wheels:\nMotors securely mounted to chassis, with wheels properly aligned to ensure smooth movement and accurate balancing control.",
+          "**Motor Mounts and Wheels:**\nMotors securely mounted to chassis, with wheels properly aligned to ensure smooth movement and accurate balancing control.",
 
-          "Sensor Placement:\nArduino (with integrated IMU sensors) is securely mounted to detect precise orientation and motion accurately.",
+          "**Sensor Placement:**\nArduino (with integrated IMU sensors) is securely mounted to detect precise orientation and motion accurately.",
 
-          "Battery Housing:\nStrategically positioned to maintain a low center of gravity and enhance stability.",
+          "**Battery Housing:**\nStrategically positioned to maintain a low center of gravity and enhance stability.",
 
-          "Camera Module Mounting (ESP32-CAM or similar):\nSecurely mounted to provide an unobstructed view for real-time video streaming and object detection tasks.",
+          "**Camera Module Mounting (ESP32-CAM or similar):**\nSecurely mounted to provide an unobstructed view for real-time video streaming and object detection tasks.",
         ],
       },
       {
         heading: "Software Subsystem",
         body: [
-          "The code is modular and organized into distinct components for motor control, sensor processing, Bluetooth communication, video streaming, and object detection. It is primarily written in C++ (Arduino IDE) for real-time control and Python for external processing tasks such as object detection.",
+          "The code is modular and organized into distinct components for motor control, sensor processing, Bluetooth communication, video streaming, and object detection. It is primarily written in **C++ (Arduino IDE)** for real-time control and **Python** for external processing tasks such as object detection.",
 
-          "1. Main Control Loop (Arduino Nano 33 BLE Sense)\nImplements a dual-loop control system: An angle PD controller maintains balance using tilt data from the BMI270 IMU. A speed PI controller adjusts motor speed using real-time RPM feedback from AS5600 encoders. A complementary filter is used to fuse sensor data and act as a weighting factor between the angle and speed controllers. The combined output of this system feeds into a final PID controller, which generates the PWM signals used to drive the motors.",
+          "**1. Main Control Loop (Arduino Nano 33 BLE Sense)**\nImplements a dual-loop control system: An **angle PD controller** maintains balance using tilt data from the BMI270 IMU. A **speed PI controller** adjusts motor speed using real-time RPM feedback from AS5600 encoders. A **complementary filter** is used to fuse sensor data and act as a weighting factor between the angle and speed controllers. The combined output of this system feeds into a final PID controller, which generates the PWM signals used to drive the motors.",
 
           "The main loop continuously reads sensor data (angle and RPM), filters and computes PID outputs, and sends PWM values to the motors for stable balancing and maneuvering.",
 
-          "2. Encoder and Multiplexer Handling\nTo handle the identical I²C addresses of the two AS5600 magnetic encoders, the system uses a TCA9548A I²C multiplexer. This allows the Arduino to communicate with one encoder at a time by dynamically opening and closing specific I²C channels. The RPM data from each encoder is read in turn and used for speed feedback in the control loop.",
+          "**2. Encoder and Multiplexer Handling**\nTo handle the identical I²C addresses of the two AS5600 magnetic encoders, the system uses a TCA9548A I²C multiplexer. This allows the Arduino to communicate with one encoder at a time by dynamically opening and closing specific I²C channels. The RPM data from each encoder is read in turn and used for speed feedback in the control loop.",
 
-          "3. Motor Control Module\nMotor control is based on PWM signals generated from the outputs of the PID controllers. The system supports multiple driving modes including forward, backward, slow decay, and differential turning. These behaviors are implemented through modular functions defined in a dedicated movement.h file, allowing clean and reusable control logic.",
+          "**3. Motor Control Module**\nMotor control is based on PWM signals generated from the outputs of the PID controllers. The system supports multiple driving modes including forward, backward, slow decay, and differential turning. These behaviors are implemented through modular functions defined in a dedicated **movement.h** file, allowing clean and reusable control logic.",
 
-          "4. Bluetooth Communication\nThe ArduinoBLE library enables real-time Bluetooth communication with a mobile app. Commands such as W, A, S, D, and 0 are used to control movement directions and stopping. These inputs are interpreted as setpoints and passed to both the angle and speed PID controllers, enabling responsive remote control.",
+          "**4. Bluetooth Communication**\nThe **ArduinoBLE** library enables real-time Bluetooth communication with a mobile app. Commands such as W, A, S, D, and 0 are used to control movement directions and stopping. These inputs are interpreted as setpoints and passed to both the angle and speed PID controllers, enabling responsive remote control.",
 
-          "5. Video Streaming (ESP32-CAM)\nAn ESP32-CAM module is used for video streaming, running a web server that broadcasts MJPEG video at a resolution of 320×240. The live video stream is accessible through the module’s IP address, providing visual feedback to the user for remote navigation and monitoring.",
+          "**5. Video Streaming (ESP32-CAM)**\nAn ESP32-CAM module is used for video streaming, running a web server that broadcasts **MJPEG video at a resolution of 320×240**. The live video stream is accessible through the module’s IP address, providing visual feedback to the user for remote navigation and monitoring.",
 
-          "6. Object Detection & Email Alerts (Python)\nA Python script uses OpenCV along with a pre-trained SSD MobileNet model for object detection in the ESP32-CAM video stream. Detected objects are annotated and displayed in real time. The system also allows the user to send captured frames via email and change the recipient address. A custom file is used to load a list of 91 object classes for detection.",
+          "**6. Object Detection & Email Alerts (Python)**\nA Python script uses **OpenCV** along with a pre-trained **SSD MobileNet** model for object detection in the ESP32-CAM video stream. Detected objects are annotated and displayed in real time. The system also allows the user to send captured frames via email and change the recipient address. A custom file is used to load a list of 91 object classes for detection.",
 
-          "7. Parameter Tuning Interface\nFor tuning the PID controllers, the system includes a serial-based interface that allows dynamic adjustment of control parameters such as Kp, Ki, and Kd. Commands like \"kp\", \"ki\", \"s\", and \"reset\" can be entered during runtime to fine-tune system behaviour and improve balancing performance during testing.",
+          "**7. Parameter Tuning Interface**\nFor tuning the PID controllers, the system includes a serial-based interface that allows dynamic adjustment of control parameters such as **Kp, Ki, and Kd**. Commands like \"kp\", \"ki\", \"s\", and \"reset\" can be entered during runtime to fine-tune system behaviour and improve balancing performance during testing.",
         ],
       },
       {
