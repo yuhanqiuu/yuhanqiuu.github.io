@@ -14,6 +14,9 @@ import metal_3 from "../assets/project-metal-3.png";
 import metal_4 from "../assets/project-metal-4.jpg";
 import metal_5 from "../assets/project-metal-5.jpg";
 import metal_6 from "../assets/project-metal-6.jpg";
+import metal_7 from "../assets/project-metal-7.jpg";
+import metal_8 from "../assets/project-metal-8.jpg";
+import metal_9 from "../assets/project-metal-9.jpg";
 import oven_1 from "../assets/project-oven-1.png";
 import ultrasoundPoster from "../assets/project-ultrasound-poster.png";
 import ultra_1 from "../assets/project-ultra-1.png"
@@ -344,6 +347,25 @@ export const projects: Project[] = [
         heading: "Overview",
         body: [
           "This project aims to design and build a remote-controlled metal detector robot. This robot and remote must use two microcontrollers from two different families and use the JDY-40 to establish radio communication. Both the remote and the robot are battery-powered. The DC motors on the robot utilize MOSFETs and optocouplers for control, and the motor should be calibrated so that the robot would avoid drifting left or right when going forward. The robot must be able to detect any kind of metal using an inductor. A buzzer is attached to indicate the detection of metal along with the signal intensity. The strength of the signal is then displayed on an LCD screen attached to the remote controller. The robot should be able to maneuver smoothly and demonstrate complex driving patterns such as figure-eight, square, and “I”. Both the speed and direction should be adjustable."
+        ],
+      },
+      {
+        heading: "System Architecture",
+        body: [
+          "The system consists of a PIC32-based robot and an EFM8-based remote controller connected through a pair of JDY-40 radio modules. The remote reads joystick coordinates through an ADC and initiates communication to send movement commands and request metal detection data. On the robot, the PIC32 converts these commands into timer-driven PWM signals that control two DC motors through H-bridge circuits. It also measures changes in the Colpitts oscillator’s frequency relative to a calibrated baseline, converts them into metal detection intensity levels, and transmits the results to the remote. The remote displays the intensity on an LCD and adjusts the buzzer frequency to provide audible feedback. A second EFM8 handles recorded voice playback, reading audio from 25Q32 flash memory and outputting it through a DAC and LM386 amplifier to the speaker. Battery supplies and voltage regulators power the motor, control, and communication circuitry.",
+
+          {
+            image: metal_7,
+            caption: "Robot software architecture showing timing, joystick inputs, oscillator frequency processing, PWM generation, and wireless feedback.",
+          },
+          {
+            image: metal_8,
+            caption: "Robot hardware architecture showing power supplies, control inputs, motor outputs, and JDY-40 communication.",
+          },
+          {
+            image: metal_9,
+            caption: "Remote controller and audio subsystem architecture showing user inputs, LCD feedback, wireless communication, and audio outputs.",
+          },
         ],
       },
       {
