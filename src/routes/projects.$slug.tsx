@@ -126,7 +126,7 @@ function ProjectDetail() {
         </h1>
         {overview ? (
           <p className="mt-6 text-[17px] leading-[1.8] text-ink">
-            {overview}
+            {renderRichText(overview)}
           </p>
         ) : null}
 
@@ -290,7 +290,7 @@ function ProjectDetail() {
           </div>
         ) : (
           <p className="mt-16 text-[17px] leading-[1.8] text-ink">
-            {project.description ?? "Full case study coming soon."}
+            {project.description ? renderRichText(project.description) : "Full case study coming soon."}
           </p>
         )}
 
