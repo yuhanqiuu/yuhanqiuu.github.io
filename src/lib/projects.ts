@@ -6,7 +6,7 @@ import dev51_4 from "../assets/project-51-4.png";
 import balance_1 from "../assets/project-balance-1.jpg";
 import balance_2 from "../assets/project-balance-2.png";
 import balance_3 from "../assets/project-balance-3.jpg";
-import balanceSimulation from "../assets/project-balance-simulation.png";
+import balance_4 from "../assets/project-balance-4.png";
 import heart_1 from "../assets/project-heart-1.png";
 import metal_1 from "../assets/project-metal-1.jpeg";
 import metal_2 from "../assets/project-metal-2.png";
@@ -264,6 +264,8 @@ export const projects: Project[] = [
 
           "**Camera Module Mounting (ESP32-CAM or similar):**\nSecurely mounted to provide an unobstructed view for real-time video streaming and object detection tasks.",
         ],
+        image: balance_4,
+        caption: "Front view of the robot CAD model showing the chassis layout and center of mass.",
       },
       {
         heading: "Software Subsystem",
