@@ -125,6 +125,14 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
       <p className="mt-3 text-sm leading-relaxed text-ink-muted">
         {project.summary}
       </p>
+      <Link
+        to="/projects/$slug"
+        params={{ slug: project.slug }}
+        className="group/link mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-ink underline underline-offset-4 transition-colors hover:text-accent"
+      >
+        Read article
+        <span aria-hidden="true">→</span>
+      </Link>
       {hasVideo && (
         <VideoLightbox
           src={project.video!}
