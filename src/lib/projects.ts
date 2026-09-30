@@ -411,7 +411,7 @@ export const projects: Project[] = [
 
           {
             image: metal_6,
-            caption: "Figure 6: Schematic of the Speaker of Board#3",
+            caption: "Figure 5: Schematic of the Speaker of Board#3",
           },
 
           "**Board #4: Battery Holder.** This board holds three 1.5V batteries and a 9V battery.",
