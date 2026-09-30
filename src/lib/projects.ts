@@ -1,6 +1,8 @@
 import gait_1 from "../assets/project-gait-1.png";
 import shelf_1 from "../assets/project-shelf-1.png";
 import shelf_2 from "../assets/project-shelf-2.png";
+import shelf_3 from "../assets/project-shelf-1.png";
+import shelf_4 from "../assets/project-shelf-2.png";
 import gait_2 from "../assets/project-gait-2.png";
 import gait_3 from "../assets/project-gait-3.png";
 import dnn_1 from "../assets/project-dnn-1.png";
@@ -879,6 +881,8 @@ export const projects: Project[] = [
           "Food can show ambiguous signs of aging: a change in color or texture may be difficult to interpret from appearance alone. Shelf Life explores how **visual AI and confidence scores** can help users understand these cases and make more informed storage and disposal decisions. I collaborated in a **five-member team** to develop the application during March 2025.",
           "The project uses **zero-shot image classification** to compare food images with descriptions of their condition. This approach allows us to explore different food types and visual states by changing the candidate descriptions, without training a separate classifier from scratch for each category. The prototype focuses on fruits and vegetables, with experiments covering apples, bananas, and tomatoes.",
         ],
+        image: shelf_3,
+        caption: "Project Value Analysis",
       },
       {
         heading: "System Architecture",
@@ -886,6 +890,8 @@ export const projects: Project[] = [
           "The workflow connects three components: **dataset preparation, model inference, and visual inspection**. Python scripts import images and their labels into FiftyOne, pretrained CLIP models compare images against text descriptions, and the FiftyOne interface supports browsing images alongside predictions and confidence scores.",
           "The source dataset is the Fruit and Vegetable Disease (Healthy vs Rotten) collection referenced in the repository. Import scripts extract the food type and condition from folder names, store the condition as a ground-truth classification, and retain the food type as separate metadata. This keeps the reference labels available for reviewing model outputs across different categories.",
         ],
+        image: shelf_4,
+        caption: "Fruit and Vegetable Disease (Healthy vs Rotten) Dataset"
       },
       {
         heading: "Detailed Design",
