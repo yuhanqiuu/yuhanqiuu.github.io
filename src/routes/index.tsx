@@ -128,10 +128,14 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
       <Link
         to="/projects/$slug"
         params={{ slug: project.slug }}
-        className="group/link mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-ink underline underline-offset-4 transition-colors hover:text-accent"
+        className="group/link mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-accent"
       >
-        Read article
-        <span aria-hidden="true">→</span>
+        View project details
+        <span aria-hidden="true" className="transition-transform group-hover/link:translate-x-0.5">→</span>
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-100 bg-current transition-transform duration-300 ease-out group-hover/link:scale-x-0"
+        />
       </Link>
       {hasVideo && (
         <VideoLightbox
