@@ -312,7 +312,7 @@ export const projects: Project[] = [
       },
     ],
     image: sd_1,
-    images: [sd_1],
+    images: [sd_1, sd_2],
     link: "https://github.com/EOW319/DE1-Soc-TFcard-Reader",
     linkLabel: "View on GitHub",
   },
