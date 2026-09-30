@@ -268,6 +268,24 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "de1-soc-tf-card-reader",
+    title: "TF Card Reader and VGA Display",
+    category: "FPGA",
+    year: "2026",
+    summary:
+      "An FPGA-based TF card reader on the DE1-SoC that parses FAT32 and displays images over VGA, with a custom breakout PCB and a layered UVM verification environment.",
+    image: sd_1,
+    images: [sd_1],
+    link: "https://github.com/EOW319/DE1-Soc-TFcard-Reader",
+    linkLabel: "View on GitHub",
+    specs: [
+      { label: "Tool", value: "SystemVerilog · Quartus Prime · UVM" },
+      { label: "Focus", value: "FPGA / Digital Design" },
+      { label: "Timeline", value: "2026" },
+      { label: "Status", value: "Completed" },
+    ],
+  },
+  {
     slug: "8051-mcu-development-board",
     title: "8051 MCU Development Board",
     category: "PCB Design",
