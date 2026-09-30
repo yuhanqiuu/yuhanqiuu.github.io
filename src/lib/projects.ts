@@ -1,4 +1,6 @@
 import gait_1 from "../assets/project-gait-1.png";
+import gait_2 from "../assets/project-gait-2.png";
+import gait_3 from "../assets/project-gait-3.png";
 import dnn_1 from "../assets/project-dnn-1.png";
 import sd_1 from "../assets/project-sd-1.png";
 import sd_2 from "../assets/project-sd-2.png";
@@ -745,6 +747,60 @@ export const projects: Project[] = [
     images: [gait_1],
     link: "https://github.com/yuhanqiuu/Orbbec-Femto-Bolt-Data-Analysis",
     linkLabel: "View on GitHub",
+    sections: [
+      {
+        heading: "Overview",
+        body: [
+          "This project develops a Python-based framework for extracting quantitative gait parameters from depth-camera skeletal recordings. Using data captured with an Orbbec Femto Bolt, the workflow connects three-dimensional body tracking with measurements of walking speed, step geometry, timing, and gait phases. The research context is the study of gait changes associated with dementia.",
+          "The analysis script takes exported skeletal JSON as input and uses NumPy, pandas, and SciPy to process joint trajectories. It estimates walking repetitions, detects alternating gait events, computes spatial and temporal parameters, and saves one summary per dataset to an Excel workbook. The skeleton visualization and numerical output make the relationship between recorded movement and derived measurements easier to inspect.",
+        ],
+      },
+      {
+        heading: "System Architecture",
+        body: [
+          "The pipeline proceeds from skeletal JSON to frame selection, coordinate smoothing, directional projection, event detection, parameter calculation, and export. Frames without tracked bodies are removed. From the first body listed in each retained frame, the script extracts the pelvis, left and right ankles, and left and right feet. Time is reconstructed from frame IDs and the specified frame rate, which defaults to 30 frames per second.",
+          "Coordinate units are normalized with a magnitude-based check: if the largest absolute coordinate exceeds 100, the script divides all coordinates by 1,000 to convert assumed millimeters to meters. A seven-sample moving average smooths the joint coordinates. Additional nine-sample smoothing is applied to the foot vertical signals and relative forward ankle displacement before subsequent analysis.",
+        ],
+      },
+      {
+        heading: "Skeleton Extraction",
+        body: [
+          "The visualization below shows an extracted skeleton overlaid on the three-dimensional depth scene. The highlighted joints and connecting segments represent the tracked head, torso, arms, and legs, while the surrounding point cloud preserves the corridor and floor. This view makes the relationship between the body model and the original recording visible.",
+          "Skeleton extraction is upstream of the supplied analysis script, which reads joint positions already stored in JSON. For parameter calculation, the script estimates a horizontal forward direction from the pelvis displacement between the first and last retained frames, treating the y-axis as vertical. A perpendicular lateral axis is calculated using a cross product. Projecting the ankle positions onto these axes produces forward separation and lateral width signals.",
+        ],
+        image: gait_3,
+        caption: "Extracted body skeleton overlaid on the depth-camera point cloud",
+      },
+      {
+        heading: "Gait Parameter Extraction",
+        body: [
+          "**Gait Event Detection:** SciPy’s find_peaks identifies maxima and minima in the smoothed right-minus-left forward ankle displacement. Maxima are labeled right-foot events and minima left-foot events. Peak detection uses a minimum separation of approximately 0.35 seconds, with a floor of five samples, and a prominence threshold equal to the larger of 0.01 m or 8% of the signal range. Events are sorted by time, and consecutive events with the same foot label are discarded. These are motion-derived event estimates, rather than directly measured foot contacts.",
+          "**Walking Repetitions and Speed:** The script selects whichever horizontal pelvis coordinate has the larger range and smooths it with a window of approximately one second. After normalization, transitions between the lower 20% and upper 20% of the trajectory are counted as walkway traversals, with a minimum estimate of one traversal. Estimated distance is the traversal count multiplied by the measured 4.346448 m walkway length. Gait speed is this distance divided by the duration between the first and last retained frames; cadence is the cleaned event count divided by that duration and multiplied by 60.",
+          "**Step Length and Width:** Raw step-length contributions are the absolute changes in the relative ankle displacement between consecutive alternating events. A common scale factor makes their sum equal the estimated walking distance. Left and right lengths are averaged separately, and the reported mean is the average of those two side means. Step width is the mean absolute lateral ankle separation sampled at the detected events.",
+          "**Step Timing:** Time differences between consecutive alternating events are grouped by the foot associated with the later event. Intervals outside 0.35–1.6 seconds are excluded before computing the left, right, and overall means. A missing side uses the overall mean; if the two side means differ by more than 0.35 seconds, both are replaced with the overall mean. This fallback reduces large discrepancies in the output but can also conceal genuine timing asymmetry.",
+          "**Stance, Swing, and Double Support:** Each foot is classified as being in contact when its smoothed y coordinate is at or below that foot’s 60th-percentile value. Within intervals bounded by successive events of the same foot, contact and non-contact sample fractions give stance and swing percentages. Samples where both feet meet the contact condition are divided by the frame rate to estimate double-support time. Results are averaged across intervals from both feet. These measures use a coordinate-threshold heuristic whose interpretation depends on the input coordinate convention.",
+        ],
+      },
+      {
+        heading: "Example Analysis Output",
+        body: [
+          "The example below shows the final parameter summary for one analyzed recording. It reports a gait speed of 1.125 m/s and a cadence of 105.699 steps/min. Left and right step lengths are 0.756 m and 0.741 m, respectively, with a reported mean of 0.749 m and a step width of 0.103 m.",
+          "The corresponding left and right step times are 0.554 s and 0.540 s, with a mean of 0.547 s. The reported stance and swing proportions are 66.108% and 33.892%, and double-support time is 0.619 s. The summary also reports 10 estimated walkway traversals. These are values from the supplied example image; the recording was not rerun here to verify that this script version reproduces them.",
+          {
+            image: gait_2,
+            caption: "Example output showing extracted spatial, temporal, and gait-phase parameters",
+          },
+          "The command-line interface accepts a JSON recording and an optional frame-rate argument. It prints the metrics to three decimal places and saves them to final_gait_metrics.xlsx in the user’s Desktop directory. Each row is identified by the input filename without its extension. Reanalyzing the same dataset replaces its existing row, while a new dataset is appended, supporting repeated processing without duplicate entries.",
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "This project turns exported skeletal trajectories into a repeatable analysis workflow combining signal smoothing, directional projection, event detection, distance normalization, and structured reporting. The two visual outputs connect the tracked body representation with the extracted gait summary, while Excel export supports comparison across recordings.",
+          "The current implementation assumes a consistent tracked person, a known walkway length, and an appropriate vertical-axis convention. A single forward axis estimated from the recording endpoints can become unreliable when an out-and-back trial ends near its starting point, and foot-event labels need review across direction changes. Missing body frames preserve elapsed time through frame IDs, but smoothing and contact-duration calculations still operate on retained samples. Segmenting straight walking passes, checking body identity and missing data, and validating events against an independent reference are the next steps toward more reliable measurements.",
+        ],
+      },
+    ],
   },
   {
     slug: "cardio-health-monitor",
