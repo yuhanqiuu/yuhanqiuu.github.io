@@ -1,6 +1,5 @@
 import gait_1 from "../assets/project-gait-1.png";
 import sd_1 from "../assets/project-sd-1.png";
-import sd_2 from "../assets/project-sd-2.png";
 import dev51_1 from "../assets/project-51-1.png";
 import dev51_2 from "../assets/project-51-2.png";
 import dev51_3 from "../assets/project-51-3.png";
@@ -35,10 +34,6 @@ import ultra_4 from "../assets/project-ultra-4.png"
 import bachPoster from "../assets/project-bach-poster.png";
 
 
-export interface ProjectSpec {
-  label: string;
-  value: string;
-}
 
 /** An inline figure rendered between paragraphs within a section's `body`. */
 export interface ProjectSectionImage {
@@ -78,16 +73,12 @@ export interface Project {
    */
   /** Lead paragraph shown beneath the title. Falls back to `summary`. */
   overview?: string;
-  /** Small spec grid, e.g. Role / Tools / Timeline / Status. */
-  specs?: ProjectSpec[];
   /** Long-form body sections with optional inline figures. */
   sections?: ProjectSection[];
   /** Optional external link label (defaults to "View project"). */
   linkLabel?: string;
 }
 
-// All projects use a standardized spec grid: Tool, Focus, Timeline, Status.
-// Values below are drafts based on each project's summary/tags — correct as needed.
 export const projects: Project[] = [
   {
     slug: "portable-ultrasound-transducer-for-medical-imaging",
@@ -299,8 +290,6 @@ export const projects: Project[] = [
           "**Image Buffer and VGA Output:** The image is stored in on-chip RAM before display. The VGA controller generates a 640 × 480 output at 60 Hz and scales the source image by repeating each pixel across two output columns and two output rows. RGB332 provides a compact representation with three bits for red, three for green, and two for blue.",
           "**Verification and Image Utilities:** A layered UVM environment, organized from Layer1 to Layer3, accompanies the RTL for simulation in QuestaSim. Python utilities generate gradient, checkerboard, stripe, and ramp images in the required binary format. A separate preview utility allows the image data to be inspected before it is copied to the card.",
         ],
-        image: sd_2,
-        caption: "TF Card Breakout Board"
       },
       {
         heading: "Deployment",
@@ -323,12 +312,6 @@ export const projects: Project[] = [
     images: [sd_1],
     link: "https://github.com/EOW319/DE1-Soc-TFcard-Reader",
     linkLabel: "View on GitHub",
-    specs: [
-      { label: "Tool", value: "SystemVerilog · Quartus Prime · UVM" },
-      { label: "Focus", value: "FPGA / Digital Design" },
-      { label: "Timeline", value: "2026" },
-      { label: "Status", value: "Completed" },
-    ],
   },
   {
     slug: "8051-mcu-development-board",

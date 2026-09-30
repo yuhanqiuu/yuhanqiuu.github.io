@@ -163,19 +163,6 @@ function ProjectDetail() {
           </p>
         ) : null}
 
-        {/* Spec grid */}
-        {project.specs?.length ? (
-          <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 border-y border-ink/10 py-6">
-            {project.specs.map((spec) => (
-              <div key={spec.label}>
-                <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-ink-muted">
-                  {spec.label}
-                </dt>
-                <dd className="mt-1.5 text-[15px] text-ink">{spec.value}</dd>
-              </div>
-            ))}
-          </dl>
-        ) : null}
 
         {/* Hero media */}
         {hasVideo ? (

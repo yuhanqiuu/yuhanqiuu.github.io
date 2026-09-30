@@ -15,16 +15,6 @@ Required (already used by the home page):
 
 Optional — turn the detail page into a clean article:
 - `overview` — lead paragraph under the title. Falls back to `summary` if omitted.
-- `specs` — small 2-column metadata grid. Use exactly these four labels:
-  **Tool, Focus, Timeline, Status**.
-  ```ts
-  specs: [
-    { label: "Tool", value: "KiCad, Verilog, ESP32" },
-    { label: "Focus", value: "Embedded control + sensing" },
-    { label: "Timeline", value: "Jan – May 2026" },
-    { label: "Status", value: "Completed" },
-  ]
-  ```
 - `sections` — long-form body. Each section has a heading and a `body` array.
   A `body` entry is either a paragraph (string) or an inline figure shown
   *between* the surrounding paragraphs:
@@ -61,12 +51,10 @@ Optional — turn the detail page into a clean article:
 1. Eyebrow — `Category · Year`
 2. Title (serif)
 3. Overview lead paragraph
-4. Spec grid (Tool / Focus / Timeline / Status) — if `specs` set
-5. Hero media — video + lightbox if `video`, else an image carousel
-6. External link — if `link` set
-7. Long-form sections — if `sections` set, else the `description`
-8. Disciplines tag list
-9. Previous / Next navigation
+4. Hero media — video + lightbox if `video`, else an image carousel
+5. External link — if `link` set
+6. Long-form sections — if `sections` set, else the `description`
+7. Previous / Next navigation
 
 ## Minimal example
 
@@ -84,12 +72,6 @@ import balance_1 from "../assets/project-balance-1.png";
 
   // —— article fields ——
   overview: "A two-wheel self-balancer stabilized by a cascaded PID loop…",
-  specs: [
-    { label: "Tool", value: "STM32, MPU6050, OpenCV" },
-    { label: "Focus", value: "PID self-balancing + object detection" },
-    { label: "Timeline", value: "2025" },
-    { label: "Status", value: "Prototype" },
-  ],
   sections: [
     {
       heading: "Control loop",
