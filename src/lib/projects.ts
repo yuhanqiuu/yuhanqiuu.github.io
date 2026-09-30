@@ -1,4 +1,5 @@
 import gait_1 from "../assets/project-gait-1.png";
+import sd_1 from "../assets/project-sd-1.png";
 import dev51_1 from "../assets/project-51-1.png";
 import dev51_2 from "../assets/project-51-2.png";
 import dev51_3 from "../assets/project-51-3.png";
