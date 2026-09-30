@@ -495,6 +495,21 @@ export const projects: Project[] = [
         ],
       },
       {
+        heading: "System Design",
+        body: [
+          "The reflow oven controller integrates temperature sensing, oven power control, and a user interface around the N76E003 microcontroller. A thermocouple and amplification circuit provide temperature feedback, while pushbuttons allow users to configure soak temperature, soak time, reflow temperature, and reflow time. The LCD displays the selected parameters, measured temperature, elapsed time, and current operating state. The software uses a Finite State Machine (FSM) to coordinate the heating and cooling stages, adjusting oven power according to temperature and timing requirements. Timer interrupts support timing and audible notifications, while serial communication sends temperature data to a Python script for visualization. Start/stop control, a heating timeout, and an overtemperature warning support monitoring and operation.",
+          {
+            image: oven_2,
+            caption: "Figure 1: System Block diagram for hardware",
+          },
+
+          {
+            image: oven_3,
+            caption: "Figure 2: System Block diagram for software",
+          },
+        ],
+      },
+      {
         heading: "Data Synthesis",
         body: [
           "Our group synthesized data and information to reach appropriate conclusions regarding temperature validation and the functionality of the microcontroller-based reflow oven system.",
