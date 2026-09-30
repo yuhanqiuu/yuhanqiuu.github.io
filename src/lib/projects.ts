@@ -18,6 +18,8 @@ import metal_7 from "../assets/project-metal-7.jpg";
 import metal_8 from "../assets/project-metal-8.jpg";
 import metal_9 from "../assets/project-metal-9.jpg";
 import oven_1 from "../assets/project-oven-1.png";
+import oven_2 from "../assets/project-oven-2.png";
+import oven_3 from "../assets/project-oven-3.png";
 import oven_4 from "../assets/project-oven-4.png";
 import oven_5 from "../assets/project-oven-5.png";
 import oven_6 from "../assets/project-oven-6.png";
