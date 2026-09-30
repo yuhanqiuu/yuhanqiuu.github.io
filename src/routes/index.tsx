@@ -77,21 +77,24 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
           >
             <ChevronRight className="h-4 w-4" strokeWidth={1.75} />
           </button>
-          <div className="absolute inset-x-0 bottom-3 flex justify-center gap-1.5">
-            {images.map((_, idx) => (
-              <button
-                key={idx}
-                type="button"
-                onClick={(e) => { stop(e); setIndex(idx); }}
-                aria-label={`Go to image ${idx + 1}`}
-                className={`h-1.5 rounded-full transition-all ${idx === index ? "w-5 bg-ink" : "w-1.5 bg-ink/40 hover:bg-ink/70"
-                  }`}
-              />
-            ))}
-          </div>
         </>
       )}
     </>
+  );
+
+  const dots = !hasVideo && count > 1 && (
+    <div className="mt-3 flex items-center gap-1.5">
+      {images.map((_, idx) => (
+        <button
+          key={idx}
+          type="button"
+          onClick={(e) => { stop(e); setIndex(idx); }}
+          aria-label={`Go to image ${idx + 1}`}
+          className={`h-1.5 rounded-full transition-all ${idx === index ? "w-5 bg-ink" : "w-1.5 bg-ink/40 hover:bg-ink/70"
+            }`}
+        />
+      ))}
+    </div>
   );
 
   return (
@@ -115,10 +118,11 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
           {mediaInner}
         </Link>
       )}
+      {dots}
       <Link
         to="/projects/$slug"
         params={{ slug: project.slug }}
-        className="mt-5 inline-block font-serif text-lg font-bold tracking-tight transition-colors hover:text-accent"
+        className={`${dots ? "mt-3" : "mt-5"} inline-block font-serif text-lg font-bold tracking-tight transition-colors hover:text-accent`}
       >
         {project.title}
       </Link>
