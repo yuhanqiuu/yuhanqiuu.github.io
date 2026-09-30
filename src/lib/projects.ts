@@ -1,5 +1,6 @@
 import gait_1 from "../assets/project-gait-1.png";
 import sd_1 from "../assets/project-sd-1.png";
+import sd_2 from "../assets/project-sd-2.png";
 import dev51_1 from "../assets/project-51-1.png";
 import dev51_2 from "../assets/project-51-2.png";
 import dev51_3 from "../assets/project-51-3.png";
@@ -290,6 +291,8 @@ export const projects: Project[] = [
           "**Image Buffer and VGA Output:** The image is stored in on-chip RAM before display. The VGA controller generates a 640 × 480 output at 60 Hz and scales the source image by repeating each pixel across two output columns and two output rows. RGB332 provides a compact representation with three bits for red, three for green, and two for blue.",
           "**Verification and Image Utilities:** A layered UVM environment, organized from Layer1 to Layer3, accompanies the RTL for simulation in QuestaSim. Python utilities generate gradient, checkerboard, stripe, and ramp images in the required binary format. A separate preview utility allows the image data to be inspected before it is copied to the card.",
         ],
+        image: sd_2,
+        caption: "TF Card Breakout Board"
       },
       {
         heading: "Deployment",
