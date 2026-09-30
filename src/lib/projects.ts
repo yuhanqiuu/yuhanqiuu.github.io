@@ -392,7 +392,7 @@ export const projects: Project[] = [
 
           {
             image: metal_4,
-            caption: "Figure 4: Table summarizing the mechanical components of the robot body",
+            caption: "Table summarizing the mechanical components of the robot body",
           },
         ],
       },
@@ -409,7 +409,7 @@ export const projects: Project[] = [
 
           {
             image: metal_5,
-            caption: "Figure 5: Schematic of Remote Transmission including combination of Board #1 and Board#2",
+            caption: "Schematic of Remote Transmission including combination of Board #1 and Board#2",
           },
 
           "**Board #3: The Speaker.** This board includes another EFM8. The two microcontrollers are connected by one pin from each, thus the message “metal detected” is triggered when a voltage signal is sent from the main transmission EFM8. The two main chips included on this board were 25Q32 and LM386. The former stored the flash memory of a WAV file, and the latter amplified the sound.",
@@ -418,7 +418,7 @@ export const projects: Project[] = [
 
           {
             image: metal_6,
-            caption: "Figure 6: Schematic of the Speaker of Board#3",
+            caption: "Schematic of the Speaker of Board#3",
           },
 
           "**Board #4: Battery Holder.** This board holds three 1.5V batteries and a 9V battery.",
@@ -502,12 +502,12 @@ export const projects: Project[] = [
           "The reflow oven controller integrates temperature sensing, oven power control, and a user interface around the N76E003 microcontroller. A thermocouple and amplification circuit provide temperature feedback, while pushbuttons allow users to configure soak temperature, soak time, reflow temperature, and reflow time. The LCD displays the selected parameters, measured temperature, elapsed time, and current operating state. The software uses a Finite State Machine (FSM) to coordinate the heating and cooling stages, adjusting oven power according to temperature and timing requirements. Timer interrupts support timing and audible notifications, while serial communication sends temperature data to a Python script for visualization. Start/stop control, a heating timeout, and an overtemperature warning support monitoring and operation.",
           {
             image: oven_2,
-            caption: "Figure 1: System Block diagram for hardware",
+            caption: "System Block diagram for hardware",
           },
 
           {
             image: oven_3,
-            caption: "Figure 2: System Block diagram for software",
+            caption: "System Block diagram for software",
           },
         ],
       },
@@ -537,14 +537,14 @@ export const projects: Project[] = [
 
           {
             image: oven_6,
-            caption: "Figure 6: Table summarising the components of the breadboard",
+            caption: "Table summarising the components of the breadboard",
           },
 
           "The detailed circuit diagram with all the pinout connections is shown below:",
 
           {
             image: oven_7,
-            caption: "Figure 7: The detailed schematic of the circuit on the breadboard",
+            caption: "The detailed schematic of the circuit on the breadboard",
           },
 
           "To properly assemble the board and to minimize potential errors, we followed a step-by-step approach:",
@@ -579,7 +579,7 @@ export const projects: Project[] = [
 
           "iii) R1 and R2 resistor values were 100kΩ and 470Ω, respectively.",
 
-          "iv) Made the hot junction of the thermocouple by twisting ends of chromel and alumel of thermocouple and placed it in the oven, and connected the cold junction to the breadboard, as seen in figure 2",
+          "iv) Made the hot junction of the thermocouple by twisting ends of chromel and alumel of thermocouple and placed it in the oven, and connected the cold junction to the breadboard, as seen in this figure:",
 
           "v) We recorded the temperature readings in real-time from a temperature range of 25-240℃ and compared them with controller temperatures of Fluke 45 using Python",
 
@@ -619,11 +619,11 @@ export const projects: Project[] = [
 
           "**Finite State Machine**",
 
-          "**State Setting**\nThere are six states in total in our finite state machine. The detailed FSM diagram with all states and conditions is shown in Figure 11.",
+          "**State Setting**\nThere are six states in total in our finite state machine. The detailed FSM diagram with all states and conditions is shown in the figure below:",
 
           {
             image: oven_8,
-            caption: "Figure 11: FSM Diagram",
+            caption: "FSM Diagram",
           },
 
           "**Abort**\nThe abort function is called when the temperature inside the oven does not reach 50℃ within the first 60 seconds of starting.",
