@@ -641,6 +641,14 @@ export const projects: Project[] = [
           "**Overheat**\nIf the temperature of the oven exceeds 250 ℃, the LCD will indicate \"too hot,\" alerting the user to an abnormal oven condition. Our team creates a fire character, which shows on the LCD as well.",
         ],
       },
+      {
+        heading: "Conclusion",
+        body: [
+          "Our team designed a reflow oven controller using the N76E003 microcontroller. The purpose of the oven controller is to assemble surface mount devices (SMD) onto PCBs by carefully heating the solder paste. The software was written in 8051 Assembly. The controller can measure temperatures ranging from 25℃ to 240℃ using a K-type thermocouple. For the user interface, we made sure that the LCD displayed the soak temperature, soak time, reflow temperature, and reflow time. The 5 push buttons are used to select the parameters, start and stop the reflow process, and reset the oven. As a safety precaution, the reflow process is aborted if the oven does not reach 50℃ in the first 60 seconds.",
+
+          "In terms of problems, we had the most trouble calculating the R1 and R2 resistor values to obtain the optimal gain value for the opamp. The hardware team needed to validate the controller temperature data using the lab multimeter multiple times due to issues with the testing procedure; these issues were eventually fixed, but it still took a significant amount of time. For the software team, debugging the main code was a huge obstacle due to the many stages and flags of the FSM. Furthermore, the extra features needed to be integrated with the main code, and then debugged. Despite the challenges, our team took around 35 hours of hard work to complete the project and create a functional reflow oven controller.",
+        ],
+      },
     ],
     image: oven_1,
     images: [oven_1],
