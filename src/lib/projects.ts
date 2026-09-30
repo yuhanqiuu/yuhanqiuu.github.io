@@ -405,20 +405,13 @@ export const projects: Project[] = [
 
           "**Board #2: Transmission, the Buzzer, and the Joystick.** Our team used a pair of JDY-40s that receive and send messages between the remote and the robot. A buzzer is connected to a pin of the microcontroller which increases the frequency when the strength of the metal increases. A joystick, which acts as a potentiometer, sends different voltage signals to the board when the positions of the x and y-axis values change.",
 
-          "The detailed circuit diagram with all the pinout connections in board #1 and board #2 is shown below:",
-
-          {
-            image: metal_5,
-            caption: "Figure 5: Schematic of Remote Transmission including combination of Board #1 and Board#2",
-          },
-
           "**Board #3: The Speaker.** This board includes another EFM8. The two microcontrollers are connected by one pin from each, thus the message “metal detected” is triggered when a voltage signal is sent from the main transmission EFM8. The two main chips included on this board were 25Q32 and LM386. The former stored the flash memory of a WAV file, and the latter amplified the sound.",
 
           "The following diagram illustrates the connections for the speaker:",
 
           {
             image: metal_6,
-            caption: "Figure 6: Schematic of the Speaker of Board#3",
+            caption: "Figure 5: Schematic of the Speaker of Board#3",
           },
 
           "**Board #4: Battery Holder.** This board holds three 1.5V batteries and a 9V battery.",
