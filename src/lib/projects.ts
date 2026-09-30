@@ -1,4 +1,5 @@
 import gait_1 from "../assets/project-gait-1.png";
+import shelf_1 from "../assets/project-shelf-1.png";
 import gait_2 from "../assets/project-gait-2.png";
 import gait_3 from "../assets/project-gait-3.png";
 import dnn_1 from "../assets/project-dnn-1.png";
@@ -853,6 +854,59 @@ export const projects: Project[] = [
         body: [
           "The project brings together **pulse timing, embedded C, LCD control, and serial communication** in a compact heart-rate monitoring prototype. Its central design translates the timing of a digital pulse signal into a readable BPM value, while separating display handling from the main measurement logic.",
           "The next development steps are to complete and validate the startup input handling, add filtering across successive readings, and provide a clear signal-loss message on the LCD. These improvements would make the prototype more consistent and easier to use while building on the existing sensing and display architecture.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ai-food-freshness-detection-system",
+    title: "AI Food Freshness Detection System",
+    category: "AI / Computer Vision",
+    year: "2025",
+    summary:
+      "Shelf Life uses zero-shot image classification to assess visible food freshness and present confidence scores. First-place winner at the Voxel51 Visual AI Hackathon.",
+    image: shelf_1,
+    images: [shelf_1],
+    link: "https://github.com/HirokiNariyoshi/Shelf-Life",
+    linkLabel: "View on GitHub",
+    overview:
+      "Developed in March 2025 by a five-member team, Shelf Life is a Python-based visual AI prototype that analyzes food images to support freshness assessment and reduce food waste. Our project won first place at the Voxel51 Visual AI Hackathon.",
+    sections: [
+      {
+        heading: "Overview",
+        body: [
+          "Food can show ambiguous signs of aging: a change in color or texture may be difficult to interpret from appearance alone. Shelf Life explores how **visual AI and confidence scores** can help users understand these cases and make more informed storage and disposal decisions. I collaborated in a **five-member team** to develop the application during March 2025.",
+          "The project uses **zero-shot image classification** to compare food images with descriptions of their condition. This approach allows us to explore different food types and visual states by changing the candidate descriptions, without training a separate classifier from scratch for each category. The prototype focuses on fruits and vegetables, with experiments covering apples, bananas, and tomatoes.",
+        ],
+      },
+      {
+        heading: "System Architecture",
+        body: [
+          "The workflow connects three components: **dataset preparation, model inference, and visual inspection**. Python scripts import images and their labels into FiftyOne, pretrained CLIP models compare images against text descriptions, and the FiftyOne interface supports browsing images alongside predictions and confidence scores.",
+          "The source dataset is the Fruit and Vegetable Disease (Healthy vs Rotten) collection referenced in the repository. Import scripts extract the food type and condition from folder names, store the condition as a ground-truth classification, and retain the food type as separate metadata. This keeps the reference labels available for reviewing model outputs across different categories.",
+        ],
+      },
+      {
+        heading: "Detailed Design",
+        body: [
+          "**Dataset organization:** The importer searches the dataset folders for JPG, JPEG, and PNG files, then creates a FiftyOne sample for each image. A persistent-dataset variant retains the collection between sessions. Storing food type separately from freshness condition makes it easier to inspect how the same condition appears across different fruits and vegetables.",
+          "**Zero-shot classification:** The repository explores two CLIP-based inference paths. One uses the Hugging Face Transformers pipeline with CLIP ViT-L/14 and candidate descriptions such as unripe tomato, ripe tomato, and rotten tomato. Another uses the FiftyOne Model Zoo's CLIP ViT-B/32 with descriptions of apples and bananas, including visible characteristics such as browning and wrinkling.",
+          "**Confidence and ambiguous cases:** Confidence scores make the model's uncertainty visible instead of presenting every prediction as equally decisive. The experiments include confidence-based filtering in FiftyOne to inspect subsets of predictions. These scores express the model's preference among the supplied descriptions; they are not calibrated probabilities that food is safe to consume.",
+          "**Visual review:** FiftyOne brings the images, metadata, and predictions into one workspace so that the team can examine individual examples and refine the candidate descriptions. This supports an iterative development process in which visually ambiguous samples help reveal where labels or prompts need improvement.",
+        ],
+      },
+      {
+        heading: "Deployment",
+        body: [
+          "The prototype is organized as Python scripts and notebook experiments. The local import workflow reads a dataset path from an environment variable and launches the FiftyOne application, while the notebook workflow supports uploading and extracting an image archive in Google Colab. Model inference relies on pretrained checkpoints accessed through Transformers or the FiftyOne Model Zoo.",
+          "To adapt the workflow to another food category, a developer can import the relevant images, define candidate condition descriptions, and inspect the resulting predictions. This provides a flexible foundation for broader coverage, although each new category still needs validation. The repository represents a hackathon prototype rather than a packaged consumer application or a benchmarked production deployment.",
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "Shelf Life won **first place at the Voxel51 Visual AI Hackathon**. Working as a five-member team, we combined Python, zero-shot classification, and visual dataset exploration into a food-freshness assessment prototype designed to help reduce food waste. Presenting confidence alongside predictions was central to helping users interpret uncertain cases.",
+          "The project established an extensible approach to exploring multiple food categories through text descriptions and shared pretrained models. Future work could evaluate classification performance by food type, improve confidence calibration, and develop a simpler image-upload interface. Its current scope is the assessment of visible condition from images, rather than the detection of hazards that cannot be seen.",
         ],
       },
     ],
