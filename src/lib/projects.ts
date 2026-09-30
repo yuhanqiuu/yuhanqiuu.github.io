@@ -743,8 +743,8 @@ export const projects: Project[] = [
     year: "2026",
     summary:
       "A Python-based analysis framework that processes 3D skeletal video to extract gait metrics, supporting the study of gait changes associated with dementia.",
-    image: gait_1,
-    images: [gait_1],
+    image: gait_3,
+    images: [gait_3, gait_2],
     link: "https://github.com/yuhanqiuu/Orbbec-Femto-Bolt-Data-Analysis",
     linkLabel: "View on GitHub",
     sections: [
