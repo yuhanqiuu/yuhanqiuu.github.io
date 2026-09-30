@@ -122,9 +122,6 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
       >
         {project.title}
       </Link>
-      <p className="mt-1 text-xs font-medium uppercase tracking-wider text-accent">
-        {project.category}, {project.year}
-      </p>
       <p className="mt-3 text-sm leading-relaxed text-ink-muted">
         {project.summary}
       </p>
