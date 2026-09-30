@@ -118,10 +118,11 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
           {mediaInner}
         </Link>
       )}
+      {dots}
       <Link
         to="/projects/$slug"
         params={{ slug: project.slug }}
-        className="mt-5 inline-block font-serif text-lg font-bold tracking-tight transition-colors hover:text-accent"
+        className={`${dots ? "mt-3" : "mt-5"} inline-block font-serif text-lg font-bold tracking-tight transition-colors hover:text-accent`}
       >
         {project.title}
       </Link>
