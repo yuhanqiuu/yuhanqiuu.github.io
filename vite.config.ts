@@ -11,6 +11,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 // page is prerendered to static HTML for GitHub Pages.
 const projectSlugs = [
   "depth-camera-based-3d-gait-analysis",
+  "de1-soc-tf-card-reader",
   "8051-mcu-development-board",
   "portable-ultrasound-transducer-for-medical-imaging",
   "autonomous-self-balancing-robot",
