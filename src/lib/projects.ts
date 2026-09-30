@@ -83,65 +83,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "deep-neural-network-accelerator-on-fpga",
-    title: "Deep Neural Network Accelerator on FPGA",
-    category: "FPGA",
-    year: "2025",
-    summary:
-      "A Nios II-based neural network acceleration prototype combining Q16.16 arithmetic, custom Avalon memory and dot-product engines, and VGA visualization.",
-    image: dnn_1,
-    images: [dnn_1],
-    link: "https://github.com/yuhanqiuu/Deep-Neural-Network-Accelerator-on-FPGA",
-    linkLabel: "View on GitHub",
-    sections: [
-      {
-        heading: "Overview",
-        body: [
-          "This project explores how a neural network workload can be divided between embedded software and custom FPGA hardware. Built around a Nios II processor on a Cyclone V FPGA, it combines C software with SystemVerilog modules for memory transfer, fixed-point dot products, and VGA output. The focus is on the interfaces and arithmetic needed to move repeated operations from processor code into dedicated logic.",
-          "The supplied inference program describes a fully connected network with 784 inputs, two hidden layers of 1,000 neurons each, and 10 outputs. A 28 × 28 input image is processed using Q16.16 fixed-point arithmetic, with bias addition and ReLU activation in the hidden layers. The largest output determines the predicted class. The repository develops the supporting hardware through separate integration and test stages.",
-        ],
-      },
-      {
-        heading: "System Architecture",
-        body: [
-          "The Nios II processor coordinates the system through an Avalon memory-mapped interconnect. External SDRAM stores network parameters, image data, and intermediate activations, while on-chip memory holds the processor program. Custom word-copy and dot-product peripherals expose configuration registers to software and use memory-facing master interfaces to access SDRAM.",
-          "Software supplies memory addresses and operation lengths, then starts the selected accelerator. The hardware performs the transfer or computation through a finite state machine. A read of the completion or result register is stalled through waitrequest until the operation reaches its completion state, providing a blocking interface for the C driver.",
-          "A separate Avalon VGA peripheral accepts packed pixel coordinates and brightness values for a 160 × 120 grayscale drawing surface. A seven-segment display provides a simple output for class or test status, and a JTAG UART supports communication with the development host.",
-        ],
-      },
-      {
-        heading: "Detailed Design",
-        body: [
-          "**Fixed-Point Neural Network:** The software reference represents values as signed Q16.16 numbers. Each dot-product term multiplies two 32-bit operands using a 64-bit intermediate and shifts the product right by 16 bits before accumulation. Layer processing adds a bias and optionally applies ReLU by replacing negative results with zero. This reference defines the arithmetic that the hardware accelerator is intended to reproduce.",
-          "**Word-Copy Accelerator:** The memory-transfer engine accepts a source address, destination address, and word count. Its state machine sequences through idle, reading, writing, and completion. Each transfer buffers one 32-bit word and advances the addresses by four bytes. Avalon waitrequest and readdatavalid signals coordinate memory access, moving the copy loop out of the processor while retaining software control over the operation.",
-          "**Dot-Product Accelerator:** The dot module accepts weight and activation addresses together with a vector length. It alternates between reading a weight, reading an activation, and accumulating the scaled product. The result is returned through the CPU-facing interface. This implementation uses a sequential multiply-accumulate flow, with memory access and control forming a central part of the design.",
-          "**VGA Interface:** The C plotting function packs an x coordinate, y coordinate, and eight-bit brightness into a single memory-mapped write. The Avalon wrapper extracts these fields and drives a VGA adapter. Supporting display software also explores a 5 × 5 weighted grayscale filter, providing a separate way to exercise image processing and pixel output.",
-        ],
-      },
-      {
-        heading: "Verification and Integration",
-        body: [
-          "The repository includes SystemVerilog testbenches for the word-copy, dot-product, and VGA interfaces. The dot-product testbench exercises signed operands, zero values, single-element vectors, fixed-point fractions, repeated operations, and parameter changes. These scenarios target arithmetic behavior and the register-driven interface; their presence documents the intended verification scope rather than a confirmed passing regression.",
-          "The saved Platform Designer system connects both accelerators to the processor and SDRAM. However, the checked-in inference program defaults to a word-copy test configuration, and its layer-processing routine still invokes the software dot product. The repository therefore captures custom accelerator implementation and system integration, with full hardware-accelerated inference remaining a validation step. It does not establish a measured inference speedup or classification accuracy.",
-        ],
-      },
-      {
-        heading: "Deployment",
-        body: [
-          "The project includes Quartus constraints for the Cyclone V 5CSEMA5F31C6 device, Platform Designer system files, and Intel FPGA Monitor Program configurations for Nios II. The task6 top-level design integrates the processor system, SDRAM, VGA, and board I/O. Rebuilding requires regenerating the system, resolving local IP and tool paths, and compiling the FPGA design with the matching Quartus and Nios II tools.",
-          "The supplied nn.bin and test_00.bin files provide network and input data. The software maps network parameters at SDRAM address 0x08000000 and the input image at 0x08800000. After programming the FPGA and loading the selected Nios II application and data, the individual memory-transfer, arithmetic, and display paths can be exercised. Before evaluating complete inference, the application must be configured to invoke the hardware dot-product path and its results compared with the software reference.",
-        ],
-      },
-      {
-        heading: "Conclusion",
-        body: [
-          "The project brings together embedded C, fixed-point arithmetic, finite state machines, Avalon bus interfaces, and FPGA system integration in a neural network acceleration prototype. Its central engineering challenge is coordinating data movement and computation while keeping the hardware behavior consistent with the software model.",
-          "The next steps are to complete end-to-end hardware inference validation, resolve arithmetic and interface issues exposed by testing, and measure execution time against the software baseline. On-chip activation buffering and hardware bias and ReLU processing are potential extensions referenced by the software, rather than verified features of the saved system.",
-        ],
-      },
-    ],
-  },
-  {
     slug: "portable-ultrasound-transducer-for-medical-imaging",
     title: "Portable Ultrasound Transducer for Medical Imaging",
     category: "FPGA",
@@ -736,6 +677,65 @@ export const projects: Project[] = [
     ],
     image: oven_1,
     images: [oven_1],
+  },
+  {
+    slug: "deep-neural-network-accelerator-on-fpga",
+    title: "Deep Neural Network Accelerator on FPGA",
+    category: "FPGA",
+    year: "2025",
+    summary:
+      "A Nios II-based neural network acceleration prototype combining Q16.16 arithmetic, custom Avalon memory and dot-product engines, and VGA visualization.",
+    image: dnn_1,
+    images: [dnn_1],
+    link: "https://github.com/yuhanqiuu/Deep-Neural-Network-Accelerator-on-FPGA",
+    linkLabel: "View on GitHub",
+    sections: [
+      {
+        heading: "Overview",
+        body: [
+          "This project explores how a neural network workload can be divided between embedded software and custom FPGA hardware. Built around a Nios II processor on a Cyclone V FPGA, it combines C software with SystemVerilog modules for memory transfer, fixed-point dot products, and VGA output. The focus is on the interfaces and arithmetic needed to move repeated operations from processor code into dedicated logic.",
+          "The supplied inference program describes a fully connected network with 784 inputs, two hidden layers of 1,000 neurons each, and 10 outputs. A 28 × 28 input image is processed using Q16.16 fixed-point arithmetic, with bias addition and ReLU activation in the hidden layers. The largest output determines the predicted class. The repository develops the supporting hardware through separate integration and test stages.",
+        ],
+      },
+      {
+        heading: "System Architecture",
+        body: [
+          "The Nios II processor coordinates the system through an Avalon memory-mapped interconnect. External SDRAM stores network parameters, image data, and intermediate activations, while on-chip memory holds the processor program. Custom word-copy and dot-product peripherals expose configuration registers to software and use memory-facing master interfaces to access SDRAM.",
+          "Software supplies memory addresses and operation lengths, then starts the selected accelerator. The hardware performs the transfer or computation through a finite state machine. A read of the completion or result register is stalled through waitrequest until the operation reaches its completion state, providing a blocking interface for the C driver.",
+          "A separate Avalon VGA peripheral accepts packed pixel coordinates and brightness values for a 160 × 120 grayscale drawing surface. A seven-segment display provides a simple output for class or test status, and a JTAG UART supports communication with the development host.",
+        ],
+      },
+      {
+        heading: "Detailed Design",
+        body: [
+          "**Fixed-Point Neural Network:** The software reference represents values as signed Q16.16 numbers. Each dot-product term multiplies two 32-bit operands using a 64-bit intermediate and shifts the product right by 16 bits before accumulation. Layer processing adds a bias and optionally applies ReLU by replacing negative results with zero. This reference defines the arithmetic that the hardware accelerator is intended to reproduce.",
+          "**Word-Copy Accelerator:** The memory-transfer engine accepts a source address, destination address, and word count. Its state machine sequences through idle, reading, writing, and completion. Each transfer buffers one 32-bit word and advances the addresses by four bytes. Avalon waitrequest and readdatavalid signals coordinate memory access, moving the copy loop out of the processor while retaining software control over the operation.",
+          "**Dot-Product Accelerator:** The dot module accepts weight and activation addresses together with a vector length. It alternates between reading a weight, reading an activation, and accumulating the scaled product. The result is returned through the CPU-facing interface. This implementation uses a sequential multiply-accumulate flow, with memory access and control forming a central part of the design.",
+          "**VGA Interface:** The C plotting function packs an x coordinate, y coordinate, and eight-bit brightness into a single memory-mapped write. The Avalon wrapper extracts these fields and drives a VGA adapter. Supporting display software also explores a 5 × 5 weighted grayscale filter, providing a separate way to exercise image processing and pixel output.",
+        ],
+      },
+      {
+        heading: "Verification and Integration",
+        body: [
+          "The repository includes SystemVerilog testbenches for the word-copy, dot-product, and VGA interfaces. The dot-product testbench exercises signed operands, zero values, single-element vectors, fixed-point fractions, repeated operations, and parameter changes. These scenarios target arithmetic behavior and the register-driven interface; their presence documents the intended verification scope rather than a confirmed passing regression.",
+          "The saved Platform Designer system connects both accelerators to the processor and SDRAM. However, the checked-in inference program defaults to a word-copy test configuration, and its layer-processing routine still invokes the software dot product. The repository therefore captures custom accelerator implementation and system integration, with full hardware-accelerated inference remaining a validation step. It does not establish a measured inference speedup or classification accuracy.",
+        ],
+      },
+      {
+        heading: "Deployment",
+        body: [
+          "The project includes Quartus constraints for the Cyclone V 5CSEMA5F31C6 device, Platform Designer system files, and Intel FPGA Monitor Program configurations for Nios II. The task6 top-level design integrates the processor system, SDRAM, VGA, and board I/O. Rebuilding requires regenerating the system, resolving local IP and tool paths, and compiling the FPGA design with the matching Quartus and Nios II tools.",
+          "The supplied nn.bin and test_00.bin files provide network and input data. The software maps network parameters at SDRAM address 0x08000000 and the input image at 0x08800000. After programming the FPGA and loading the selected Nios II application and data, the individual memory-transfer, arithmetic, and display paths can be exercised. Before evaluating complete inference, the application must be configured to invoke the hardware dot-product path and its results compared with the software reference.",
+        ],
+      },
+      {
+        heading: "Conclusion",
+        body: [
+          "The project brings together embedded C, fixed-point arithmetic, finite state machines, Avalon bus interfaces, and FPGA system integration in a neural network acceleration prototype. Its central engineering challenge is coordinating data movement and computation while keeping the hardware behavior consistent with the software model.",
+          "The next steps are to complete end-to-end hardware inference validation, resolve arithmetic and interface issues exposed by testing, and measure execution time against the software baseline. On-chip activation buffering and hardware bias and ReLU processing are potential extensions referenced by the software, rather than verified features of the saved system.",
+        ],
+      },
+    ],
   },
   {
     slug: "depth-camera-based-3d-gait-analysis",
