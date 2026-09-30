@@ -1,5 +1,5 @@
 import gait_1 from "../assets/project-gait-1.png";
-import dnn_1 from "../assets/project-halcyon.jpg";
+import dnn_1 from "../assets/project-dnn-1.png";
 import sd_1 from "../assets/project-sd-1.png";
 import sd_2 from "../assets/project-sd-2.png";
 import dev51_1 from "../assets/project-51-1.png";
