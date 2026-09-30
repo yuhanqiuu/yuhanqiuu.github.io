@@ -1,5 +1,6 @@
 import gait_1 from "../assets/project-gait-1.png";
 import shelf_1 from "../assets/project-shelf-1.png";
+import shelf_2 from "../assets/project-shelf-2.png";
 import gait_2 from "../assets/project-gait-2.png";
 import gait_3 from "../assets/project-gait-3.png";
 import dnn_1 from "../assets/project-dnn-1.png";
@@ -894,6 +895,8 @@ export const projects: Project[] = [
           "**Confidence and ambiguous cases:** Confidence scores make the model's uncertainty visible instead of presenting every prediction as equally decisive. The experiments include confidence-based filtering in FiftyOne to inspect subsets of predictions. These scores express the model's preference among the supplied descriptions; they are not calibrated probabilities that food is safe to consume.",
           "**Visual review:** FiftyOne brings the images, metadata, and predictions into one workspace so that the team can examine individual examples and refine the candidate descriptions. This supports an iterative development process in which visually ambiguous samples help reveal where labels or prompts need improvement.",
         ],
+        image: shelf_2,
+        caption: "Analyzing Freshness  & Advising Consumption",
       },
       {
         heading: "Deployment",
