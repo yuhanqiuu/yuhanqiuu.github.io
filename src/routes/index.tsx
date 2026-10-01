@@ -155,7 +155,7 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
 
 function ContactBlock() {
   const [copied, setCopied] = useState(false);
-  const email = "qiuyuhan66@gmail.com";
+  const email = "qiu.yuhan@outlook.com";
 
   const copyEmail = async () => {
     try {
