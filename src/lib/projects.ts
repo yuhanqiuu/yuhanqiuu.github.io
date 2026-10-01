@@ -1,10 +1,10 @@
 import gait_1 from "../assets/project-gait-1.png";
+import gait_2 from "../assets/project-gait-2.png";
+import gait_3 from "../assets/project-gait-3.png";
 import shelf_1 from "../assets/project-shelf-1.png";
 import shelf_2 from "../assets/project-shelf-2.png";
 import shelf_3 from "../assets/project-shelf-3.png";
 import shelf_4 from "../assets/project-shelf-4.png";
-import gait_2 from "../assets/project-gait-2.png";
-import gait_3 from "../assets/project-gait-3.png";
 import dnn_1 from "../assets/project-dnn-1.png";
 import sd_1 from "../assets/project-sd-1.png";
 import sd_2 from "../assets/project-sd-2.png";
@@ -747,8 +747,8 @@ export const projects: Project[] = [
     year: "2026",
     summary:
       "A Python-based analysis framework that processes 3D skeletal video to extract gait metrics, supporting the study of gait changes associated with dementia.",
-    image: gait_3,
-    images: [gait_3, gait_2],
+    image: gait_1,
+    images: [gait_1],
     link: "https://github.com/yuhanqiuu/Orbbec-Femto-Bolt-Data-Analysis",
     linkLabel: "View on GitHub",
     sections: [
