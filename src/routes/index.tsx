@@ -9,7 +9,7 @@ import { VideoLightbox, PlayOverlay } from "../components/VideoLightbox";
 function downloadResume() {
   const a = document.createElement("a");
   a.href = resumeAsset.url;
-  a.download = "Ruby_Qiu_Resume.pdf";
+  a.download = "Ruby_Yuhan_Qiu_Resume.pdf";
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
