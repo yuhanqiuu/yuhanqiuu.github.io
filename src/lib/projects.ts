@@ -425,6 +425,10 @@ export const projects: Project[] = [
             image: metal_4,
             caption: "Table summarizing the mechanical components of the robot body",
           },
+          {
+            image: metal_3,
+            caption: "Metal Sensing Module",
+          },
         ],
       },
       {
@@ -450,6 +454,10 @@ export const projects: Project[] = [
           {
             image: metal_6,
             caption: "Schematic of the Speaker of Board#3",
+          },
+          {
+            image: metal_2,
+            caption: "Speaker Circuit of Board#3",
           },
 
           "**Board #4: Battery Holder.** This board holds three 1.5V batteries and a 9V battery.",
